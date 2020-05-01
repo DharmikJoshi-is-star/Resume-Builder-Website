@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Resume Builder</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="css/fullcalendar.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/jquery.gritter.css" />
+   
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+	
+  </head>
+  <body onload="onLoadPopulate()">
+  
+  
+    <!--Header-part-->
+    <div id="header">
+      <h1><a href="template">Resume Builder</a></h1>
+    </div>
+    <!--close-Header-part-->
+
+    <!--top-Header-menu-->
+    <div id="user-nav" class="navbar navbar-inverse">
+      <ul class="nav">
+        <li class="dropdown" id="profile-messages">
+          <a
+            title=""
+            href="#"
+            data-toggle="dropdown"
+            data-target="#profile-messages"
+            class="dropdown-toggle"
+            ><i class="icon icon-user"></i>
+            <span class="text">Welcome User</span><b class="caret"></b
+          ></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#"><i class="icon-user"></i> My Profile</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#"><i class="icon-check"></i> My Tasks</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="logout"><i class="icon-key"></i> Log Out</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="">
+          <a title="" href="#"
+            ><i class="icon icon-cog"></i> <span class="text">Settings</span></a
+          >
+        </li>
+        <li class="">
+          <a title="" href="login.html"
+            ><i class="icon icon-share-alt"></i>
+            <span class="text">Logout</span></a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!--close-top-Header-menu-->
+    <div id="search">
+      <a id="visitSite" target="_blank"><input type="button" class="btn btn-danger" style="border-radius: 10px;" value="Visit Site" /></a>
+    </div>
+
+    <!--sidebar-menu-->
+    <div id="sidebar">
+      <a href="template" class="visible-phone"
+        ><i class="fas fa-sitemap"></i> Template
+      </a>
+      <ul>
+        <li class="active">
+          <a href="template">
+            <i class="fas fa-sitemap"></i><span>Template</span></a
+          >
+        </li>
+        <li class="submenu">
+          <a href="#"
+            ><i class="icon icon-th-list"></i> <span>General</span>
+            <!-- <span class="label label-important">4</span> -->
+          </a>
+          <ul>
+            <li>
+              <a href="personal"> <span>Personal</span></a>
+            </li>
+            <li>
+              <a href="contact"> <span>Contact</span></a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="education"
+            ><i class="fa fa-graduation-cap"> </i><span>Education</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+            >
+        </li>
+
+        <li>
+          <a href="skill">
+            <i class="fas fa-pencil-ruler"></i> <span>Skills</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+
+        <li>
+          <a href="work">
+            <i class="fas fa-briefcase"></i> <span>Work Experience</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--sidebar-menu-->
+
+    <!--main-container-part-->
+    <div id="content">
+      <!--breadcrumbs-->
+      <div id="content-header">
+        <div id="breadcrumb">
+          <a href="template" title="Go to Template" class="tip-bottom"
+            ><i class="fas fa-sitemap"></i> Template</a
+          >
+        </div>
+      </div>
+
+
+	      <div class="container-fluid row-fluid">
+	
+				<form onsubmit="setUrl()" method="post">
+				
+					http://localhost:8086/view?id=<input type="text" name="url" id="url" placeholder="Enter your viewId must be unique">
+					
+					<input class="btn btn-success" type="submit" value="SET">
+				
+				</form>
+	
+		        <h1>Current Template</h1>
+		        
+		        <div class="row-fluid" id="userTemplate">
+		          <!--<div class="span3" >
+		             
+		            <div class="card" style="width: 18rem;">
+		              <img class="card-img-top" src="template_resources/image/template1.png" alt="Card image cap">
+		              <div class="card-body">
+		                <h5 class="card-title">Pure CSS Website</h5>
+		                <p class="card-text">single page responsive website</p>
+		                <a href="template_folder/template2/index.html" target="_blank" class="btn btn-primary">Live Demo</a>
+		                <a href="#" class="btn btn-success">Try</a>
+		             </div>
+		             
+		            </div>
+		           -->
+		          </div>
+		        
+		
+		        <Hr>
+		        <h1>Other available Templates</h1>
+		
+		        <div class="row-fluid" id="otherTemplate">
+		          
+		
+		
+		    	</div>
+	
+		</div>
+	</div>
+
+      <!--End-breadcrumbs-->
+
+    <!--Footer-part-->
+
+    <div class="row-fluid">
+      <div id="footer" class="span12">
+        2020 &copy; Resume Builder. Brought to you by
+        <a href="#">Dharmik Joshi</a>
+      </div>
+    </div>
+	
+
+	<input type="hidden" th:value="${userId}" id="uId">
+    
+    <!--end-Footer-part-->
+    <script src="js/functionality/template.js"></script>
+
+    <script src="js/excanvas.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.custom.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.flot.min.js"></script>
+    <script src="js/jquery.flot.resize.min.js"></script>
+    <script src="js/jquery.peity.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/matrix.dashboard.js"></script>
+    <script src="js/jquery.gritter.min.js"></script>
+    <script src="js/matrix.interface.js"></script>
+    <script src="js/matrix.chat.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/matrix.form_validation.js"></script>
+    <script src="js/jquery.wizard.js"></script>
+    <script src="js/jquery.uniform.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/matrix.popover.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/matrix.tables.js"></script>
+   
+
+    <script type="text/javascript">
+      // This function is called from the pop-up menus to transfer to
+      // a different page. Ignore if the value returned is a null string:
+      function goPage(newURL) {
+        // if url is empty, skip the menu dividers and reset the menu selection to default
+        if (newURL != "") {
+          // if url is "-", it is this page -- reset the menu:
+          if (newURL == "-") {
+            resetMenu();
+          }
+          // else, send page to designated URL
+          else {
+            document.location.href = newURL;
+          }
+        }
+      }
+
+      // resets the menu selection upon entry to this page:
+      function resetMenu() {
+        document.gomenu.selector.selectedIndex = 2;
+      }
+      
+		//alert(document.getElementById("uId").value);
+
+    </script>
+  </body>
+</html>

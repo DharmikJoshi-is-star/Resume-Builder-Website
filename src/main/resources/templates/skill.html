@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Resume Builder</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="css/fullcalendar.css" />
+    <link rel="stylesheet" href="css/datepicker.css" />
+    <link rel="stylesheet" href="css/uniform.css" />
+    <link rel="stylesheet" href="css/select2.css" />
+    <link rel="stylesheet" href="css/bootstrap-wysihtml5.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <link rel="stylesheet" href="css/skill.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/jquery.gritter.css" />
+
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+	 <link
+	      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
+	      rel="stylesheet"
+	      type="text/css"
+	    />
+    
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
+    
+      </head>
+  <body onload="onLoadPopulate()">
+    <!--Header-part-->
+    <div id="header">
+      <h1><a href="index.html">Resume Builder</a></h1>
+    </div>
+    <!--close-Header-part-->
+
+    <!--top-Header-menu-->
+    <div id="user-nav" class="navbar navbar-inverse">
+      <ul class="nav">
+        <li class="dropdown" id="profile-messages">
+          <a
+            title=""
+            href="#"
+            data-toggle="dropdown"
+            data-target="#profile-messages"
+            class="dropdown-toggle"
+            ><i class="icon icon-user"></i>
+            <span class="text">Welcome User</span><b class="caret"></b
+          ></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#"><i class="icon-user"></i> My Profile</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#"><i class="icon-check"></i> My Tasks</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="logout"><i class="icon-key"></i> Log Out</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="">
+          <a title="" href="#"
+            ><i class="icon icon-cog"></i> <span class="text">Settings</span></a
+          >
+        </li>
+        <li class="">
+          <a title="" href="login.html"
+            ><i class="icon icon-share-alt"></i>
+            <span class="text">Logout</span></a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--close-top-Header-menu-->
+
+    <!--sidebar-menu-->
+    <div id="sidebar">
+      <a href="skill" class="visible-phone"
+        ><i class="fas fa-sitemap"></i> Skiils
+      </a>
+      <ul>
+        <li>
+          <a href="template">
+            <i class="fas fa-sitemap"></i><span>Template</span></a
+          >
+        </li>
+        <li  class="submenu">
+          <a href="#"
+            ><i class="icon icon-th-list"></i> <span>General</span>
+            <!-- <span class="label label-important">4</span> -->
+          </a>
+          <ul>
+            <li>
+              <a href="personal"> <span>Personal</span></a>
+            </li>
+            <li>
+              <a href="contact"> <span>Contact</span></a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="education"
+            ><i class="fa fa-graduation-cap"> </i><span>Education</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+            >
+        </li>
+
+        <li class="active">
+          <a href="skill">
+            <i class="fas fa-pencil-ruler"></i> <span>Skills</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+
+        <li>
+          <a href="work">
+            <i class="fas fa-briefcase"></i> <span>Work Experience</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--sidebar-menu-->
+
+
+    <!--main-container-part-->
+    <div id="content">
+      <!--breadcrumbs-->
+      <div id="content-header">
+        <div id="breadcrumb">
+          <a href="skill" title="Go to General" class="tip-bottom">
+            <i class="icon icon-th-list"></i>
+            skills
+          </a>
+        </div>
+        <h1>Apart from your academics what additional skills would you like to display?</h1>
+      </div>
+      <!--End-breadcrumbs-->
+
+      <div class="container-fluid">
+        <hr />
+        <div class="row-fluid">
+          <div class="span6">
+            <button
+              class="btn btn-info btn-large"
+              style="border-radius: 25px;"
+              data-toggle="modal"
+              href="#technicalSkill"
+            >
+              + Add Tools/Technical Skill
+            </button>
+            <div id="technicalSkill" class="modal hide">
+              <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button">
+                  ×
+                </button>
+                <h3>Tools/Technical Skill</h3>
+              </div>
+              <div class="modal-body">
+                <form action="javascript:void(0);" onsubmit="technicalSkillFormProcess()" method="get" id="technicalSkillForm" name="technicalSkillForm"  class="form-horizontal">
+                  <input type="hidden" id="technicalSkillId" name="technicalSkillId" value="0">
+                  <div class="control-group">
+                    <label class="control-label">Add Skill :</label>
+                    <div class="controls">
+                      <input
+                        type="text"
+                        id="technicalSkillName"
+                        name="technicalSkillName"
+                        class="span11"
+                        placeholder="e.g. Spring Boot"
+                      />
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn btn-success btn-large">
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a data-dismiss="modal" class="btn" href="#">Cancel</a>
+              </div>
+            </div>
+
+            <div class="widget-box">
+              <div class="widget-title bg_lo" data-toggle="collapse">
+                <span class="icon"> <i class='fas fa-pencil-ruler'></i> </span>
+                <h5>Your Tools/Technical Skill</h5>
+              </div>
+              <div
+                class="widget-content nopadding updates collapse in"
+                id="technicalSkillContainer"
+              >
+                <div class="new-update clearfix">
+                  <div class="update-done">
+                    <a title="" href="#">
+                      <strong>
+                        <span class="badge badge-info">
+                          Python<i class="fas fa-times-circle"></i>
+                        </span>
+                      </strong>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="new-update clearfix">
+                  <div class="update-done">
+                    <a title="" href="#">
+                      <strong>
+                        <span class="badge badge-info">
+                          Java Script<i class="fas fa-times-circle"></i>
+                        </span>
+                      </strong>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="new-update clearfix">
+                  <div class="update-done">
+                    <a title="" href="#">
+                      <strong>
+                        <span class="badge badge-info">
+                          Data analytics<i class="fas fa-times-circle"></i>
+                        </span>
+                      </strong>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="span6">
+            <button
+              class="btn btn-info btn-large"
+              style="border-radius: 25px;"
+              data-toggle="modal"
+              href="#skillsForm"
+            >
+              + Add Skills
+            </button>
+            <div id="skillsForm" class="modal hide">
+              <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button">
+                  ×
+                </button>
+                <h3>Other Skill</h3>
+              </div>
+              <div class="modal-body">
+                <form action="javascript:void(0);" method="get" id="otherSkillForm" name="otherSkillForm" onsubmit="otherSkillInformationForm()" class="form-horizontal">
+                  <input type="hidden" value="0" name="otherSkillId" id="otherSkillId">
+                  <div class="control-group">
+                    <label class="control-label">Add Skill :</label>
+                    <div class="controls">
+                      <input
+                        type="text"
+                        id="otherSkillName"
+                        name="otherSkillName"
+                        class="span11"
+                        placeholder="e.g. Presentation"
+                      />
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn btn-success btn-large">
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a data-dismiss="modal" class="btn" href="#">Cancel</a>
+              </div>
+            </div>
+
+            <div class="widget-box">
+              <div class="widget-title bg_lo" data-toggle="collapse">
+                <span class="icon"> <i class='fas fa-street-view'></i> </span>
+                <h5>Your Other Skills</h5>
+              </div>
+              <div
+                class="widget-content nopadding updates collapse in"
+                id="otherSkillContainer"
+              >
+                <div class="new-update clearfix">
+                  <div class="update-done">
+                    <a title="" href="#">
+                      <strong>
+                        <span class="badge badge-info">
+                          Reading<i class="fas fa-times-circle"></i>
+                        </span>
+                      </strong>
+                    </a>
+                  </div>
+                </div>
+                <div class="new-update clearfix">
+                  <div class="update-done">
+                    <a title="" href="#">
+                      <strong>
+                        <span class="badge badge-info">
+                          book writing<i class="fas fa-times-circle"></i>
+                        </span>
+                      </strong>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="new-update clearfix">
+                  <div class="update-done">
+                    <a title="" href="#">
+                      <strong>
+                        <span class="badge badge-info">
+                          cycling<i class="fas fa-times-circle"></i>
+                        </span>
+                      </strong>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <!--End-breadcrumbs-->
+    </div>
+   <!--Footer-part-->
+
+    <div class="row-fluid">
+      <div id="footer" class="span12">
+        2020 &copy; Resume Builder. Brought to you by
+        <a href="#">Dharmik Joshi</a>
+      </div>
+    </div>
+
+	<input type="hidden" th:value="${userId}" id="uId">
+    
+    <!--end-Footer-part-->
+    
+    <!--functionality-->
+    <script src="js/functionality/skills.js"></script>
+
+    <script src="js/excanvas.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.custom.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.flot.min.js"></script>
+    <script src="js/jquery.flot.resize.min.js"></script>
+    <script src="js/jquery.peity.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/matrix.dashboard.js"></script>
+    <script src="js/jquery.gritter.min.js"></script>
+    <script src="js/matrix.interface.js"></script>
+    <script src="js/matrix.chat.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/matrix.form_validation.js"></script>
+    <script src="js/jquery.wizard.js"></script>
+    <script src="js/jquery.uniform.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/matrix.popover.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/matrix.tables.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+
+    <script type="text/javascript">
+    
+      // This function is called from the pop-up menus to transfer to
+      // a different page. Ignore if the value returned is a null string:
+      function goPage(newURL) {
+        // if url is empty, skip the menu dividers and reset the menu selection to default
+        if (newURL != "") {
+          // if url is "-", it is this page -- reset the menu:
+          if (newURL == "-") {
+            resetMenu();
+          }
+          // else, send page to designated URL
+          else {
+            document.location.href = newURL;
+          }
+        }
+      }
+
+      // resets the menu selection upon entry to this page:
+      function resetMenu() {
+        document.gomenu.selector.selectedIndex = 2;
+      }
+    </script>
+  </body>
+</html>

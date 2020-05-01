@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Resume Builder</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="css/fullcalendar.css" />
+    <link rel="stylesheet" href="css/datepicker.css" />
+    <link rel="stylesheet" href="css/uniform.css" />
+    <link rel="stylesheet" href="css/select2.css" />
+    <link rel="stylesheet" href="css/bootstrap-wysihtml5.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/jquery.gritter.css" />
+
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
+    
+  </head>
+  <body onload="onLoadPopulate()">
+    <!--Header-part-->
+    <div id="header">
+      <h1><a href="template">Resume Builder</a></h1>
+    </div>
+    <!--close-Header-part-->
+
+    <!--top-Header-menu-->
+    <div id="user-nav" class="navbar navbar-inverse">
+      <ul class="nav">
+        <li class="dropdown" id="profile-messages">
+          <a
+            title=""
+            href="#"
+            data-toggle="dropdown"
+            data-target="#profile-messages"
+            class="dropdown-toggle"
+            ><i class="icon icon-user"></i>
+            <span class="text">Welcome User</span><b class="caret"></b
+          ></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#"><i class="icon-user"></i> My Profile</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#"><i class="icon-check"></i> My Tasks</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="logout"><i class="icon-key"></i> Log Out</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="">
+          <a title="" href="#"
+            ><i class="icon icon-cog"></i> <span class="text">Settings</span></a
+          >
+        </li>
+        <li class="">
+          <a title="" href="login.html"
+            ><i class="icon icon-share-alt"></i>
+            <span class="text">Logout</span></a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--close-top-Header-menu-->
+
+    <!--sidebar-menu-->
+    <div id="sidebar">
+      <a href="education" class="visible-phone"
+        ><i class="fas fa-sitemap"></i> Education
+      </a>
+      <ul>
+        <li>
+          <a href="template">
+            <i class="fas fa-sitemap"></i><span>Template</span></a
+          >
+        </li>
+        <li class="submenu">
+          <a href="#"
+            ><i class="icon icon-th-list"></i> <span>General</span>
+            <!-- <span class="label label-important">4</span> -->
+          </a>
+          <ul>
+            <li>
+              <a href="personal"> <span>Personal</span></a>
+            </li>
+            <li>
+              <a href="contact"> <span>Contact</span></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="active">
+          <a href="education"
+            ><i class="fa fa-graduation-cap"> </i><span>Education</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+            >
+        </li>
+
+        <li>
+          <a href="skill">
+            <i class="fas fa-pencil-ruler"></i> <span>Skills</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+
+        <li>
+          <a href="work">
+            <i class="fas fa-briefcase"></i> <span>Work Experience</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--sidebar-menu-->
+
+    <!--main-container-part-->
+    <div id="content">
+      
+        <!--breadcrumbs-->
+        <div id="content-header">
+          <div id="breadcrumb">
+            <a href="education" title="Go to General" class="tip-bottom">
+              <i class="icon icon-th-list"></i>
+              Education
+            </a>
+          </div>
+           <h1>Education </h1>
+           <!-- <h6>If you've graduated from, or are currently enrolled in a college or university mention here</h6>
+           <h6>If you've completed or are currently enrolled in a course mention here</h6>
+           <h6>Do you have any licenses or certifications? do not forget to add them</h6> -->
+        </div>
+        <!--End-breadcrumbs-->
+
+        <div class="container-fluid">
+          <hr>
+
+          <div class="row-fluid">
+
+            <div class="span4">
+              <h6>If you've graduated from, or are currently enrolled in a college or university mention here</h6>
+                <button id="addEducation" class="btn btn-info btn-large" style="border-radius: 25px;" data-toggle="modal" href="#educationForm"> + Add Education</button>
+               
+                <div id="educationForm" class="modal hide">
+                    <div class="modal-header">
+                      <button data-dismiss="modal" class="close" type="button" id="modalGraduation">×</button>
+                      <h3>Education Detail</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form id="educationInformationForm" name="educationInformationForm" action="javascript:void(0);" method="get" onsubmit="educationInformationFormProcess()" class="form-horizontal">
+                          <input type="hidden" name="educationId" id="educationId" value="0">  
+                          <div class="control-group">
+                              <label class="control-label">School Type:</label>
+                              <div class="controls">
+                                 <select name="type" id="type" required>
+                                  <option value="High School">High School</option>
+                                  <option value="University/College">University/College</option>
+                                  <option value="Other">Other</option>
+                                </select>
+                              </div>
+                            </div>
+                            
+                            <div class="control-group">
+                              <label class="control-label">Name :</label>
+                              <div class="controls">
+                                <input type="text" id="universityName" name="universityName" required class="span11" placeholder="e.g. Shree L.R. Tiwari">
+                              </div>
+                            </div>
+                            
+                            <div class="control-group">
+                              <label class="control-label">Country: </label>
+                              <div class="controls">
+                                 <select id="country" name="country" required>
+                                  <option value="India">India</option>
+                                  <option value="USA">USA</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="control-group">
+                              <label class="control-label">State/Province : </label>
+                              <div class="controls">
+                                 <select id="state" name="state" required>
+                                  <option value="Maharashtra">Maharashtra</option>
+                                  <option value="Pune">Pune</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="control-group">
+                              <label class="control-label">City : </label>
+                              <div class="controls">
+                                 <select id="city" name="city" required>
+                                  <option value="Mumbai">Mumbai</option>
+                                  <option value="New york">New york</option>
+                                </select>
+                              </div>
+                            </div>
+                            
+                            <div class="control-group">
+                              <label class="control-label">Degree / Program :</label>
+                              <div class="controls">
+                                <input type="text" name="degree" id="degree" required class="span11" placeholder="e.g. B.E.">
+                              </div>
+                            </div>
+
+                            <div class="control-group">
+                              <label class="control-label">Field Of Study:</label>
+                              <div class="controls">
+                                <input type="text" name="filedOfStudy" id="filedOfStudy" required class="span11" placeholder="e.g. Computer Engineering">
+                              </div>
+                            </div>
+
+                            <div class="control-group">
+                              <label class="control-label">Grade Point Average/ Percentage Average:</label>
+                              <div class="controls">
+                                <input type="text" name="grade" id="grade" class="span11" placeholder="e.g. 4.0">
+                              </div>
+                            </div>
+
+                            <div class="control-group">
+                                
+                              <div class="controls">
+                                <label>
+                                  <input type="checkbox" name="currentStatus" id="currentStatus"/>
+                                  currently Persuing</label>
+
+                              </div>
+                            </div>
+
+                            <div class="control-group">
+                              <label class="control-label">Month : </label>
+                              <div class="controls">
+                                 <select id="completionMonth" name="completionMonth">
+                                  <option value="January">January</option>
+                                  <option value="February">February</option>
+                                  <option value="March">March</option>
+                                  <option value="January">April</option>
+                                  <option value="April">May</option>
+                                  <option value="June">June</option>
+                                  <option value="July">July</option>
+                                  <option value="Augest">Augest</option>
+                                  <option value="September">September</option>
+                                  <option value="October">October</option>
+                                  <option value="November">November</option>
+                                  <option value="December">December</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="control-group">
+                              <label class="control-label">Year : </label>
+                              <div class="controls">
+                                 <select id="completionYear" name="completionYear">
+                                  <option value="2025">2025</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2007">2007</option>
+                                </select>
+                              </div>
+                            </div>
+
+
+
+                            <div class="control-group">
+                              <div class="controls">
+                                  <button type="submit" class="btn btn-success btn-large">Save</button>
+                                </div>
+                            </div>
+
+                          </form>
+                    </div>
+                    <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+                </div>
+
+                <div class="widget-box">
+                    <div
+                      class="widget-title bg_lo"
+                      data-toggle="collapse"
+                      
+                    >
+                      <span class="icon"> <i class="fas fa-book"></i> </span>
+                      <h5>Education</h5>
+                    </div>
+                    <!--container for education start-->
+                    <div
+                      class="widget-content nopadding updates collapse in"
+                      id="educationContainer"
+                    >
+                      <div class="new-update clearfix">
+                        <i class="icon-ok-sign"></i>
+
+                        <div class="update-done">
+
+                          <a title="" href="#">
+                            <strong>
+                              High School
+                            </strong>
+                            </a>
+                          <span>I.B. Patel Vidyalaya  ( June 2019 )</span>
+                          <span>MUMBAI, MAHARASHTRA </span>
+                          
+                        </div>
+                        
+                        <div class="update-date">
+                          <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
+                          
+                        </div>
+                      </div>
+
+                      
+                      
+                    </div>
+                    <!--container for education end-->
+
+                  </div>
+                  <Hr>
+                </div>
+          
+            <div class="span4">
+              <h6>If you've completed or are currently enrolled in a course mention here</h6>
+              <button class="btn btn-info btn-large" style="border-radius: 25px;" data-toggle="modal" href="#courseForm" id="addCourse"> + Add Course</button>
+              <div id="courseForm" class="modal hide">
+                <div class="modal-header">
+                  <button data-dismiss="modal" class="close" type="button" id="modalCourse">×</button>
+                  <h3>Course Detail</h3>
+                </div>
+                <div class="modal-body">
+                  <form action="javascript:void(0);" id="courseInformationForm" name="courseInformationForm" onsubmit="courseInformationFormProcess()" method="get" class="form-horizontal">
+                    <input type="hidden" name="courseId" id="courseId" value="0">
+                    <div class="control-group">
+                      <label class="control-label">Course Name :</label>
+                      <div class="controls">
+                        <input type="text" id="courseName" name="courseName" class="span11" placeholder="e.g. Machine Learning">
+                      </div>
+                    </div>
+                        
+                    <div class="control-group">
+                      <label class="control-label">Institute Name :</label>
+                      <div class="controls">
+                        <input type="text" id="instituteName" name="instituteName" class="span11" placeholder="e.g. Udemy">
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                                
+                      <div class="controls">
+                        <label>
+                          <input type="checkbox" id="currentStatus" name="currentStatus"/>
+                          currently persuing course</label>
+
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">Month : </label>
+                      <div class="controls">
+                          <select name="completionMonth" id="completionMonth">
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="January">April</option>
+                            <option value="April">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="Augest">Augest</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">Year : </label>
+                      <div class="controls">
+                          <select name="completionYear" id="completionYear">
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">Upload Certificate: </label>
+                      <div class="controls">
+                        <input type="file" id="file" name="file"/>
+                        <input type="hidden" id="attachment" name="attachment">
+                        <input type="hidden" id="typeOfAttachment" name="typeOfAttachment">
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">Certificate URL:</label>
+                      <div class="controls">
+                        <input type="text" name="url" id="url" />
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <div class="controls">
+                          <button type="submit" class="btn btn-success btn-large">Save</button>
+                        </div>
+                    </div>
+
+                  </form>
+                </div>
+                <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+              </div>
+
+              <div class="widget-box">
+                <div
+                  class="widget-title bg_lo"
+                  data-toggle="collapse"
+                  >
+                  <span class="icon"> <i class='fas fa-medal'></i> </span>
+                  <h5>Courses</h5>
+                </div>
+                <!-- start Single course card-->
+                <div
+                  class="widget-content nopadding updates collapse in"
+                  id="courseContainer"
+
+                  >
+                  <div class="new-update clearfix">
+                    <i class="icon-ok-sign"></i>
+                    
+                    <div class="update-done">
+                      <a title="" href="#">
+                      <strong> 
+                        Java 2 Enterprise Edition 
+                      </strong>
+                      </a>
+                      <span> Udemy </span>
+                      <span>June 2019</span>
+                      <span><a>view Certificate</a></span>
+                    </div>
+                    
+                    <div class="update-date">
+                      <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
+                    </div>
+
+                  </div>
+                  
+                </div>
+                <!-- End Single Course card-->
+
+              </div>
+              <Hr>
+            </div>
+
+            <div class="span4">
+              <h6>Do you have any licenses or certifications? do not forget to add them</h6>
+              <button class="btn btn-info btn-large" style="border-radius: 25px;" data-toggle="modal" href="#certificateForm" id="addCertificate"> + Add Certificate</button>
+              <div id="certificateForm" class="modal hide">
+                <div class="modal-header">
+                  <button data-dismiss="modal" class="close" type="button" id="modalCertificate">×</button>
+                  <h3>Certificate Detail</h3>
+                </div>
+                <div class="modal-body">
+                  <form action="javascript:void(0);" method="get" id="certificateInformationForm" name="certificateInformationForm" class="form-horizontal" onsubmit="certificateFormProcess()">
+                    <input type="hidden" id="certificateId" name="certificateId" value="0">
+                    <div class="control-group">
+                      <label class="control-label">Ceritificate Title :</label>
+                      <div class="controls">
+                        <input type="text" id="certificateTitle" name="certificateTitle" class="span11" placeholder="e.g. OCAJP">
+                      </div>
+                    </div>
+                        
+                    <div class="control-group">
+                      <label class="control-label">Institute Name :</label>
+                      <div class="controls">
+                        <input type="text" id="certificateInstitute" name="certificateInstitute" class="span11" placeholder="e.g. ORACLE">
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">Month : </label>
+                      <div class="controls">
+                          <select id="certificationMonth" name="certificationMonth">
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="January">April</option>
+                            <option value="April">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="Augest">Augest</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">Year : </label>
+                      <div class="controls">
+                          <select id="certificationYear" name="certificationYear">
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">Upload Certificate: </label>
+                      <div class="controls">
+                        <input type="file" id="certificateAttachmentFile" name="certificateAttachmentFile"/>
+                        <input type="hidden" id="certificateAttachment" name="certificateAttachment"/>
+                        <input type="hidden" id="certificatetypeOfAttachment" name="certificatetypeOfAttachment"/>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">Certificate URL:</label>
+                      <div class="controls">
+                        <input type="url" name="certificateUrl" id="certificateUrl" />
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <div class="controls">
+                          <button type="submit" class="btn btn-success btn-large">Save</button>
+                        </div>
+                    </div>
+
+                  </form>
+                </div>
+                <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+              </div>
+
+              <div class="widget-box">
+                <div
+                  class="widget-title bg_lo"
+                  data-toggle="collapse"
+                  >
+                  <span class="icon"> <i class="fa fa-certificate"></i> </span>
+                  <h5>Certificate</h5>
+                </div>
+                <div
+                  class="widget-content nopadding updates collapse in"
+                  id="certificateContainer"
+                  >
+                  <div class="new-update clearfix">
+                    <i class="icon-ok-sign"></i>
+                    <div class="update-done">
+                      <a title="" href="#">
+                      <strong> 
+                        OCAJP
+                      </strong>
+                      </a>
+                      <span> ORACLE </span>
+                      <span>June 2019</span>
+                      <span><a>view Certificate</a></span>
+                    </div>
+                    <div class="update-date">
+                      <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Hr>
+            </div>
+
+
+
+          </div>
+        </div>   
+      </div>
+
+            
+
+    <!--Footer-part-->
+
+    <div class="row-fluid">
+      <div id="footer" class="span12">
+        2020 &copy; Resume Builder. Brought to you by
+        <a href="#">Dharmik Joshi</a>
+      </div>
+    </div>
+
+	<input type="hidden" th:value="${userId}" id="uId">
+    
+    <!--end-Footer-part-->
+
+    <script src="js/excanvas.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ui.custom.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.flot.min.js"></script>
+    <script src="js/jquery.flot.resize.min.js"></script>
+    <script src="js/jquery.peity.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/matrix.dashboard.js"></script>
+    <script src="js/jquery.gritter.min.js"></script>
+    <script src="js/matrix.interface.js"></script>
+    <script src="js/matrix.chat.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/matrix.form_validation.js"></script>
+    <script src="js/jquery.wizard.js"></script>
+    <script src="js/jquery.uniform.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/matrix.popover.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/matrix.tables.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+
+
+    <!--functionality-->
+    <script src="js/functionality/education.js"></script>
+
+   
+    
+
+
+    <script type="text/javascript">
+      // This function is called from the pop-up menus to transfer to
+      // a different page. Ignore if the value returned is a null string:
+      function goPage(newURL) {
+        // if url is empty, skip the menu dividers and reset the menu selection to default
+        if (newURL != "") {
+          // if url is "-", it is this page -- reset the menu:
+          if (newURL == "-") {
+            resetMenu();
+          }
+          // else, send page to designated URL
+          else {
+            document.location.href = newURL;
+          }
+        }
+      }
+
+      // resets the menu selection upon entry to this page:
+      function resetMenu() {
+        document.gomenu.selector.selectedIndex = 2;
+      }
+    </script>
+  </body>
+</html>
+
+

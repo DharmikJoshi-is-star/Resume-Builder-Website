@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title th:text=${user.name}></title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+		<link rel="stylesheet" href="template_resources/template2/css/index.css">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+		<link rel="stylesheet" href="css/index.css">
+		-->
+		
+	</head>
+	<body>
+		<header>
+			<nav class="nav-wrapper indigo darken-4 valign-wrapper fixed-top">
+				<div class="container">
+					<a href="" class="brand-logo valign-wrapper"> <span th:text=${user.personalInformation.name}></span></a>
+					<a href="" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons">menu</i></a>
+					<ul class="right hide-on-med-and-down">
+						<li><a class="waves-effect waves-light" href="#about">About</a></li>
+						<li><a class="waves-effect waves-light" href="#education">Education</a></li>
+						<li><a class="waves-effect waves-light" href="#course">Certifications</a></li>
+						<li><a class="waves-effect waves-light" href="#skills">Skills</a></li>
+						<li><a class="waves-effect waves-light" href="#projects">Projects</a></li>
+						<li><a class="waves-effect waves-light" href="#work">Work Experience</a></li>
+						<li><a class="waves-effect waves-light" href="#contact">Contact</a></li>
+						<!--<li><a class="waves-effect waves-light" target="_blank" href="Dharmik Joshi Resume.pdf">View Resume</a></li> -->
+					</ul>
+					<ul class="sidenav indigo darken-1" id="mobile-menu" style="width:50%;">
+						<li><a class="white-text waves-effect waves-light" href="#about" style="margin-top: 25px;">About</a></li>
+						<li><a class="white-text waves-effect waves-light" href="#education">Education</a></li>
+						<li><a class="white-text waves-effect waves-light" href="#skills">Skills</a></li>
+						<li><a class="white-text waves-effect waves-light" href="#projects">Projects</a></li>
+						<li><a class="white-text waves-effect waves-light" href="#hackathons">Hackathons</a></li>
+						<li><a class="white-text waves-effect waves-light" href="#work">Work Experience</a></li>
+						<li><a class="white-text waves-effect waves-light" href="#contact">Contact</a></li>
+						<!--<li><a class="white-text waves-effect waves-light" target="_blank" href="Dharmik Joshi Resume.pdf">Download Resume</a></li> -->
+					</ul>
+				</div>
+			</nav>
+		</header>
+		
+		<section class="container section scrollspy hide-on-small-and-down grey lighten-5" id="about">
+			<div class="col s12">
+				<div class="card-panel grey lighten-5 z-depth-2">
+					<div class="row valign-wrapper">
+						<div class="col s3">
+							<blockquote class="black-text" for="image"><h3>About</h3></blockquote>
+							<img th:src="${user.personalInformation.picture}" alt="" class="responsive-img">
+						</div>
+						<div class="col s6">
+							<span class="black-text">
+								<H3><p th:text="${user.personalInformation.title}">
+									
+								</p>
+								</H3>
+								<p th:text="${user.personalInformation.summary}">	
+									
+								</p>
+							</span>
+						</div>
+						<div class="col s2"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="container section scrollspy hide-on-med-and-up grey lighten-5" id="about">
+			<div class="card-panel grey lighten-5 z-depth-2">
+				<div class="row valign-wrapper">
+					<div class="col s12">
+						<blockquote class="black-text" for="image"><h3>About</h3></blockquote>
+						<img th:src="${user.personalInformation.picture}" alt="" class="responsive-img">
+					</div>
+				</div>
+				<span class="black-text">
+					<H3><p th:text="${user.personalInformation.title}">
+						
+					</p>
+					</H3>
+					<p th:text="${user.personalInformation.summary}">	
+						
+					</p>
+				</span>
+			</div>
+		</section>
+
+		
+
+
+		<section class="container section scrollspy" id="education">
+			<ul class="collection with-header">
+				<li class="collection-header"><blockquote><h3>Education</h3></blockquote></li>
+				<li class="collection-item avatar" th:each="graduation : ${user.graduations}">
+				
+					<i class="fa fa-graduation-cap circle black" aria-hidden="true"></i>
+					<span class="title text-darken-4" th:text="${graduation.universityName}" ></span>
+					
+					<p class="secondary-content black-text hide-on-small-and-down" 
+						th:text="Pursuing" th:if="${graduation.currentStatus}"></p>
+						
+					<p class="secondary-content black-text hide-on-small-and-down" 
+						th:text="|( ${graduation.completionMonth}-${graduation.completionYear} )|" th:if="${not graduation.currentStatus}"></p>
+						
+					<p class="grey-text text-darken-2 hide-on-med-and-up"
+						th:text="Pursuing" th:if="${graduation.currentStatus}"></p>
+						
+					<p class="grey-text text-darken-2 hide-on-med-and-up"
+						th:text="|( ${graduation.completionMonth}-${graduation.completionYear} )|" th:if="${not graduation.currentStatus}"></p>
+						
+					<p class="grey-text text-darken-2" th:text="|${graduation.type} ( ${graduation.filedOfStudy} )|"></p>
+					
+					<p class="grey-text text-darken-2" 
+						th:text="| Average: ${graduation.grade}|"></p>
+					
+				</li>
+				
+			</ul>
+		</section> 
+		
+		<section class="container section scrollspy" id="course">
+			<ul class="collection with-header">
+				<li class="collection-header"><blockquote><h3>Certifications & Training program</h3></blockquote></li>
+				
+				<li class="collection-item avatar" th:each="course : ${user.courses}">
+				
+					<i class="fa fa-certificate circle black" aria-hidden="true"></i>
+					
+					<span class="title text-darken-4" th:text="| ${course.name} ( ${course.instituteName} )|"></span>
+					
+					<a th:href="${course.attachment}"><p class="secondary-content black-text hide-on-small-and-down" >View</p></a>
+					
+					<p class="grey-text text-darken-2" th:text="Pursuing" 
+										th:if="${course.currentStatus}"></p>
+										
+					<p class="grey-text text-darken-2" th:text="|${course.completionMonth}, ${course.completionYear}|" 
+										th:if="${not course.currentStatus}"></p>
+					
+					<p class="grey-text text-darken-2"> <a th:href="${course.url}">attachment Url</a> </p>
+					
+				</li>
+				
+				<li class="collection-item avatar" th:each="certification : ${user.certifications}">
+				
+					<i class="fa fa-certificate circle black" aria-hidden="true"></i>
+					
+					<span class="title text-darken-4" th:text="| ${certification.title} ( ${certification.instituteName} )|"></span>
+					
+					<a th:href="${certification.attachment}"><p class="secondary-content black-text hide-on-small-and-down" >View</p></a>
+										
+					<p class="grey-text text-darken-2" th:text="|${certification.month}, ${certification.year}|" ></p>
+					
+					<p class="grey-text text-darken-2"> <a th:href="${certification.url}">attachment Url</a> </p>
+					
+				</li>
+				
+			</ul>
+		</section> 
+
+		<section class="container section scrollspy grey lighten-5" id="skills">
+			<blockquote><h3>Skills</h3></blockquote>
+			
+			<div class="row">
+				<div class="col s12">
+					
+					<!--Start Technical SKill -->
+					
+					<div id="technicalSkill">
+						
+						<div class="hide-on-med-and-up">
+							<div class="row">
+								<div class="col s12">
+									<div class="card ">
+										<div class="card-content">
+											<span class="card-title">Technical Skill/Industry Knowledge</span>
+											<div class="divider"></div>
+											<ul class="collections">
+												<li th:each="technicalSkill: ${user.technicalSkills}">
+												
+													<span th:text="${technicalSkill.name}">
+													
+													</span>
+												
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="hide-on-small-and-down">
+							<div class="col s12">
+								<div class="card ">
+									<div class="card-content">
+										<span class="card-title">Technical Skill/Industry Knowledge</span>
+										<div class="divider"></div>
+											<ul class="collections">
+												<li th:each="technicalSkill: ${user.technicalSkills}">
+												
+													<span th:text="${technicalSkill.name}">
+													
+													</span>
+												
+												</li>
+											</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+					<!--End Technical Skill -->
+					
+					<!--Start Other SKill -->
+					
+					<div id="otherSkill">
+						
+						<div class="hide-on-med-and-up">
+							<div class="row">
+								<div class="col s12">
+									<div class="card ">
+										<div class="card-content">
+											<span class="card-title">Other Skill</span>
+											<div class="divider"></div>
+											<ul class="collections">
+												<li th:each="otherSkill: ${user.otherSkills}">
+												
+													<span th:text="${otherSkill.name}">
+													
+													</span>
+												
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="hide-on-small-and-down">
+							<div class="col s12">
+								<div class="card ">
+									<div class="card-content">
+										<span class="card-title">Other Skill</span>
+										<div class="divider"></div>
+											<ul class="collections">
+												<li th:each="otherSkill: ${user.otherSkills}">
+												
+													<span th:text="${otherSkill.name}">
+													
+													</span>
+												
+												</li>
+											</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+					<!--End Other Skill -->
+					
+				</div>
+			</div>
+		</section>
+
+		
+		<section class="container section scrollspy grey lighten-5" id="projects">
+			<blockquote><h3>Major Projects</h3></blockquote>
+			<div class="row">
+			
+				<!-- Start Projects -->
+				<div class="col s12 l4" th:each="project: ${user.projects}">
+					<div class="card">
+						<div class="card-content">
+							
+							<span class="card-title activator grey-text text-darken-4" th:text="${project.name}"></span>
+							<p th:text="${project.description}"> 
+							</p>
+						</div>
+				
+						<div class="card-action">
+							<a target="_blank" th:href="${project.sourceUrl}">View Source</a>
+							<a target="_blank" class="activator yellowText right" th:href="${project.projectUrl}">View Project</a>
+							<!-- <span class="activator yellowText right">Technology<i class="material-icons right">unfold_more</i></span> -->
+						</div>
+					</div>
+				</div>
+				
+				<!-- End Projects -->
+		
+			</div>
+		</section>
+
+		<section class="container section scrollspy grey lighten-5 work" id="work">
+			<blockquote><h3>Job/Internships Experience</h3></blockquote>
+			<div class="row">
+			
+				<!-- Job/Internship start -->
+				<div class="col s12" th:each="jobInternship: ${user.jobInternships}">
+					<div class="card black-text">
+						<div class="card-content" >
+						
+							<div class="card-title hide-on-small-and-down">
+								<span  th:text="${jobInternship.company}"></span>
+								<span class="secondary-content">
+									<small th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - ${jobInternship.endMonth} ${jobInternship.endYear}|"
+												th:if="${not jobInternship.currentStatus}"></small>
+									<small th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - Currently Working here|"
+											th:if="${jobInternship.currentStatus}"></small>
+								</span>
+							</div>
+							
+							<div class="card-title hide-on-med-and-up" th:text="${jobInternship.company}">
+								<span  th:text="${jobInternship.company}"></span>
+								<div class="date">
+									<small th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - ${jobInternship.endMonth} ${jobInternship.endYear}|"
+												th:if="${not jobInternship.currentStatus}"></small>
+									<small th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - Currently Working here|"
+											th:if="${jobInternship.currentStatus}"></small>
+								</div>
+							</div>
+							
+							<div class="divider"></div>
+							<br>
+							
+							<p th:text="${jobInternship.description}">
+							</p>
+							<a th:href="${jobInternship.attachment}" target="_blank">attachment Url</a>
+						</div>
+					</div>
+				</div>
+				<!-- Job/Internship start -->
+				
+			</div>
+		</section>
+		
+		<section class="container section scrollspy grey lighten-5 work" id="work">
+			<blockquote><h3>Volunteer Experience</h3></blockquote>
+			<div class="row">
+			
+				<!-- Job/Internship start -->
+				<div class="col s12" th:each="volunteer: ${user.volunteers}">
+				
+					<div class="card black-text">
+						<div class="card-content" >
+						
+							<div class="card-title hide-on-small-and-down" >
+							 	<span th:text="${volunteer.organization}"></span>
+							 	
+								<span class="secondary-content">
+									<small th:text="|${volunteer.startMonth} ${volunteer.startYear} - ${volunteer.endMonth} ${volunteer.endYear}|"
+											th:if="${not volunteer.currentStatus}"></small>
+											
+									<small th:text="|${volunteer.startMonth} ${volunteer.startYear} - Currently Working here|"
+											th:if="${volunteer.currentStatus}"></small>
+								</span>
+								
+							</div>
+							
+							<div class="card-title hide-on-med-and-up" >
+								<span th:text="${volunteer.organization}"></span>
+								<div class="date">
+									<small th:text="|${volunteer.startMonth} ${volunteer.startYear} - ${volunteer.endYear} ${volunteer.endYear}|"
+											th:if="${not volunteer.currentStatus}"></small>
+											
+									<small th:text="|${volunteer.startMonth} ${volunteer.startYear} - Currently Working here|"
+											th:if="${volunteer.currentStatus}"></small>
+								</div>
+							</div>
+							
+							<div class="divider"></div>
+							<br>
+							<p th:text="${volunteer.description}">
+							</p>
+							<a th:href="${volunteer.attachment}" target="_blank">attachment Url</a>
+						</div>
+					</div>
+				
+				</div>
+				<!-- Job/Internship start -->
+				
+			</div>
+		</section>
+		
+		
+
+	
+	
+	<footer class="page-footer section darken-3 grey scrollspy" id="contact" style="padding:10px;" >
+		<div class="container valign-wrapper" >
+			<div class="row">
+				<ul>
+					<li class="col s2">
+						<a target="_blank" th:href="${user.socialInformation.githubUrl}" th:if="${user.socialInformation.githubUrl}">
+							<div class="btn-floating">
+								<i class="fab fa-github black darken-4"></i>
+							</div>
+						</a>
+					</li>
+					<li class="col s2">
+						<a target="_blank" th:href="${user.socialInformation.facebookUrl}" th:if="${user.socialInformation.facebookUrl}">
+							<div class="btn-floating">
+								<i class="fab fa-facebook lightblue darken-4" ></i>
+							</div>
+						</a>
+					</li>
+					<li class="col s2">
+						<a target="_blank" th:href="|mailto:@${user.socialInformation.googleUrl}|" th:if="${user.socialInformation.googleUrl}">
+							<div class="btn-floating">
+								<i class="material-icons small green" >email</i>
+							</div>
+						</a>
+					</li>
+					<li class="col s2">
+						<a target="_blank" th:href="${user.socialInformation.linkedinUrl}" th:if="${user.socialInformation.linkedinUrl}">
+							<div class="btn-floating">
+								<i class="fab fa-linkedin blue darken-4"></i>
+							</div>
+						</a>
+					</li>
+					<li class="col s2">
+						<a target="_blank" th:href="${user.socialInformation.instagramUrl}" th:if="${user.socialInformation.instagramUrl}">
+							<div class="btn-floating">
+								<i class="right-align fab fa-instagram purple darken-1"></i>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-copyright grey darken-4">
+			<div class="container center-align">&copy;2019 Dharmik Joshi</div>
+		</div>
+	</footer>
+
+	</body>
+    <script src="template_resources/template2/js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	
+</html>

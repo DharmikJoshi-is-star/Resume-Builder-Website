@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+<head><title>Home Page</title></head>
+<body>
+<h1>Hello !</h1>
+<p>Welcome to <span th:utext="${appName}"></span>Our App</p>
+
+<a href="/hey?id=1">click</a>
+
+<span id="value" th:text="|The name is ${appName}|"></span>
+
+    <input 
+           type="text"
+           th:value="${appName}"  
+           id="userId"
+           >
+
+<script>
+
+var value = document.getElementById("userId").value;
+alert(value);
+</script>
+
+ <!-- <div th:object="${session.user}">
+    <p>Name: <span th:text="*{firstName}">Sebastian</span>.</p>
+    <p>Surname: <span th:text="*{lastName}">Pepper</span>.</p>
+    <p>Nationality: <span th:text="*{nationality}">Saturn</span>.</p>
+  </div>
+  
+  exactly same as 
+  <div>
+  <p>Name: <span th:text="${session.user.firstName}">Sebastian</span>.</p>
+  <p>Surname: <span th:text="${session.user.lastName}">Pepper</span>.</p>
+  <p>Nationality: <span th:text="${session.user.nationality}">Saturn</span>.</p>
+</div>
+
+<div>
+  <p>Name: <span th:text="*{session.user.name}">Sebastian</span>.</p>
+  <p>Surname: <span th:text="*{session.user.surname}">Pepper</span>.</p>
+  <p>Nationality: <span th:text="*{session.user.nationality}">Saturn</span>.</p>
+</div>
+
+
+Will produce 'http://localhost:8080/gtvg/order/details?orderId=3' (plus rewriting)
+<a href="details.html" 
+   th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
+
+Will produce '/gtvg/order/details?orderId=3' (plus rewriting)
+<a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>
+
+Will produce '/gtvg/order/3/details' (plus rewriting)
+<a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
+
+
+<a th:href="@{${url}(orderId=${o.id})}">view</a>
+
+<p>Please select an option</p>
+<ol>
+  <li><a href="product/list.html" th:href="@{/product/list}">Product List</a></li>
+  <li><a href="order/list.html" th:href="@{/order/list}">Order List</a></li>
+  <li><a href="subscribe.html" th:href="@{/subscribe}">Subscribe to our Newsletter</a></li>
+  <li><a href="userprofile.html" th:href="@{/userprofile}">See User Profile</a></li>
+</ol>
+
+
+<div th:if="${user.isAdmin() == false}"> ...
+
+
+<div th:if="${variable.something} == null"> ...
+
+th:if="${prodStat.count} &gt; 1"
+th:text="'Execution mode is ' + ( (${execMode} == 'dev')? 'Development' : 'Production')"
+Note that textual aliases exist for some of these operators: gt (>), lt (<), ge (>=), le (<=), not (!). Also eq (==), neq/ne (!=).
+
+
+<img src="../../images/gtvglogo.png" 
+     th:attr="src=@{/images/gtvglogo.png},title=#{logo},alt=#{logo}" />
+     
+     <input type="submit" value="Subscribe me!" th:value="#{subscribe.submit}"/>
+     
+     <input type="checkbox" name="active" th:checked="${user.active}" />
+     
+     
+      <body>
+
+    <h1>Product list</h1>
+  
+    <table>
+      <tr>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>IN STOCK</th>
+      </tr>
+      <tr th:each="prod : ${prods}">
+        <td th:text="${prod.name}">Onions</td>
+        <td th:text="${prod.price}">2.41</td>
+        <td th:text="${prod.inStock}? #{true} : #{false}">yes</td>
+      </tr>
+    </table>
+  
+    <p>
+      <a href="../home.html" th:href="@{/}">Return to home</a>
+    </p>
+
+
+When using th:each, Thymeleaf offers a mechanism useful for keeping track of the status of your iteration: the status variable.
+
+Status variables are defined within a th:each attribute and contain the following data:
+
+The current iteration index, starting with 0. This is the index property.
+The current iteration index, starting with 1. This is the count property.
+The total amount of elements in the iterated variable. This is the size property.
+The iter variable for each iteration. This is the current property.
+Whether the current iteration is even or odd. These are the even/odd boolean properties.
+Whether the current iteration is the first one. This is the first boolean property.
+Whether the current iteration is the last one. This is the last boolean property.
+Let’s see how we could use it within the previous example:
+
+<table>
+  <tr>
+    <th>NAME</th>
+    <th>PRICE</th>
+    <th>IN STOCK</th>
+  </tr>
+  <tr th:each="prod,iterStat : ${prods}" th:class="${iterStat.odd}? 'odd'">
+    <td th:text="${prod.name}">Onions</td>
+    <td th:text="${prod.price}">2.41</td>
+    <td th:text="${prod.inStock}? #{true} : #{false}">yes</td>
+  </tr>
+</table>
+
+ -->
+
+  </body>
+
+</body>
+</html>
