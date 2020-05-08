@@ -18,6 +18,7 @@ import com.resumewebsitebuilder.model.UserWebsiteUrl;
 import com.resumewebsitebuilder.repositories.TemplateRepository;
 import com.resumewebsitebuilder.repositories.UserRepository;
 import com.resumewebsitebuilder.repositories.UserWebsiteUrlRepository;
+import com.resumewebsitebuilder.service.TemplateService;
 import com.resumewebsitebuilder.service.convertToFrontEndUser;
 
 @Controller
@@ -30,6 +31,8 @@ public class TemplateController {
 	UserWebsiteUrlRepository userWebsiteUrlRepository;
 	
 	private convertToFrontEndUser converter = new convertToFrontEndUser();
+	
+	private TemplateService templateService = new TemplateService();
 	
 	@GetMapping("/template")
 	public String showTemplate(Model model,HttpSession session) {
@@ -54,11 +57,14 @@ public class TemplateController {
 		//System.out.println(w);
 		User user = userRepository.getUserIdFromuserUserUrl(url);
 		
+		user = templateService.setupUserAccordingToView(user);
+		
 		//User user = userRepository.getOne(new Long("1"));
 		
 		FrontEndUser fronEndUser;
 		try {
 			fronEndUser = converter.convertUserToFrontEnd(user);
+			
 			model.addAttribute("user", fronEndUser);
 			
 		} catch (SQLException | IOException e) {
@@ -67,7 +73,115 @@ public class TemplateController {
 		}
 		
 		
-		return user.getTemplate().getTemplateName();
+		return user.getTemplate().getLivePath();
+	}
+	
+	@GetMapping("/testTemplate2")
+	public String testTemplate2(Model model) {
+		
+		//User user = userRepository.getUserIdFromuserUserUrl(url);
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		//User user = userRepository.getOne(new Long("1"));
+		
+		User user = userRepository.getOne(new Long("1"));
+		
+		user = templateService.setupUserAccordingToView(user);
+		
+		FrontEndUser fronEndUser;
+		try {
+			fronEndUser = converter.convertUserToFrontEnd(user);
+			
+			model.addAttribute("user", fronEndUser);
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "template_folder/template1/index";
+	}
+	
+	@GetMapping("/testTemplate3")
+	public String testTemplate3(Model model) {
+		
+		//User user = userRepository.getUserIdFromuserUserUrl(url);
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		//User user = userRepository.getOne(new Long("1"));
+		
+		User user = userRepository.getOne(new Long("1"));
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		FrontEndUser fronEndUser;
+		try {
+			fronEndUser = converter.convertUserToFrontEnd(user);
+			
+			model.addAttribute("user", fronEndUser);
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "template_folder/template3/index";
+	}
+	
+	@GetMapping("/testTemplate4")
+	public String testTemplate4(Model model) {
+		
+		//User user = userRepository.getUserIdFromuserUserUrl(url);
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		//User user = userRepository.getOne(new Long("1"));
+		
+		User user = userRepository.getOne(new Long("1"));
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		FrontEndUser fronEndUser;
+		try {
+			fronEndUser = converter.convertUserToFrontEnd(user);
+			
+			model.addAttribute("user", fronEndUser);
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "template_folder/template4/index";
+	}
+	
+	@GetMapping("/testTemplate5")
+	public String testTemplate5(Model model) {
+		
+		//User user = userRepository.getUserIdFromuserUserUrl(url);
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		//User user = userRepository.getOne(new Long("1"));
+		
+		User user = userRepository.getOne(new Long("1"));
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		FrontEndUser fronEndUser;
+		try {
+			fronEndUser = converter.convertUserToFrontEnd(user);
+			
+			model.addAttribute("user", fronEndUser);
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "template_folder/template5/index";
 	}
 	
 }

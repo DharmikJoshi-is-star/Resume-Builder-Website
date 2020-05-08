@@ -60,7 +60,7 @@ public class WorkRestController {
 		
 		try {
 			
-				JobInternship jobInternship = jobInternshipService.FrontEndJobInternshipToBackEndJobInternship(frontEndJobInternship);
+				JobInternship jobInternship = jobInternshipService.FrontEndJobInternshipToBackEndJobInternship(frontEndJobInternship, new JobInternship());
 				jobInternship = jobInternshipRepository.save(jobInternship);
 				
 				User user = userRepository.getOne(userId);
@@ -100,7 +100,7 @@ public class WorkRestController {
 		
 		JobInternship jobInternship;
 		try {
-			jobInternship = jobInternshipService.FrontEndJobInternshipToBackEndJobInternship(frontEndJobInternship);
+			jobInternship = jobInternshipService.FrontEndJobInternshipToBackEndJobInternship(frontEndJobInternship,jobInternshipRepository.getOne(frontEndJobInternship.getId()));
 			jobInternship = jobInternshipRepository.save(jobInternship);
 			return jobInternship.getId();
 		} catch (IOException e) {
@@ -154,7 +154,7 @@ public class WorkRestController {
 		
 		try {
 			
-				Volunteer volunteer = volunteerService.FrontEndVolunteerToBackEndVolunteer(fronEndVolunteer);
+				Volunteer volunteer = volunteerService.FrontEndVolunteerToBackEndVolunteer(fronEndVolunteer, new Volunteer());
 				
 				volunteer = volunteerRepository.save(volunteer);
 				
@@ -195,7 +195,7 @@ public class WorkRestController {
 		
 		Volunteer volunteer;
 		try {
-			volunteer = volunteerService.FrontEndVolunteerToBackEndVolunteer(frontEndVolunteer);
+			volunteer = volunteerService.FrontEndVolunteerToBackEndVolunteer(frontEndVolunteer, volunteerRepository.getOne( frontEndVolunteer.getId() ));
 			volunteer = volunteerRepository.save(volunteer);
 			
 			return volunteer.getId();
@@ -251,7 +251,7 @@ public class WorkRestController {
 		
 		try {
 			
-				Project project = projectService.FrontEndProjectToBackEndProject(fronEndProject);
+				Project project = projectService.FrontEndProjectToBackEndProject(fronEndProject, new Project());
 				
 				project = projectRepository.save(project);
 				
@@ -292,7 +292,7 @@ public class WorkRestController {
 		
 		Project project;
 		try {
-			project = projectService.FrontEndProjectToBackEndProject(frontEndProject);
+			project = projectService.FrontEndProjectToBackEndProject(frontEndProject, projectRepository.getOne( frontEndProject.getId() ));
 			project = projectRepository.save(project);
 			
 			return project.getId();

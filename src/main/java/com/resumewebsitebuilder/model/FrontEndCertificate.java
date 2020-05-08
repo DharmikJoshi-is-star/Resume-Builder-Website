@@ -18,6 +18,8 @@ public class FrontEndCertificate {
 	
 	private String url;
 
+	private Boolean view;
+	
 	public Long getId() {
 		return id;
 	}
@@ -80,6 +82,14 @@ public class FrontEndCertificate {
 
 	public void setTypeOfAttachment(String typeOfAttachment) {
 		this.typeOfAttachment = typeOfAttachment;
+	}
+
+	public Boolean getView() {
+		return view;
+	}
+
+	public void setView(Boolean view) {
+		this.view = view;
 	}
 	
 	

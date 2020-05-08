@@ -1,137 +1,40 @@
-/*!
- * Start Bootstrap - Busines Frontpage (https://startbootstrap.com/template-overviews/business-frontpage)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-business-frontpage/blob/master/LICENSE)
- */
-/* body {
-  padding-top: 56px;
-}
- */
-/* card */
-.dress-card-img-top {
-  width: 100%;
-  border-radius: 7px 7px 0 0;
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Courgette&display=swap");
+
+.grid {
+  padding-right: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 50px;
+  align-items: stretch;
 }
 
-.dress-card-body {
-  padding: 1rem;
-  background: #fff;
-  border-radius: 0 0 7px 7px;
+.grid > article {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
-.dress-card-title {
-  line-height: 0.5rem;
+.grid > article img {
+  max-width: 100%;
 }
 
-.dress-card-crossed {
-  text-decoration: line-through;
-}
-
-.dress-card-price {
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.dress-card-off {
-  color: #e06c9f;
-}
-
-.dress-card-para {
-  margin-bottom: 0.2rem;
-  font-size: 1rem;
-  margin-bottom: 0rem;
-}
-
-.dress-card {
-  border-radius: 14px;
-}
-
-.dress-card-heart {
-  font-size: 1em;
-  color: #db2763;
-  margin: 4.5px;
-  position: absolute;
-  left: 4px;
-  top: 0px;
-}
-
-.surprise-bubble {
-  position: absolute;
-  bottom: 12rem;
-  right: 2rem;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  background: #fff;
-  padding: 1rem;
-  color: white;
-  -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.surprise-bubble a {
-  font-size: 0.65em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: white;
-  font-family: arial;
-  text-decoration: none;
-  position: absolute;
-  top: 9px;
-  left: 20px;
-  opacity: 0;
-  -webkit-transition-delay: 2s;
-  /* Safari */
-  transition-delay: 2s;
-  -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.surprise-bubble:hover {
-  border-radius: 999rem;
-  padding: 1rem;
-  width: 26%;
-  height: 30px;
-  background: #db2763;
-  color: white;
-  -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.surprise-bubble:hover a {
-  opacity: 1;
-  -webkit-transition-delay: 2s;
-  /* Safari */
-  transition-delay: 2s;
-  -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.card-button {
+.grid .text {
+  padding: 20px;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 15px;
-  padding: 9px;
 }
-.card-button a {
+
+.grid .text h3 {
+  font-size: 1.4rem;
+  font-family: "Fredoka One", cursive;
+}
+
+.grid .text p {
+  font-size: 0.9rem;
+}
+
+.grid .text p a {
   text-decoration: none;
-}
-
-.card-button-inner {
-  padding: 10px;
-  border-radius: 3px;
-}
-
-.bag-button {
-  background: #e06c9f;
-  color: white;
-}
-
-.bag-button :hover {
-  background: #e299b9;
-}
-
-.wish-button {
-  border: 1px solid #e06c9f;
-  color: #e06c9f;
+  font-weight: bold;
+  color: #555;
+  font-family: "Courgette", cursive;
 }

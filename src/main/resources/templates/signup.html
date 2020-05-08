@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+        <title>Resume Builder</title><meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="css/matrix-login.css" />
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        <div id="loginbox">            
+            <form id="loginform" class="form-vertical" action="javascript:void(0);" onsubmit="validateForm()" method="post" validate>
+				 <div class="control-group normal_text"> <h3><img src="img/logo.png" alt="Logo" /></h3></div>
+				 
+				 <input type="hidden" name="mail" id="mail" th:value="${mail}">
+				 
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                        	<span class="add-on bg_ly"><i class="icon-info-sign"></i></span>
+                            <input type="text" placeholder="Full name" name="fullname"  id="fullname" size="6" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                        	<span class="add-on bg_ly"><i class="icon-user"></i></span>
+                            <input type="text" placeholder="Username" name="username" size="6" required/>
+               
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                        	<span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                            <input type="password" placeholder="Password" name="password" size="6" required/>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                        	<span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                            <input type="password" placeholder="Confirm password" name="confirmpassword" size="6" required/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link" id="to-recover" >show</a></span>
+                    <span class="pull-right"><input type="submit" class="btn btn-success" value="Sign up"></span>
+                </div>
+                
+                <div class="control-group">
+                    <div class="controls">
+                    	<div class="main_input_box">
+                    	<span class="normal_text" style="color: darkred" id="error"></span>
+               			</div>
+               		</div>
+               	</div>
+                
+            </form>
+            
+            <form id="recoverform" action="javascript:void(0);" class="form-vertical" onsubmit="validateSiteForm()" method="post">
+				<p class="normal_text">Enter your likely id for url. Kindly not that once you have set the url then you can't change.</p>
+				
+                    <div class="controls">
+                        <div class="main_input_box">
+                        	<p class="normal_text">website starts with: http://localhost:8086?view</p>
+         					
+                            <span class="add-on bg_lo"><i class="icon-link"></i></span><input type="text" placeholder="ex. DharmikJoshiResume" id="site" name="site" required/>
+                        	
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+	                    
+	                    <span class="pull-right"><input class="btn btn-info" type="submit" value="Set"/></span>
+	               		<p class="normal_text" style="color: yellow" >ex. final url will look like:
+                    	
+                    	http://localhost:8086?view=DharmikJoshiResume
+                    	
+                    	<p class="normal_text" style="color: darkred" id="errorSite"></p>
+               			</p>
+	                </div>
+                    
+                    
+               
+                
+            </form>
+            
+        </div>
+        
+        <input type="hidden" name="uId" id="uId" value="0">
+		
+        <script src="js/functionality/signup.js"></script>  
+        <script src="js/jquery.min.js"></script>  
+        <script src="js/matrix.login.js"></script> 
+        
+    </body>
+
+</html>

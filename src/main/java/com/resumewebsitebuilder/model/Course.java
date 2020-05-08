@@ -35,7 +35,10 @@ public class Course {
 	private String typeOfAttachment;
 	
 	private String url;
-
+	
+	@Column(name = "view" ,nullable = false, columnDefinition = "boolean default true")
+	private Boolean view = true;
+	 
 	public Long getId() {
 		return id;
 	}
@@ -106,6 +109,14 @@ public class Course {
 
 	public void setTypeOfAttachment(String typeOfAttachment) {
 		this.typeOfAttachment = typeOfAttachment;
+	}
+
+	public Boolean getView() {
+		return view;
+	}
+
+	public void setView(Boolean view) {
+		this.view = view;
 	}
 	
 	

@@ -1,0 +1,288 @@
+<html>
+  <head>
+    <title th:text=${user.name}></title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="/template_resources/template4/css/index.css">
+    
+  </head>
+
+  <body>
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width: 1400px;">
+      <!-- The Grid -->
+      <div class="w3-row-padding">
+        <!-- Left Column -->
+        <div class="w3-third">
+          <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container">
+              <img
+                th:src="${user.personalInformation.picture}"
+                style="width: 100%;"
+                alt="Avatar"
+              />
+              <div class="w3-display-bottomleft w3-container w3-text-black">
+                <h2 class="w3-tag w3-highway-green w3-teal" th:text="${user.personalInformation.name}">
+                  
+                </h2>
+                <!--style="background-color: #009688-->
+              </div>
+            </div>
+            <hr />
+            <div class="w3-container">
+              <p>
+                <i
+                  class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"
+                ></i
+                ><span th:text="${user.personalInformation.title}"></span>
+              </p>
+              <p>
+                <i
+                  class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"
+                ></i
+                ><span th:text="${user.contactInformation.contact}"></span>
+              </p>
+              <p>
+                <i
+                  class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"
+                ></i
+                ><span th:text="${user.contactInformation.mail}"></span>
+              </p>
+
+              <hr />
+
+              <p class="w3-large">
+                <b
+                  ><i
+                    class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"
+                  ></i
+                  >Technical Skills</b
+                >
+              </p>
+             
+              <p>
+              
+				<div th:each="technicalSkill: ${user.technicalSkills}">								
+				<span th:text="${technicalSkill.name}"></span>
+       			</div>
+       			
+              </p>
+             
+              <hr />
+              
+              <p class="w3-large w3-text-theme">
+                <b
+                  ><i
+                    class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"
+                  ></i
+                  >Other Skills</b
+                >
+              </p>
+             
+             <p>
+				<div th:each="otherSkill: ${user.otherSkills}">								
+				<span th:text="${otherSkill.name}"></span>
+       			</div>
+             </p>
+              
+              <hr />
+            </div>
+          </div>
+          <br />
+
+          <!-- End Left Column -->
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+          <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16">
+              <i
+                class="fa fa-tasks fa-fw w3-margin-right w3-xxlarge w3-text-teal"
+              ></i
+              >Projects
+            </h2>
+            
+             <div class="w3-container" th:each="project: ${user.projects}">
+	              <h5 class="w3-opacity">
+	                <b th:text="${project.name}"></b>
+	              </h5>
+	              <h6 class="w3-text-teal">
+	              
+	              	<div th:if="${not project.currentStatus}">
+	              		<i class="fa fa-calendar fa-fw w3-margin-right"></i>
+		              	<span th:text="| ${project.startMonth} ${project.startYear} - ${project.endMonth} ${project.endYear} |">
+		                  
+		                </span>
+	              	</div>
+	              	
+	                <div th:if="${project.currentStatus}">
+	                	<i class="fa fa-calendar fa-fw w3-margin-right"></i>
+		              	<span th:text="| ${project.startMonth} ${project.startYear} - |">
+		                  
+		                </span>
+		                 <span class="w3-tag w3-teal w3-round">pursuing</span>
+	              	</div>
+	                
+	              </h6>
+	              <p th:text="${project.description}">
+	               
+	              </p>
+	              <h6 class="w3-text-teal">Project Link:</h6>
+	              <p>
+	                <a target="_blank" th:href="${project.projectUrl}" th:text="${project.projectUrl}">View Project</a>
+	              </p>
+	              <h6 class="w3-text-teal">Source Link:</h6>
+	              <p>
+	               <a target="_blank" th:href="${project.sourceUrl}" th:text="${project.sourceUrl}">View Source</a>
+	              </p>
+	             
+	              <hr />
+            </div>
+         
+          </div>
+
+          <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16">
+              <i
+                class="fa fa-institution fa-fw w3-margin-right w3-xxlarge w3-text-teal"
+              ></i
+              >Academic Records
+            </h2>
+            <div class="w3-container">
+              <table class="table table-hover" style="text-align: center;">
+                <thead>
+                  <tr>
+                    <th><center>Degree/Course</center></th>
+                    <th>
+                      <center>Name of the Institution</center>
+                    </th>
+                    <th>Average</th>
+                    <th>Year of passing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr th:each="graduation : ${user.graduations}">
+                  	<td th:text="|${graduation.type} (${graduation.filedOfStudy})|"></td>
+                    <td th:text="${graduation.universityName}"></td>
+                   
+                    <td th:text="${graduation.grade}"></td>
+                    
+                    <td th:text="|( ${graduation.completionMonth}-${graduation.completionYear} )|" th:if="${not graduation.currentStatus}"></td>
+						
+					<td th:text="Pursuing" th:if="${graduation.currentStatus}"></td>
+						
+						
+                  </tr>
+                	
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+		   <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16">
+              <i
+                class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"
+              ></i
+              >Courses
+            </h2>
+            
+            <div class="w3-container"  th:each="course : ${user.courses}">
+              <div class="w3-container">
+                <h5 class="w3-opacity">
+                  <b th:text="| ${course.name} ( ${course.instituteName} )|"
+                    ></b
+                  >
+                </h5>
+                <h6 class="w3-text-teal">
+                	
+	                  <div th:if="${not course.currentStatus}">
+		              		<i class="fa fa-calendar fa-fw w3-margin-right"></i>
+			              	<span th:text="|${course.completionMonth}, ${course.completionYear}|">
+			                  
+			                </span>
+			                
+		              	</div>
+		              	
+	                <div th:if="${course.currentStatus}">
+	                	<i class="fa fa-calendar fa-fw w3-margin-right"></i>
+		                 <span class="w3-tag w3-teal w3-round">pursuing</span>
+	              	</div>
+                
+                	<br>
+                  <b>Course Attachment: <a class="w3-tag w3-teal w3-round" th:href="${course.attachment}">view</a> </b>
+                
+                </h6>
+                
+                <hr />
+              </div>
+            </div>
+
+            <!-- End Right Column -->
+          </div>
+
+          <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16">
+              <i
+                class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"
+              ></i
+              >Certifications
+            </h2>
+            
+           <div class="w3-container"  th:each="certification : ${user.certifications}">
+              <div class="w3-container">
+                <h5 class="w3-opacity">
+                  <b th:text="| ${certification.title} ( ${certification.instituteName} )|"
+                    ></b
+                  >
+                </h5>
+                <h6 class="w3-text-teal">
+                	
+	                 
+		              		<i class="fa fa-calendar fa-fw w3-margin-right"></i>
+			              	<span th:text="|${certification.month}, ${certification.year}|">
+			                  
+			                </span>
+			                
+		              	
+               	
+                  <br><br>
+                  <b>Certification Attachment: <a class="w3-tag w3-teal w3-round" th:href="${certification.attachment}">view</a> </b>
+                
+                </h6>
+                
+                <hr />
+              </div>
+            </div>
+
+            <!-- End Right Column -->
+          </div>
+
+          <!-- End Grid -->
+        </div>
+
+        <!-- End Page Container -->
+      </div>
+
+      <footer class="w3-container w3-teal w3-center w3-margin-top">
+        <p>Created by <em>Dharmik Joshi</em></p>
+      </footer>
+    </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

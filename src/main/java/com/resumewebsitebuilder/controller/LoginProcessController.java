@@ -29,7 +29,7 @@ public class LoginProcessController {
 		if( userRepository.checkCredentials(username, password)!=null ) {
 			Long userId = userRepository.getUserId(username, password);
 			session.setAttribute("userId", userId);
-			return "redirect:/template";
+			return "redirect:/dashboard";
 		}else {
 			return "redirect:/";
 		}

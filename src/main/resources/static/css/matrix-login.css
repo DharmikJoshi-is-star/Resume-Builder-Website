@@ -65,3 +65,31 @@ body { background-color:#2E363F;    padding: 0;    margin-top:10%;}
 #loginbox{ width:90%}
 #loginbox .control-group{ padding:8px 0; margin-bottom:0px;}
 }
+
+
+#signupbox {    width: 32%;    margin-left: auto;    margin-right: auto;    position: relative;}
+#signupbox { overflow: hidden !important;    text-align: left;    position: relative; }
+#signupbox form{ width:100%; background:#2E363F; position:relative; top:0; left:0; }
+#signupbox .form-actions { padding: 14px 20px 15px;}
+#signupbox .form-actions .pull-left { margin-top:0px;}
+#signupbox form#emailform { z-index: 200; display:block;}
+#signupbox form#signupform { z-index: 100;     display:none;}
+#signupbox form#signupform .form-actions {    margin-top: 10px;}
+#signupbox form#siteform { z-index: 100;     display:none;}
+#signupbox form#siteform .form-actions {    margin-top: 10px;}
+#signupbox .main_input_box { margin:0 auto; text-align:center; font-size:13px;}
+#signupbox .main_input_box .add-on{  padding:9px 9px; *line-height:31px; vertical-align:top; color:#fff;  width:30px; display:inline-block;}
+#signupbox .main_input_box input{ height:30px; vertical-align:top; border:0px; display:inline-block; width:75%; line-height:22px;  margin-bottom:3px;}
+#signupbox .controls{ padding:0 20px;}
+#signupbox .control-group{ padding:20px 0; margin-bottom:0px;}
+.form-vertical, .form-actions {  margin-bottom: 0; background:none; border-top:1px solid #3f4954; }
+#signupbox .normal_text{ padding:15px 10px; text-align:center; font-size:14px; line-height:20px; background:#2E363F; color:#fff; }
+@media (max-width:800px){
+#logo { width: 60%; }
+#signupbox{ width:80%}
+}
+@media (max-width: 480px){
+#logo { width: 40%; }
+#signupbox{ width:90%}
+#signupbox .control-group{ padding:8px 0; margin-bottom:0px;}
+}

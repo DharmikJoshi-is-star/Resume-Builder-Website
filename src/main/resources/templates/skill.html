@@ -23,18 +23,16 @@
       type="text/css"
     />
 
-	 <link
-	      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
-	      rel="stylesheet"
-	      type="text/css"
-	    />
-    
+    <link
+      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    
+
     <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
-    
-      </head>
+  </head>
   <body onload="onLoadPopulate()">
     <!--Header-part-->
     <div id="header">
@@ -76,7 +74,7 @@
           >
         </li>
         <li class="">
-          <a title="" href="login.html"
+          <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
             <span class="text">Logout</span></a
           >
@@ -91,12 +89,17 @@
         ><i class="fas fa-sitemap"></i> Skiils
       </a>
       <ul>
+      	<li>
+          <a href="dashboard">
+            <i class="icon-dashboard"></i><span>Dashboard</span></a
+          >
+        </li>
         <li>
           <a href="template">
             <i class="fas fa-sitemap"></i><span>Template</span></a
           >
         </li>
-        <li  class="submenu">
+        <li class="submenu">
           <a href="#"
             ><i class="icon icon-th-list"></i> <span>General</span>
             <!-- <span class="label label-important">4</span> -->
@@ -113,31 +116,27 @@
 
         <li>
           <a href="education"
-            ><i class="fa fa-graduation-cap"> </i><span>Education</span>
+            ><i class="fas fa-book"> </i><span>Education</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-            >
+          </a>
         </li>
 
         <li class="active">
           <a href="skill">
             <i class="fas fa-pencil-ruler"></i> <span>Skills</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-          >
+          </a>
         </li>
 
         <li>
           <a href="work">
             <i class="fas fa-briefcase"></i> <span>Work Experience</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-          >
+          </a>
         </li>
       </ul>
     </div>
     <!--sidebar-menu-->
-
 
     <!--main-container-part-->
     <div id="content">
@@ -149,7 +148,10 @@
             skills
           </a>
         </div>
-        <h1>Apart from your academics what additional skills would you like to display?</h1>
+        <h1>
+          Apart from your academics what additional skills would you like to
+          display?
+        </h1>
       </div>
       <!--End-breadcrumbs-->
 
@@ -173,8 +175,21 @@
                 <h3>Tools/Technical Skill</h3>
               </div>
               <div class="modal-body">
-                <form action="javascript:void(0);" onsubmit="technicalSkillFormProcess()" method="get" id="technicalSkillForm" name="technicalSkillForm"  class="form-horizontal">
-                  <input type="hidden" id="technicalSkillId" name="technicalSkillId" value="0">
+                <form
+                  action="javascript:void(0);"
+                  onsubmit="technicalSkillFormProcess()"
+                  method="get"
+                  id="technicalSkillForm"
+                  name="technicalSkillForm"
+                  class="form-horizontal"
+                >
+                  <input
+                    type="hidden"
+                    id="technicalSkillId"
+                    name="technicalSkillId"
+                    value="0"
+                  />
+                  <input type="hidden" name="view" id="view" value="true">
                   <div class="control-group">
                     <label class="control-label">Add Skill :</label>
                     <div class="controls">
@@ -203,7 +218,7 @@
 
             <div class="widget-box">
               <div class="widget-title bg_lo" data-toggle="collapse">
-                <span class="icon"> <i class='fas fa-pencil-ruler'></i> </span>
+                <span class="icon"> <i class="fas fa-pencil-ruler"></i> </span>
                 <h5>Your Tools/Technical Skill</h5>
               </div>
               <div
@@ -247,7 +262,7 @@
                 </div>
               </div>
             </div>
-            <hr>
+            <hr />
           </div>
 
           <div class="span6">
@@ -267,8 +282,21 @@
                 <h3>Other Skill</h3>
               </div>
               <div class="modal-body">
-                <form action="javascript:void(0);" method="get" id="otherSkillForm" name="otherSkillForm" onsubmit="otherSkillInformationForm()" class="form-horizontal">
-                  <input type="hidden" value="0" name="otherSkillId" id="otherSkillId">
+                <form
+                  action="javascript:void(0);"
+                  method="get"
+                  id="otherSkillForm"
+                  name="otherSkillForm"
+                  onsubmit="otherSkillInformationForm()"
+                  class="form-horizontal"
+                >
+                  <input
+                    type="hidden"
+                    value="0"
+                    name="otherSkillId"
+                    id="otherSkillId"
+                  />
+                  <input type="hidden" name="view" id="view" value="true">
                   <div class="control-group">
                     <label class="control-label">Add Skill :</label>
                     <div class="controls">
@@ -297,7 +325,7 @@
 
             <div class="widget-box">
               <div class="widget-title bg_lo" data-toggle="collapse">
-                <span class="icon"> <i class='fas fa-street-view'></i> </span>
+                <span class="icon"> <i class="fas fa-street-view"></i> </span>
                 <h5>Your Other Skills</h5>
               </div>
               <div
@@ -340,13 +368,13 @@
                 </div>
               </div>
             </div>
-            <hr>
+            <hr />
           </div>
         </div>
       </div>
       <!--End-breadcrumbs-->
     </div>
-   <!--Footer-part-->
+    <!--Footer-part-->
 
     <div class="row-fluid">
       <div id="footer" class="span12">
@@ -355,10 +383,10 @@
       </div>
     </div>
 
-	<input type="hidden" th:value="${userId}" id="uId">
-    
+    <input type="hidden" th:value="${userId}" id="uId" />
+
     <!--end-Footer-part-->
-    
+
     <!--functionality-->
     <script src="js/functionality/skills.js"></script>
 
@@ -386,7 +414,6 @@
     <script src="js/bootstrap-datepicker.js"></script>
 
     <script type="text/javascript">
-    
       // This function is called from the pop-up menus to transfer to
       // a different page. Ignore if the value returned is a null string:
       function goPage(newURL) {

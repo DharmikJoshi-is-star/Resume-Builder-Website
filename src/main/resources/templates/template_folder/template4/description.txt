@@ -1,0 +1,8 @@
+this template will show case your
+personal information
+contact information
+experience( projects )
+experience ( jobinternship/volunteer )
+education (graduation)
+education  (courses)
+education (certifications)

@@ -107,53 +107,63 @@ function onLoadPopulateUserTemplate(){
 }
 
 function setUpOtherTemplate(template){
+	
 
-	var spanDiv = document.createElement("div");
-	spanDiv.classList.add("span3");
 	
-	var cardDiv = document.createElement("div");
-	cardDiv.classList.add("card");
-	cardDiv.style = "width: 18rem;";
-	
-	var templateImg = document.createElement("img");
-	templateImg.classList.add("card-img-top");
-	templateImg.src = "template_resources/image/template1.png";
-	cardDiv.appendChild(templateImg);
-	
-	var cardBodyDiv = document.createElement("div");
-	var title = document.createElement("h5");
-	title.classList.add("card-title");
-	title.innerHTML = "Pure CSS Website";
-	cardBodyDiv.appendChild(title);
-	
-	var para = document.createElement("p");
-	para.classList.add("card-text");
-	para.innerHTML = "single page responsive website";
-	cardBodyDiv.appendChild(para);
-	
-	var anchorDemo = document.createElement("a");
-	anchorDemo.classList.add("btn");
-	anchorDemo.classList.add("btn-primary");
-	anchorDemo.appendChild(document.createTextNode("Live Demo"));
-	anchorDemo.href = template.templateName;
-	anchorDemo.target = "_blank";
-	cardBodyDiv.appendChild(anchorDemo);
-	
-	var anchorTry = document.createElement("a");
-	anchorTry.classList.add("btn");
-	anchorTry.classList.add("btn-success");
-	anchorTry.appendChild(document.createTextNode("Try"));
-	anchorTry.href = "#";
-	anchorTry.onclick = function(){
+  var article = document.createElement("article");
+
+  var image = document.createElement("img");
+  image.src = template.imagePath;
+  image.alt = template.templateName;
+  article.appendChild(image);
+
+  var div = document.createElement("div");
+  div.className = "text";
+
+  var h3 = document.createElement("h3");
+  h3.appendChild(document.createTextNode(template.templateName));
+  div.appendChild(h3);
+
+  var p = document.createElement("p");
+  p.appendChild(document.createTextNode("by"));
+
+  var creater = document.createElement("a");
+  creater.href = "javascript:void(0);";
+  creater.appendChild(document.createTextNode("Dharmik Joshi"));
+  p.appendChild(creater);
+
+  p.appendChild(document.createElement("br"));
+  
+  div.appendChild(p);
+
+  var pdescription = document.createElement("p");
+  p.appendChild(document.createTextNode(template.description));
+  div.appendChild(pdescription);
+
+  var demo = document.createElement("a");
+  demo.target = "_blank";
+  demo.href = template.demoPath;
+  demo.classList.add("btn");
+  demo.classList.add("btn-primary");
+  demo.classList.add("btn-block");
+  demo.appendChild(document.createTextNode("demo"));
+  div.appendChild(demo);
+  
+  var trylink = document.createElement("a");
+  trylink.href = "javascript:void(0);";
+  trylink.classList.add("btn");
+  trylink.classList.add("btn-success");
+  trylink.classList.add("btn-block");
+  trylink.appendChild(document.createTextNode("try"));
+  trylink.onclick = function(){
 		saveTemplate(template.id);
 	};
-	cardBodyDiv.appendChild(anchorTry);
+  div.appendChild(trylink);
+
+  article.appendChild(div);
+
+  document.getElementById("otherTemplate").appendChild(article);
 	
-	cardDiv.appendChild(cardBodyDiv);
-	
-	spanDiv.appendChild(cardDiv);
-	
-	document.getElementById("otherTemplate").appendChild(spanDiv);
 }
 
 function saveTemplate(templateId){
@@ -188,51 +198,40 @@ function setUpTemplateForUser(template){
 		document.getElementById("userTemplateId").remove();
 	}
 	
-	var spanDiv = document.createElement("div");
-	spanDiv.classList.add("span3");
-	spanDiv.id = "userTemplateId";
+	var article = document.createElement("article");
+	article.id = "userTemplateId";
 	
-	var cardDiv = document.createElement("div");
-	cardDiv.classList.add("card");
-	cardDiv.style = "width: 18rem;";
+	  var image = document.createElement("img");
+	  image.src = template.imagePath;
+	  image.alt = template.templateName;
+	  article.appendChild(image);
+
+	  var div = document.createElement("div");
+	  div.className = "text";
+
+	  var h3 = document.createElement("h3");
+	  h3.appendChild(document.createTextNode(template.templateName));
+	  div.appendChild(h3);
+
+	  var p = document.createElement("p");
+	  p.appendChild(document.createTextNode("by"));
+
+	  var creater = document.createElement("a");
+	  creater.href = "javascript:void(0);";
+	  creater.appendChild(document.createTextNode("Dharmik Joshi"));
+	  p.appendChild(creater);
+
+	  p.appendChild(document.createElement("br"));
+	  
+	  div.appendChild(p);
+
+	  var pdescription = document.createElement("p");
+	  p.appendChild(document.createTextNode(template.description));
+	  div.appendChild(pdescription);
+
+	  article.appendChild(div);
 	
-	var templateImg = document.createElement("img");
-	templateImg.classList.add("card-img-top");
-	templateImg.src = "template_resources/image/template1.png";
-	cardDiv.appendChild(templateImg);
-	
-	var cardBodyDiv = document.createElement("div");
-	var title = document.createElement("h5");
-	title.classList.add("card-title");
-	title.innerHTML = "Pure CSS Website";
-	cardBodyDiv.appendChild(title);
-	
-	var para = document.createElement("p");
-	para.classList.add("card-text");
-	para.innerHTML = "single page responsive website";
-	cardBodyDiv.appendChild(para);
-	
-	var anchorDemo = document.createElement("a");
-	anchorDemo.classList.add("btn");
-	anchorDemo.classList.add("btn-primary");
-	anchorDemo.appendChild(document.createTextNode("Live Demo"));
-	anchorDemo.href = template.templateName;
-	anchorDemo.target = "_blank";
-	cardBodyDiv.appendChild(anchorDemo);
-	
-	var anchorTry = document.createElement("a");
-	anchorTry.classList.add("btn");
-	anchorTry.classList.add("btn-success");
-	anchorTry.appendChild(document.createTextNode("Try"));
-	anchorTry.href = "#";
-	cardBodyDiv.appendChild(anchorTry);
-	
-	cardDiv.appendChild(cardBodyDiv);
-	
-	spanDiv.appendChild(cardDiv);
-	alert("hello3");
-	//document.getElementById("userTemplateId").remove();
-	document.getElementById("userTemplate").append(spanDiv);
+	document.getElementById("userTemplate").append(article);
 }
 
 function populateUrl(){

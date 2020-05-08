@@ -10,9 +10,7 @@ public class ProjectService {
 
 	private BlobToBase64EncoderAndDecoder converter = new BlobToBase64EncoderAndDecoder();
 	
-	public Project FrontEndProjectToBackEndProject( FrontEndProject frontEndProject ) throws IOException{
-		
-		Project project = new Project();
+	public Project FrontEndProjectToBackEndProject( FrontEndProject frontEndProject, Project project  ) throws IOException{
 		
 		project.setId( frontEndProject.getId() );
 		project.setName( frontEndProject.getName() );
@@ -27,6 +25,7 @@ public class ProjectService {
 		project.setTypeOfAttachment( frontEndProject.getTypeOfAttachment() );
 		project.setProjectUrl( frontEndProject.getProjectUrl() );
 		project.setSourceUrl( frontEndProject.getSourceUrl() );
+		//project.setView( frontEndProject.getView() );
 		
 		return project;
 	}
@@ -48,6 +47,7 @@ public class ProjectService {
 		frontEndProject.setTypeOfAttachment( project.getTypeOfAttachment() );
 		frontEndProject.setProjectUrl( project.getProjectUrl() );
 		frontEndProject.setSourceUrl( project.getSourceUrl() );
+		frontEndProject.setView( project.getView() );
 		
 		return frontEndProject;
 	}

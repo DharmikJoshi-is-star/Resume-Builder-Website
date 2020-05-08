@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/template_resources/template1/css/index.css">
+		<title th:text=${user.name}></title>
+
+		
+        </head>
+        <body>
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-default navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#" th:text=${user.name}></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li id="nav-about"><a href="#about">About</a></li>
+                    <li id="nav-portfolio"><a href="#project">Project</a></li>
+                    <li id="nav-contact"><a href="#contact">Contact</a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+        
+            <!-- Begin page content -->
+            <div class="container-fluid">
+              
+              <div class="row cover top">
+                <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-12 headline">
+                      <h1 class="text-center">Hi, I'm <span th:text="${user.personalInformation.name}"></span></h1>
+                      <p class="lead text-center"  th:text="${user.personalInformation.title}"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 center-block text-center">
+                      <a href="#about"><span id="scrollIcon" class="front-glyph glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              <div id="about" class="row cover">
+                <h2 class="text-center">About Me</h2>
+                <div class="row">
+                  <div class="col-md-6 text-center about-info">
+                    <img class="img-circle text-center profile-img" th:src="${user.personalInformation.picture}">
+                    <p class="text-center" th:text="${user.personalInformation.summary}"></p>
+                  </div>
+                  <div class="col-md-6 about-tools">
+                    <p class="text-center">Some of my skills</p>
+                      <div class="col-xs-6">
+                        <ul>
+                          <li th:each="technicalSkill: ${user.technicalSkills}">
+                          	<span th:text="${technicalSkill.name}">
+						    </span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-xs-6">
+                        <ul>
+                          <li th:each="otherSkill: ${user.otherSkills}">
+							<span th:text="${otherSkill.name}">
+							</span>
+						  </li>
+                        </ul>
+                      </div>
+                    
+                  </div>
+                  <div class="row break">
+                    <div class="col-md-6 about-last">
+                      <p class="text-center">Check out my latest projects <span class="glyphicon glyphicon-arrow-down"></span></p>
+                    </div>
+                  </div>
+                </div> 
+              </div><!-- End #About -->
+        
+              <div id="project" class="row cover">
+                <h2 class="text-center">Project</h2>
+                <div class="container">
+                  <div class="row portfolio-projects"> <!-- Two project row-->
+                  
+                  	 <div class="col-lg-6" th:each="project: ${user.projects}"> <!--1st side project -->
+                      <div class="row"> 
+                        <div class="col-sm-5 text-center">
+                          <h4 class="portfolio-projects--title" th:text="${project.name}"></h4>
+                          <p class="portfolio-projects--desc" th:text="${project.description}"></p>
+                          <p class="portfolio-projects--desc" th:text="${project.company}"></p>
+                          <a class="btn btn-rounded portfolio-projects--btn" th:href="${project.projectUrl}" role="button">View Project</a>
+                          <a class="btn btn-rounded portfolio-projects--btn" th:href="${project.sourceUrl}" role="button">View Source</a>
+                        </div>
+                        <div class="col-sm-7 text-center">
+                          <img class="portfolio-projects--image" th:src="${project.attachment}">
+                        </div>
+                      </div>
+                    </div>
+                  
+                  
+                  </div><!--end Opposite Two project row-->
+        
+                </div>
+                </div>
+              </div><!-- End #Portfolio -->
+        
+              <div id="contact" class="row cover bottom">
+                <h2 class="text-center contact-header">Contact Me</h2>
+                <p class="text-center contact-email">Get in touch with me <span class="glyphicon glyphicon-arrow-right"></span> <span th:text="${user.contactInformation.mail}"></span></p>
+                <div class="text-center contact-social-icons">
+                  <p>Or find me on:</p>
+                  <ul class="centered">
+                    <a th:href="${user.socialInformation.facebookUrl}"><li><i class="fa fa-facebook"></i> Facebook</li></a>
+                    <a th:href="${user.socialInformation.linkedinUrl}"><li><i class="fa fa-linkedin-square"></i> LinkedIn</li></a>
+                    <a th:href="${user.socialInformation.githubUrl}"><li><i class="fa fa-github"></i> Github</li></a>
+                    <a th:href="${user.socialInformation.instagramUrl}"><li><i class="fa fa-instagram"></i>Instagram</li></a>
+                    <a th:href="${user.socialInformation.googleUrl}"><li><i class="fa fa-google"></i> google+</li></a>
+                   
+                  </ul>
+                </p>
+                
+              </div><!-- End #Contact -->
+        
+            </div>
+        
+            <footer class="footer">
+              <div class="container">
+              </div>
+            </footer>
+        
+          </body>
+
+          <script src="/template_resources/template1/js/index.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/jquery.scrollto/2.1.0/jquery.scrollTo.min.js"></script>
+	
+	
+</html>

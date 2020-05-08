@@ -70,6 +70,12 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 	@Query("select user from User user where user.websiteUrl.url=?1")
 	User getUserIdFromuserUserUrl(String url);
+
+	@Query("Select user from User user where user.username=?1")
+	User checkIfUsernameExists(String username);
+
+	@Query("Select user from User user where user.mail=?1")
+	User checkIfMailExists(String mail);
 	
 	
 }

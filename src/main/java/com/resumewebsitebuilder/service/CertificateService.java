@@ -10,9 +10,7 @@ public class CertificateService {
 
 	private BlobToBase64EncoderAndDecoder converter = new BlobToBase64EncoderAndDecoder();
 	
-	public Certification convertFrontEndCertificateToBackEndCertificate(FrontEndCertificate frontEndCertificate) throws IOException {
-		
-		Certification certification = new Certification();
+	public Certification convertFrontEndCertificateToBackEndCertificate(FrontEndCertificate frontEndCertificate, Certification certification) throws IOException {
 		
 		certification.setId( frontEndCertificate.getId() );
 		certification.setTitle( frontEndCertificate.getTitle() );
@@ -22,6 +20,7 @@ public class CertificateService {
 		certification.setAttachment( converter.convertBase64ToBlob(frontEndCertificate.getAttachment().toString(), frontEndCertificate.getTypeOfAttachment()) );
 		certification.setTypeOfAttachment( frontEndCertificate.getTypeOfAttachment() );
 		certification.setUrl( frontEndCertificate.getUrl() );
+		//certification.setView( frontEndCertificate.getView() );
 		
 		return certification;
 	}
@@ -38,6 +37,7 @@ public class CertificateService {
 		frontEndCertificate.setAttachment( converter.convertBlobToBase64(certification.getAttachment()) );
 		frontEndCertificate.setTypeOfAttachment( certification.getTypeOfAttachment() );
 		frontEndCertificate.setUrl( certification.getUrl() );
+		frontEndCertificate.setView( certification.getView() );
 		
 		return frontEndCertificate;
 	}

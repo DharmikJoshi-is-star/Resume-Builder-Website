@@ -1,0 +1,74 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.brand h1 {
+  font-weight: 700;
+}
+
+h2 {
+  margin-bottom: 4rem;
+}
+
+.main.main-raised {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.experience-section {
+  margin: 4rem auto;
+}
+
+.experience-section h3 {
+  font-weight: bold;
+}
+
+.page-header {
+  background-image: url("https://images.unsplash.com/photo-1470219556762-1771e7f9427d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.card {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.padded-hr {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.hr-sect {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  margin: 4rem auto;
+}
+
+.hr-sect::before,
+.hr-sect::after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 8px;
+}
+
+#scrollBtn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 3rem;
+  border-radius: 2.5rem;
+}
+
+@media (max-width: 830px) {
+  #scrollBtn {
+    margin: 1.5rem;
+  }
+}

@@ -14,6 +14,14 @@ public class Template {
 	
 	private String templateName;
 
+	private String description;
+	
+	private String demoPath;
+	
+	private String livePath;
+	
+	private String imagePath;
+	
 	public Long getId() {
 		return id;
 	}
@@ -28,6 +36,38 @@ public class Template {
 
 	public void setTemplateName(String templateName) {
 		this.templateName = templateName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getDemoPath() {
+		return demoPath;
+	}
+
+	public void setDemoPath(String demoPath) {
+		this.demoPath = demoPath;
+	}
+
+	public String getLivePath() {
+		return livePath;
+	}
+
+	public void setLivePath(String livePath) {
+		this.livePath = livePath;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
 	

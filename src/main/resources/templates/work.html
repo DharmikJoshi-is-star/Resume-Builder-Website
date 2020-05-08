@@ -21,19 +21,16 @@
       rel="stylesheet"
       type="text/css"
     />
-    
+
     <link
       href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
       rel="stylesheet"
       type="text/css"
     />
-    
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    
+
     <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
-    
-    
   </head>
   <body onload="onLoadPopulate()">
     <!--Header-part-->
@@ -76,7 +73,7 @@
           >
         </li>
         <li class="">
-          <a title="" href="login.html"
+          <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
             <span class="text">Logout</span></a
           >
@@ -85,13 +82,17 @@
     </div>
     <!--close-top-Header-menu-->
 
-    
     <!--sidebar-menu-->
     <div id="sidebar">
       <a href="work" class="visible-phone"
         ><i class="fas fa-sitemap"></i> Work Experience
       </a>
       <ul>
+      	<li>
+          <a href="dashboard">
+            <i class="icon-dashboard"></i><span>Dashboard</span></a
+          >
+        </li>
         <li>
           <a href="template">
             <i class="fas fa-sitemap"></i><span>Template</span></a
@@ -114,681 +115,891 @@
 
         <li>
           <a href="education"
-            ><i class="fa fa-graduation-cap"> </i><span>Education</span>
+            ><i class="fas fa-book"> </i><span>Education</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-            >
+          </a>
         </li>
 
         <li>
           <a href="skill">
             <i class="fas fa-pencil-ruler"></i> <span>Skills</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-          >
+          </a>
         </li>
 
         <li class="active">
           <a href="work">
             <i class="fas fa-briefcase"></i> <span>Work Experience</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-          >
+          </a>
         </li>
       </ul>
     </div>
     <!--sidebar-menu-->
     <!--main-container-part-->
     <div id="content">
-      
-        <!--breadcrumbs-->
-        <div id="content-header">
-          <div id="breadcrumb">
-            <a href="work" title="Go to General" class="tip-bottom">
-                <i class="fas fa-briefcase"></i>
-              Work Experience
-            </a>
-          </div>
-          <h1> What's your most recent work experience?</h1>
+      <!--breadcrumbs-->
+      <div id="content-header">
+        <div id="breadcrumb">
+          <a href="work" title="Go to General" class="tip-bottom">
+            <i class="fas fa-briefcase"></i>
+            Work Experience
+          </a>
         </div>
-        <!--End-breadcrumbs-->
+        <h1>What's your most recent work experience?</h1>
+      </div>
+      <!--End-breadcrumbs-->
 
-        <div class="container-fluid">
-          <hr>
+      <div class="container-fluid">
+        <hr />
 
-          <div class="row-fluid">
+        <div class="row-fluid">
+          <div class="span4">
+            <button
+              class="btn btn-info btn-large"
+              style="border-radius: 25px;"
+              data-toggle="modal"
+              href="#jobForm"
+              id="addJob"
+            >
+              + Add Job/Internship
+            </button>
 
-            <div class="span4">
-
-                <button class="btn btn-info btn-large" style="border-radius: 25px;" data-toggle="modal" href="#jobForm" id="addJob"> + Add Job/Internship</button>
-               
-                <div id="jobForm" class="modal hide">
-                    <div class="modal-header">
-                      <button data-dismiss="modal" class="close" id="modalJobInternship" type="button">×</button>
-                      <h3>Job/Internship Detail</h3>
-                    </div>
-                    <div class="modal-body">
-                        <form action="javascript:void(0);" method="get" name="jobInternshipInformationForm" id="jobInternshipInformationForm" onsubmit="jobInternshipFormProcess()" class="form-horizontal">
-                            <input type="hidden" id="jobId" name="jobId" value="0">
-                            <div class="control-group">
-                                <label class="control-label">Title :</label>
-                                <div class="controls">
-                                  <input type="text" id="jobInternshipTitle" name="jobInternshipTitle" required class="span11" placeholder="e.g. Product Manager">
-                                </div>
-                              </div>
-
-                            <div class="control-group">
-                              <label class="control-label">Company / Organization Name :</label>
-                              <div class="controls">
-                                <input type="text" id="jobInternshipCompanyName" required name="jobInternshipCompanyName" class="span11" placeholder="e.g. ORACLE">
-                              </div>
-                            </div>
-                            
-                            <div class="control-group">
-                              <label class="control-label">Country: </label>
-                              <div class="controls">
-                                 <select id="jobInternshipCountry" name="jobInternshipCountry">
-                                  <option value="India">India</option>
-                                  <option value="USA">USA</option>
-                                </select>
-                              </div>
-                            </div>
-
-                            <div class="control-group">
-                              <label class="control-label">State/Province : </label>
-                              <div class="controls">
-                                 <select id="jobInternshipState" name="jobInternshipState" >
-                                  <option value="Maharashtra">Maharashtra</option>
-                                  <option value="Pune">Pune</option>
-                                </select>
-                              </div>
-                            </div>
-
-                            <div class="control-group">
-                              <label class="control-label">City : </label>
-                              <div class="controls">
-                                 <select id="jobInternshipCity" name="jobInternshipCity" >
-                                  <option value="Mumbai">Mumbai</option>
-                                  <option value="New york">New york</option>
-                                </select>
-                              </div>
-                            </div>
-
-                            <div class="control-group">
-                              <label class="control-label">Start Month : </label>
-                              <div class="controls">
-                                 <select class="span4 m-wrap" id="jobInternshipStartMonth" name="jobInternshipStartMonth">
-                                  <option value="January">January</option>
-                                  <option value="February">February</option>
-                                  <option value="March">March</option>
-                                  <option value="January">April</option>
-                                  <option value="April">May</option>
-                                  <option value="June">June</option>
-                                  <option value="July">July</option>
-                                  <option value="Augest">Augest</option>
-                                  <option value="September">September</option>
-                                  <option value="October">October</option>
-                                  <option value="November">November</option>
-                                  <option value="December">December</option>
-                                </select>
-                              </div>
-                           
-                              <label class="control-label">Start Year : </label>
-                              <div class="controls">
-                                 <select class="span3 m-wrap" id="jobInternshipStartYear" name="jobInternshipStartYear">
-                                  <option value="2020">2020</option>
-                                  <option value="2019">2019</option>
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                </select>
-                              </div>
-                            </div>
-
-                            <div class="control-group">
-                                
-                                <div class="controls">
-                                  <label>
-                                    <input type="checkbox" id="jobInternshipCurrentStatus"/>
-                                    I currently work here</label>
-
-                                </div>
-                              </div>
-
-                            <div class="control-group">
-                                <label class="control-label">End Month : </label>
-                                <div class="controls">
-                                   <select class="span4 m-wrap" id="jobInternshipEndMonth" name="jobInternshipEndMonth">
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
-                                    <option value="March">March</option>
-                                    <option value="January">April</option>
-                                    <option value="April">May</option>
-                                    <option value="June">June</option>
-                                    <option value="July">July</option>
-                                    <option value="Augest">Augest</option>
-                                    <option value="September">September</option>
-                                    <option value="October">October</option>
-                                    <option value="November">November</option>
-                                    <option value="December">December</option>
-                                  </select>
-                                </div>
-                              
-                                <label class="control-label" >End Year : </label>
-                                <div class="controls">
-                                   <select class="span3 m-wrap"  id="jobInternshipEndYear" name="jobInternshipEndYear">
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2010">2010</option>
-                                    <option value="2009">2009</option>
-                                    <option value="2008">2008</option>
-                                    <option value="2007">2007</option>
-                                  </select>
-                                </div>
-                              </div>
-
-                              <div class="control-group">
-                                <label class="control-label">Describe your work: </label>
-                                <div class="controls">
-                                  <textarea
-                                    class="span11"
-                                    placeholder="Ex. Worked on Web applications, Chatbot, Scrapping tool and API integration"
-                                    name="jobInternshipDescription"
-                                    id="jobInternshipDescription"
-                                    required
-                                    ></textarea>
-                                </div>
-                              </div>
-
-                              <div class="control-group">
-                                <label class="control-label">Add or link to external documents, photos, sites, videos, and presentations: </label>
-                                <div class="controls">
-                                  <input type="file" name="jobInternshipFile" id="jobInternshipFile" />
-                                  <input type="hidden" name="jobInternshipAttachment" id="jobInternshipAttachment" />
-                                  <input type="hidden" name="jobInternshipTypeOfAttachment" id="jobInternshipTypeOfAttachment" />
-                                </div>
-                              </div>
-                              
-                              
-                            <div class="control-group">
-                              <div class="controls">
-                                  <button type="submit" class="btn btn-success btn-large">Save</button>
-                                </div>
-                            </div>
-
-                          </form>
-                    </div>
-                    <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#" >Cancel</a> </div>
-                </div>
-
-                <div class="widget-box">
-                    <div
-                      class="widget-title bg_lo"
-                      data-toggle="collapse"
-                      
-                    >
-                      <span class="icon">  <i class="fas fa-briefcase"></i> </span>
-                      <h5>Job Experince</h5>
-                    </div>
-                    <div
-                      class="widget-content nopadding updates collapse in"
-                      id="jobContainer"
-                    >
-                            <div class="new-update clearfix">
-                              <i class="icon-ok-sign"></i>
-                              <div class="update-done">
-                                <a title="" href="#"
-                                  ><strong
-                                    >Product Manager</strong
-                                  ></a
-                                >
-                                <span>ORACLE</span>
-                                <span>( June 2010 - June 2012 )</span>
-                                <span>Worked on Web applications, Chatbot, Scrapping tool and API integration</span>
-                              </div>
-                              <div class="update-date">
-                                <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
-                                
-                              </div>
-                            </div>
-                      
+            <div id="jobForm" class="modal hide">
+              <div class="modal-header">
+                <button
+                  data-dismiss="modal"
+                  class="close"
+                  id="modalJobInternship"
+                  type="button"
+                >
+                  ×
+                </button>
+                <h3>Job/Internship Detail</h3>
+              </div>
+              <div class="modal-body">
+                <form
+                  action="javascript:void(0);"
+                  method="get"
+                  name="jobInternshipInformationForm"
+                  id="jobInternshipInformationForm"
+                  onsubmit="jobInternshipFormProcess()"
+                  class="form-horizontal"
+                >
+                  <input type="hidden" id="jobId" name="jobId" value="0" />
+                  <input type="hidden" name="view" id="view" value="true">
+                  <div class="control-group">
+                    <label class="control-label">Title :</label>
+                    <div class="controls">
+                      <input
+                        type="text"
+                        id="jobInternshipTitle"
+                        name="jobInternshipTitle"
+                        required
+                        class="span11"
+                        placeholder="e.g. Product Manager"
+                      />
                     </div>
                   </div>
-                  <hr>
+
+                  <div class="control-group">
+                    <label class="control-label"
+                      >Company / Organization Name :</label
+                    >
+                    <div class="controls">
+                      <input
+                        type="text"
+                        id="jobInternshipCompanyName"
+                        required
+                        name="jobInternshipCompanyName"
+                        class="span11"
+                        placeholder="e.g. ORACLE"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Country: </label>
+                    <div class="controls">
+                      <select
+                        id="jobInternshipCountry"
+                        name="jobInternshipCountry"
+                      >
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">State/Province : </label>
+                    <div class="controls">
+                      <select id="jobInternshipState" name="jobInternshipState">
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Pune">Pune</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">City : </label>
+                    <div class="controls">
+                      <select id="jobInternshipCity" name="jobInternshipCity">
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="New york">New york</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Start Month : </label>
+                    <div class="controls">
+                      <select
+                        class="span4 m-wrap"
+                        id="jobInternshipStartMonth"
+                        name="jobInternshipStartMonth"
+                      >
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="January">April</option>
+                        <option value="April">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="Augest">Augest</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                    </div>
+
+                    <label class="control-label">Start Year : </label>
+                    <div class="controls">
+                      <select
+                        class="span3 m-wrap"
+                        id="jobInternshipStartYear"
+                        name="jobInternshipStartYear"
+                      >
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <div class="controls">
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="jobInternshipCurrentStatus"
+                        />
+                        I currently work here</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">End Month : </label>
+                    <div class="controls">
+                      <select
+                        class="span4 m-wrap"
+                        id="jobInternshipEndMonth"
+                        name="jobInternshipEndMonth"
+                      >
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="January">April</option>
+                        <option value="April">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="Augest">Augest</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                    </div>
+
+                    <label class="control-label">End Year : </label>
+                    <div class="controls">
+                      <select
+                        class="span3 m-wrap"
+                        id="jobInternshipEndYear"
+                        name="jobInternshipEndYear"
+                      >
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Describe your work: </label>
+                    <div class="controls">
+                      <textarea
+                        class="span11"
+                        placeholder="Ex. Worked on Web applications, Chatbot, Scrapping tool and API integration"
+                        name="jobInternshipDescription"
+                        id="jobInternshipDescription"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label"
+                      >Add or link to external documents, photos, sites, videos,
+                      and presentations:
+                    </label>
+                    <div class="controls">
+                      <input
+                        type="file"
+                        name="jobInternshipFile"
+                        id="jobInternshipFile"
+                      />
+                      <input
+                        type="hidden"
+                        name="jobInternshipAttachment"
+                        id="jobInternshipAttachment"
+                      />
+                      <input
+                        type="hidden"
+                        name="jobInternshipTypeOfAttachment"
+                        id="jobInternshipTypeOfAttachment"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn btn-success btn-large">
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a data-dismiss="modal" class="btn" href="#">Cancel</a>
+              </div>
+            </div>
+
+            <div class="widget-box">
+              <div class="widget-title bg_lo" data-toggle="collapse">
+                <span class="icon"> <i class="fas fa-briefcase"></i> </span>
+                <h5>Job Experience</h5>
+              </div>
+              <div
+                class="widget-content nopadding updates collapse in"
+                id="jobContainer"
+              >
+                <div class="new-update clearfix">
+                  <i class="icon-ok-sign"></i>
+                  <div class="update-done">
+                    <a title="" href="#"><strong>Product Manager</strong></a>
+                    <span>ORACLE</span>
+                    <span>( June 2010 - June 2012 )</span>
+                    <span
+                      >Worked on Web applications, Chatbot, Scrapping tool and
+                      API integration</span
+                    >
+                  </div>
+                  <div class="update-date">
+                    <span class="update-day"
+                      ><i class="icon icon-edit"></i>
+                      <i class="icon icon-trash"></i>
+                    </span>
+                  </div>
                 </div>
-          
-
-                
-                <div class="span4">
-
-                    <button class="btn btn-info btn-large" style="border-radius: 25px;" data-toggle="modal" href="#volunteerForm" id="addVolunteer"> + Add volunteer experience</button>
-                   
-                    <div id="volunteerForm" class="modal hide">
-                        <div class="modal-header">
-                          <button data-dismiss="modal" class="close" type="button" id="modalVolunteer">×</button>
-                          <h3>Volunteer Detail</h3>
-                        </div>
-                        <div class="modal-body">
-                            <form action="javascript:void(0);" method="get" name="volunteerInformationForm" id="volunteerInformationForm" onsubmit="volunteerFormProcess()" class="form-horizontal">
-                                <input type="hidden" id="volunteerId" name="volunteerId" value="0">
-                                <div class="control-group">
-                                    <label class="control-label">Role :</label>
-                                    <div class="controls">
-                                      <input type="text" id="volunteerRole" name="volunteerRole" required class="span11" placeholder="e.g. Product Manager">
-                                    </div>
-                                  </div>
-    
-                                <div class="control-group">
-                                  <label class="control-label">Organization Name :</label>
-                                  <div class="controls">
-                                    <input type="text" id="volunteerOrganization" name="volunteerOrganization" required class="span11" placeholder="e.g. ORACLE">
-                                  </div>
-                                </div>
-                                
-                                <div class="control-group">
-                                  <label class="control-label">Start Month : </label>
-                                  <div class="controls">
-                                     <select id="volunteerStartMonth" name="volunteerStartMonth" class="span4 m-wrap">
-                                      <option value="January">January</option>
-                                      <option value="February">February</option>
-                                      <option value="March">March</option>
-                                      <option value="January">April</option>
-                                      <option value="April">May</option>
-                                      <option value="June">June</option>
-                                      <option value="July">July</option>
-                                      <option value="Augest ">Augest</option>
-                                      <option value="September">September</option>
-                                      <option value="October">October</option>
-                                      <option value="November">November</option>
-                                      <option value="December">December</option>
-                                    </select>
-                                  </div>
-                               
-                                  <label class="control-label">Start Year : </label>
-                                  <div class="controls">
-                                     <select id="volunteerStartYear" name="volunteerStartYear" class="span3 m-wrap">
-                                      <option value="2020">2020</option>
-                                      <option value="2019">2019</option>
-                                      <option value="2018">2018</option>
-                                      <option value="2017">2017</option>
-                                      <option value="2016">2016</option>
-                                      <option value="2015">2015</option>
-                                      <option value="2014">2014</option>
-                                      <option value="2013">2013</option>
-                                      <option value="2012">2012</option>
-                                      <option value="2011">2011</option>
-                                      <option value="2010">2010</option>
-                                      <option value="2009">2009</option>
-                                      <option value="2008">2008</option>
-                                      <option value="2007">2007</option>
-                                    </select>
-                                  </div>
-                                </div>
-    
-                                <div class="control-group">
-                                    
-                                    <div class="controls">
-                                      <label>
-                                        <input type="checkbox" name="volunteerCurrentStatus" id="volunteerCurrentStatus"/>
-                                        I currently work here</label>
-    
-                                    </div>
-                                  </div>
-
-                                <div class="control-group">
-                                    <label class="control-label">End Month : </label>
-                                    <div class="controls">
-                                       <select id="volunteerEndMonth" name="volunteerEndMonth" class="span4 m-wrap">
-                                        <option value="January">January</option>
-                                        <option value="February">February</option>
-                                        <option value="March">March</option>
-                                        <option value="January">April</option>
-                                        <option value="April">May</option>
-                                        <option value="June">June</option>
-                                        <option value="July">July</option>
-                                        <option value="Augest">Augest</option>
-                                        <option value="September">September</option>
-                                        <option value="October">October</option>
-                                        <option value="November">November</option>
-                                        <option value="December">December</option>
-                                      </select>
-                                    </div>
-                                  
-                                    <label class="control-label" >End Year : </label>
-                                    <div class="controls">
-                                       <select id="volunteerEndYear" name="volunteerEndYear" class="span3 m-wrap">
-                                        <option value="2020">2020</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2014">2014</option>
-                                        <option value="2013">2013</option>
-                                        <option value="2012">2012</option>
-                                        <option value="2011">2011</option>
-                                        <option value="2010">2010</option>
-                                        <option value="2009">2009</option>
-                                        <option value="2008">2008</option>
-                                        <option value="2007">2007</option>
-                                      </select>
-                                    </div>
-                                  </div>
-    
-                                  <div class="control-group">
-                                    <label class="control-label">Describe your work: </label>
-                                    <div class="controls">
-                                      <textarea
-                                        id="volunteerDescription"
-                                        name="volunteerDescription"
-                                        class="span11"
-                                        placeholder="Ex. I raised funds for our annual charity 10K."
-                                        required
-                                        ></textarea>
-                                    </div>
-                                  </div>
-    
-                                  <div class="control-group">
-                                    <label class="control-label">Add or link to external documents, photos, sites, videos, and presentations: </label>
-                                    <div class="controls">
-                                      <input type="file" id="volunteerAttachmentFile" name="volunteerAttachmentFile"/>
-                                      <input type="hidden" id="volunteerAttachment" name="volunteerAttachment"/>
-                                      <input type="hidden" id="volunteerTypeOfAttachment" name="volunteerTypeOfAttachment"/>
-                                    </div>
-                                  </div>
-                                  
-                                <div class="control-group">
-                                  <div class="controls">
-                                      <button type="submit" class="btn btn-success btn-large">Save</button>
-                                    </div>
-                                </div>
-    
-                              </form>
-                        </div>
-                        <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
-                    </div>
-    
-                    <div class="widget-box">
-                        <div
-                          class="widget-title bg_lo"
-                          data-toggle="collapse"
-                          
-                        >
-                          <span class="icon">  <i class="fas fa-ribbon"></i> </span>
-                          <h5>Volunteer Experince</h5>
-                        </div>
-                        <div
-                          class="widget-content nopadding updates collapse in"
-                          id="volunteerContainer"
-                        >
-                          <div class="new-update clearfix">
-                            <i class="icon-ok-sign"></i>
-                            <div class="update-done">
-                              <a title="" href="#"
-                                ><strong
-                                  >Fund raising Volunteer</strong
-                                ></a
-                              >
-                              <span>Robihood Army</span>
-                              <span>( June 2010 - June 2012 )</span>
-                              <span>I raised funds for our annual charity 10K</span>
-                            </div>
-                            <div class="update-date">
-                              <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
-                              
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-                      <hr>
-                    </div>
-              
-          
-                    <div class="span4">
-
-                        <button class="btn btn-info btn-large" style="border-radius: 25px;" data-toggle="modal" href="#projectForm" id="addProject"> + Add Project</button>
-                       
-                        <div id="projectForm" class="modal hide">
-                            <div class="modal-header">
-                              <button data-dismiss="modal" class="close" id="modalProject" type="button">×</button>
-                              <h3>Project Detail</h3>
-                            </div>
-                            <div class="modal-body">
-                                <form action="javascript:void(0);" method="get" id="projectInformationForm" name="projectInformationForm" onsubmit="projectFormProcess()" class="form-horizontal">
-                                    <input type="hidden" id="projectId" name="projectId">
-                                    <div class="control-group">
-                                        <label class="control-label">Project name:</label>
-                                        <div class="controls">
-                                          <input type="text" id="projectName" name="projectName" class="span11" placeholder="e.g. Product Manager">
-                                        </div>
-                                      </div>
-        
-                                    <div class="control-group">
-                                      <label class="control-label">Start Month : </label>
-                                      <div class="controls">
-                                         <select id="projectStartMonth" name="projectStartMonth" class="span4 m-wrap">
-                                          <option value="January">January</option>
-                                          <option value="February">February</option>
-                                          <option value="March">March</option>
-                                          <option value="January">April</option>
-                                          <option value="April">May</option>
-                                          <option value="June">June</option>
-                                          <option value="July">July</option>
-                                          <option value="Augest">Augest</option>
-                                          <option value="September">September</option>
-                                          <option value="October">October</option>
-                                          <option value="November">November</option>
-                                          <option value="December">December</option>
-                                        </select>
-                                      </div>
-                                   
-                                      <label class="control-label">Start Year : </label>
-                                      <div class="controls">
-                                         <select id="projectStartYear" name="projectStartYear" class="span3 m-wrap">
-                                          <option value="2020">2020</option>
-                                          <option value="2019">2019</option>
-                                          <option value="2018">2018</option>
-                                          <option value="2017">2017</option>
-                                          <option value="2016">2016</option>
-                                          <option value="2015">2015</option>
-                                          <option value="2014">2014</option>
-                                          <option value="2013">2013</option>
-                                          <option value="2012">2012</option>
-                                          <option value="2011">2011</option>
-                                          <option value="2010">2010</option>
-                                          <option value="2009">2009</option>
-                                          <option value="2008">2008</option>
-                                          <option value="2007">2007</option>
-                                        </select>
-                                      </div>
-                                    </div>
-        
-                                    <div class="control-group">
-                                        
-                                        <div class="controls">
-                                          <label>
-                                            <input type="checkbox" name="projectCurrentStatus" id="projectCurrentStatus"/>
-                                            I am currently working on this project</label>
-        
-                                        </div>
-                                      </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">End Month : </label>
-                                        <div class="controls">
-                                           <select id="projectEndMonth" name="projectEndMonth" class="span4 m-wrap">
-                                            <option value="January">January</option>
-                                            <option value="February">February</option>
-                                            <option value="March">March</option>
-                                            <option value="January">April</option>
-                                            <option value="April">May</option>
-                                            <option value="June">June</option>
-                                            <option value="July">July</option>
-                                            <option value="Augest">Augest</option>
-                                            <option value="September">September</option>
-                                            <option value="October">October</option>
-                                            <option value="November">November</option>
-                                            <option value="December">December</option>
-                                          </select>
-                                        </div>
-                                      
-                                        <label class="control-label" >End Year : </label>
-                                        <div class="controls">
-                                           <select id="projectEndYear" name="projectEndYear" class="span3 m-wrap">
-                                            <option value="2020">2020</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2017">2017</option>
-                                            <option value="2016">2016</option>
-                                            <option value="2015">2015</option>
-                                            <option value="2014">2014</option>
-                                            <option value="2013">2013</option>
-                                            <option value="2012">2012</option>
-                                            <option value="2011">2011</option>
-                                            <option value="2010">2010</option>
-                                            <option value="2009">2009</option>
-                                            <option value="2008">2008</option>
-                                            <option value="2007">2007</option>
-                                          </select>
-                                        </div>
-                                      </div>
-        
-
-                                      <div class="control-group">
-                                        <label class="control-label">Associated with :</label>
-                                        <div class="controls">
-                                          <input type="text" id="projectAssociated" name="projectAssociated" class="span11" placeholder="e.g. ORACLE">
-                                        </div>
-                                      </div>
-
-                                      <div class="control-group">
-                                        <label class="control-label">Description: </label>
-                                        <div class="controls">
-                                          <textarea
-                                          id="projectDescription"
-                                          name="projectDescription"
-                                            class="span11"
-                                            placeholder="Ex. I raised funds for our annual charity 10K."
-                                          ></textarea>
-                                        </div>
-                                      </div>
-        
-                                      <div class="control-group">
-                                        <label class="control-label">Project URL: </label>
-                                        <div class="controls">
-                                          <input type="url" name="projectUrl" id="projectUrl" />
-                                        </div>
-                                      </div>
-
-                                      <div class="control-group">
-                                        <label class="control-label">Repository/Source URL: </label>
-                                        <div class="controls">
-                                          <input type="url" name="sourceUrl" id="sourceUrl" />
-                                        </div>
-                                      </div>
-
-                                      <div class="control-group">
-                                        <label class="control-label">Project Picture: </label>
-                                        <div class="controls">
-                                          <input type="file" name="projectAttachmentFile" id="projectAttachmentFile"/>
-                                          <input type="hidden" name="projectAttachment" id="projectAttachment"/>
-                                          <input type="hidden" name="projectTypeOfAttachment" id="projectTypeOfAttachment"/>
-                                        </div>
-                                      </div>
-                                      
-                                     
-        
-                                    <div class="control-group">
-                                      <div class="controls">
-                                          <button type="submit" class="btn btn-success btn-large">Save</button>
-                                        </div>
-                                    </div>
-        
-                                  </form>
-                            </div>
-                            <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
-                        </div>
-        
-                        <div class="widget-box">
-                            <div
-                              class="widget-title bg_lo"
-                              data-toggle="collapse"
-                              
-                            >
-                              <span class="icon">  <i class='fas fa-project-diagram'></i> </span>
-                              <h5>Projects</h5>
-                            </div>
-                            <div
-                              class="widget-content nopadding updates collapse in"
-                              id="projectContainer"
-                            >
-                              <div class="new-update clearfix">
-                                <i class="icon-ok-sign"></i>
-                                <div class="update-done">
-                                  <a title="" href="#"
-                                    ><strong
-                                      > AI Health Portal </strong
-                                    ></a
-                                  >
-                                  <span> Associated with: Google </span>
-                                  <span>( June 2010 - June 2012 )</span>
-                                  <span>Smart health portal for disease prediction</span>
-                                  <span><a><b>project link</b></a>  <a><b>project Source link</b></a> </span>
-                                  <span> <a href="#attachmentModal"  data-toggle="modal"><b>view picture</b></a> </span>
-                                  
-                                  <div id="attachmentModal" class="modal hide">
-                                    
-                                    <div class="modal-header">
-                                      <button data-dismiss="modal" class="close" type="button">×</button>
-                                      <h3>attachment</h3>
-                                    </div>
-
-                                    <div class="modal-body">
-                                      <p><img id="projectAttachment" src="img/gallery/imgbox3.jpg"/></p>
-                                    </div>
-
-                                    <div class="modal-footer"><a data-dismiss="modal" class="btn btn-inverse" href="#">Cancel</a> </div>
-                                  
-                                  </div>
-
-                                </div>
-                                <div class="update-date">
-                                  <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
-                                  
-                                </div>
-                              </div>
-                              
-                            </div>
-                          </div>
-                          <hr>
-                        </div>
-            
-
-
+              </div>
+            </div>
+            <hr />
           </div>
-        </div>   
+
+          <div class="span4">
+            <button
+              class="btn btn-info btn-large"
+              style="border-radius: 25px;"
+              data-toggle="modal"
+              href="#volunteerForm"
+              id="addVolunteer"
+            >
+              + Add volunteer experience
+            </button>
+
+            <div id="volunteerForm" class="modal hide">
+              <div class="modal-header">
+                <button
+                  data-dismiss="modal"
+                  class="close"
+                  type="button"
+                  id="modalVolunteer"
+                >
+                  ×
+                </button>
+                <h3>Volunteer Detail</h3>
+              </div>
+              <div class="modal-body">
+                <form
+                  action="javascript:void(0);"
+                  method="get"
+                  name="volunteerInformationForm"
+                  id="volunteerInformationForm"
+                  onsubmit="volunteerFormProcess()"
+                  class="form-horizontal"
+                >
+                  <input
+                    type="hidden"
+                    id="volunteerId"
+                    name="volunteerId"
+                    value="0"
+                  />
+                  <input type="hidden" name="view" id="view" value="true">
+                  <div class="control-group">
+                    <label class="control-label">Role :</label>
+                    <div class="controls">
+                      <input
+                        type="text"
+                        id="volunteerRole"
+                        name="volunteerRole"
+                        required
+                        class="span11"
+                        placeholder="e.g. Product Manager"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Organization Name :</label>
+                    <div class="controls">
+                      <input
+                        type="text"
+                        id="volunteerOrganization"
+                        name="volunteerOrganization"
+                        required
+                        class="span11"
+                        placeholder="e.g. ORACLE"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Start Month : </label>
+                    <div class="controls">
+                      <select
+                        id="volunteerStartMonth"
+                        name="volunteerStartMonth"
+                        class="span4 m-wrap"
+                      >
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="January">April</option>
+                        <option value="April">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="Augest ">Augest</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                    </div>
+
+                    <label class="control-label">Start Year : </label>
+                    <div class="controls">
+                      <select
+                        id="volunteerStartYear"
+                        name="volunteerStartYear"
+                        class="span3 m-wrap"
+                      >
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <div class="controls">
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="volunteerCurrentStatus"
+                          id="volunteerCurrentStatus"
+                        />
+                        I currently work here</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">End Month : </label>
+                    <div class="controls">
+                      <select
+                        id="volunteerEndMonth"
+                        name="volunteerEndMonth"
+                        class="span4 m-wrap"
+                      >
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="January">April</option>
+                        <option value="April">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="Augest">Augest</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                    </div>
+
+                    <label class="control-label">End Year : </label>
+                    <div class="controls">
+                      <select
+                        id="volunteerEndYear"
+                        name="volunteerEndYear"
+                        class="span3 m-wrap"
+                      >
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Describe your work: </label>
+                    <div class="controls">
+                      <textarea
+                        id="volunteerDescription"
+                        name="volunteerDescription"
+                        class="span11"
+                        placeholder="Ex. I raised funds for our annual charity 10K."
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label"
+                      >Add or link to external documents, photos, sites, videos,
+                      and presentations:
+                    </label>
+                    <div class="controls">
+                      <input
+                        type="file"
+                        id="volunteerAttachmentFile"
+                        name="volunteerAttachmentFile"
+                      />
+                      <input
+                        type="hidden"
+                        id="volunteerAttachment"
+                        name="volunteerAttachment"
+                      />
+                      <input
+                        type="hidden"
+                        id="volunteerTypeOfAttachment"
+                        name="volunteerTypeOfAttachment"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn btn-success btn-large">
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a data-dismiss="modal" class="btn" href="#">Cancel</a>
+              </div>
+            </div>
+
+            <div class="widget-box">
+              <div class="widget-title bg_lo" data-toggle="collapse">
+                <span class="icon"> <i class="fas fa-ribbon"></i> </span>
+                <h5>Volunteer Experince</h5>
+              </div>
+              <div
+                class="widget-content nopadding updates collapse in"
+                id="volunteerContainer"
+              >
+                <div class="new-update clearfix">
+                  <i class="icon-ok-sign"></i>
+                  <div class="update-done">
+                    <a title="" href="#"
+                      ><strong>Fund raising Volunteer</strong></a
+                    >
+                    <span>Robihood Army</span>
+                    <span>( June 2010 - June 2012 )</span>
+                    <span>I raised funds for our annual charity 10K</span>
+                  </div>
+                  <div class="update-date">
+                    <span class="update-day"
+                      ><i class="icon icon-edit"></i>
+                      <i class="icon icon-trash"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div>
+
+          <div class="span4">
+            <button
+              class="btn btn-info btn-large"
+              style="border-radius: 25px;"
+              data-toggle="modal"
+              href="#projectForm"
+              id="addProject"
+            >
+              + Add Project
+            </button>
+
+            <div id="projectForm" class="modal hide">
+              <div class="modal-header">
+                <button
+                  data-dismiss="modal"
+                  class="close"
+                  id="modalProject"
+                  type="button"
+                >
+                  ×
+                </button>
+                <h3>Project Detail</h3>
+              </div>
+              <div class="modal-body">
+                <form
+                  action="javascript:void(0);"
+                  method="get"
+                  id="projectInformationForm"
+                  name="projectInformationForm"
+                  onsubmit="projectFormProcess()"
+                  class="form-horizontal"
+                >
+                  <input type="hidden" id="projectId" name="projectId" />
+                  <input type="hidden" name="view" id="view" value="true">
+                  <div class="control-group">
+                    <label class="control-label">Project name:</label>
+                    <div class="controls">
+                      <input
+                        type="text"
+                        id="projectName"
+                        name="projectName"
+                        class="span11"
+                        placeholder="e.g. Product Manager"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Start Month : </label>
+                    <div class="controls">
+                      <select
+                        id="projectStartMonth"
+                        name="projectStartMonth"
+                        class="span4 m-wrap"
+                      >
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="January">April</option>
+                        <option value="April">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="Augest">Augest</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                    </div>
+
+                    <label class="control-label">Start Year : </label>
+                    <div class="controls">
+                      <select
+                        id="projectStartYear"
+                        name="projectStartYear"
+                        class="span3 m-wrap"
+                      >
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <div class="controls">
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="projectCurrentStatus"
+                          id="projectCurrentStatus"
+                        />
+                        I am currently working on this project</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">End Month : </label>
+                    <div class="controls">
+                      <select
+                        id="projectEndMonth"
+                        name="projectEndMonth"
+                        class="span4 m-wrap"
+                      >
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="January">April</option>
+                        <option value="April">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="Augest">Augest</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                    </div>
+
+                    <label class="control-label">End Year : </label>
+                    <div class="controls">
+                      <select
+                        id="projectEndYear"
+                        name="projectEndYear"
+                        class="span3 m-wrap"
+                      >
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Associated with :</label>
+                    <div class="controls">
+                      <input
+                        type="text"
+                        id="projectAssociated"
+                        name="projectAssociated"
+                        class="span11"
+                        placeholder="e.g. ORACLE"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Description: </label>
+                    <div class="controls">
+                      <textarea
+                        id="projectDescription"
+                        name="projectDescription"
+                        class="span11"
+                        placeholder="Ex. I raised funds for our annual charity 10K."
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Project URL: </label>
+                    <div class="controls">
+                      <input type="url" name="projectUrl" id="projectUrl" />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Repository/Source URL: </label>
+                    <div class="controls">
+                      <input type="url" name="sourceUrl" id="sourceUrl" />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Project Picture: </label>
+                    <div class="controls">
+                      <input
+                        type="file"
+                        name="projectAttachmentFile"
+                        id="projectAttachmentFile"
+                      />
+                      <input
+                        type="hidden"
+                        name="projectAttachment"
+                        id="projectAttachment"
+                      />
+                      <input
+                        type="hidden"
+                        name="projectTypeOfAttachment"
+                        id="projectTypeOfAttachment"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn btn-success btn-large">
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a data-dismiss="modal" class="btn" href="#">Cancel</a>
+              </div>
+            </div>
+
+            <div class="widget-box">
+              <div class="widget-title bg_lo" data-toggle="collapse">
+                <span class="icon">
+                  <i class="fas fa-project-diagram"></i>
+                </span>
+                <h5>Projects</h5>
+              </div>
+              <div
+                class="widget-content nopadding updates collapse in"
+                id="projectContainer"
+              >
+                <div class="new-update clearfix">
+                  <i class="icon-ok-sign"></i>
+                  <div class="update-done">
+                    <a title="" href="#"><strong> AI Health Portal </strong></a>
+                    <span> Associated with: Google </span>
+                    <span>( June 2010 - June 2012 )</span>
+                    <span>Smart health portal for disease prediction</span>
+                    <span
+                      ><a><b>project link</b></a>
+                      <a><b>project Source link</b></a>
+                    </span>
+                    <span>
+                      <a href="#attachmentModal" data-toggle="modal"
+                        ><b>view picture</b></a
+                      >
+                    </span>
+
+                    <div id="attachmentModal" class="modal hide">
+                      <div class="modal-header">
+                        <button
+                          data-dismiss="modal"
+                          class="close"
+                          type="button"
+                        >
+                          ×
+                        </button>
+                        <h3>attachment</h3>
+                      </div>
+
+                      <div class="modal-body">
+                        <p>
+                          <img
+                            id="projectAttachment"
+                            src="img/gallery/imgbox3.jpg"
+                          />
+                        </p>
+                      </div>
+
+                      <div class="modal-footer">
+                        <a data-dismiss="modal" class="btn btn-inverse" href="#"
+                          >Cancel</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="update-date">
+                    <span class="update-day"
+                      ><i class="icon icon-edit"></i>
+                      <i class="icon icon-trash"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
       </div>
-
-            
-
+    </div>
 
     <!--Footer-part-->
 
@@ -799,8 +1010,8 @@
       </div>
     </div>
 
-	<input type="hidden" th:value="${userId}" id="uId">
-    
+    <input type="hidden" th:value="${userId}" id="uId" />
+
     <!--end-Footer-part-->
 
     <script src="js/excanvas.min.js"></script>
@@ -828,10 +1039,6 @@
 
     <!--Functionality-->
     <script src="js/functionality/work.js"></script>
-   
-   
-    
-
 
     <script type="text/javascript">
       // This function is called from the pop-up menus to transfer to
@@ -857,5 +1064,3 @@
     </script>
   </body>
 </html>
-
-

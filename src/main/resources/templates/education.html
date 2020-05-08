@@ -74,7 +74,7 @@
           >
         </li>
         <li class="">
-          <a title="" href="login.html"
+          <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
             <span class="text">Logout</span></a
           >
@@ -89,6 +89,11 @@
         ><i class="fas fa-sitemap"></i> Education
       </a>
       <ul>
+      	<li>
+          <a href="dashboard">
+            <i class="icon-dashboard"></i><span>Dashboard</span></a
+          >
+        </li>
         <li>
           <a href="template">
             <i class="fas fa-sitemap"></i><span>Template</span></a
@@ -111,7 +116,7 @@
 
         <li class="active">
           <a href="education"
-            ><i class="fa fa-graduation-cap"> </i><span>Education</span>
+            ><i class="fas fa-book"> </i><span>Education</span>
             <!-- <span class="label label-important">3</span> -->
             </a
             >
@@ -171,6 +176,7 @@
                     <div class="modal-body">
                         <form id="educationInformationForm" name="educationInformationForm" action="javascript:void(0);" method="get" onsubmit="educationInformationFormProcess()" class="form-horizontal">
                           <input type="hidden" name="educationId" id="educationId" value="0">  
+                          <input type="hidden" name="view" id="view" value="true">
                           <div class="control-group">
                               <label class="control-label">School Type:</label>
                               <div class="controls">
@@ -316,7 +322,7 @@
                       data-toggle="collapse"
                       
                     >
-                      <span class="icon"> <i class="fas fa-book"></i> </span>
+                      <span class="icon"> <i class="fa fa-graduation-cap"></i> </span>
                       <h5>Education</h5>
                     </div>
                     <!--container for education start-->
@@ -365,6 +371,7 @@
                 <div class="modal-body">
                   <form action="javascript:void(0);" id="courseInformationForm" name="courseInformationForm" onsubmit="courseInformationFormProcess()" method="get" class="form-horizontal">
                     <input type="hidden" name="courseId" id="courseId" value="0">
+                    <input type="hidden" name="view" id="view" value="true">
                     <div class="control-group">
                       <label class="control-label">Course Name :</label>
                       <div class="controls">
@@ -515,6 +522,7 @@
                 <div class="modal-body">
                   <form action="javascript:void(0);" method="get" id="certificateInformationForm" name="certificateInformationForm" class="form-horizontal" onsubmit="certificateFormProcess()">
                     <input type="hidden" id="certificateId" name="certificateId" value="0">
+                    <input type="hidden" name="view" id="view" value="true">
                     <div class="control-group">
                       <label class="control-label">Ceritificate Title :</label>
                       <div class="controls">

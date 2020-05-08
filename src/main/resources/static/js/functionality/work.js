@@ -346,6 +346,7 @@ function jobInternshipFormProcess() {
     jobInternshipInformationForm["jobInternshipAttachment"].value;
   var jobInternshipTypeOfAttachment =
     jobInternshipInformationForm["jobInternshipTypeOfAttachment"].value;
+  
 
   var jobInternshipInformation;
 

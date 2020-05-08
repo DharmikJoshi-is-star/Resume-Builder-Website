@@ -10,9 +10,8 @@ public class JobInternshipService {
 
 	private BlobToBase64EncoderAndDecoder converter = new BlobToBase64EncoderAndDecoder();
 	
-	public JobInternship FrontEndJobInternshipToBackEndJobInternship(FrontEndJobInternship frontEndJobInternship) throws IOException {
+	public JobInternship FrontEndJobInternshipToBackEndJobInternship(FrontEndJobInternship frontEndJobInternship, JobInternship jobInternship) throws IOException {
 		
-		JobInternship jobInternship = new JobInternship();
 		
 		jobInternship.setId( frontEndJobInternship.getId() );
 		jobInternship.setTitle( frontEndJobInternship.getTitle() );
@@ -28,6 +27,7 @@ public class JobInternshipService {
 		jobInternship.setDescription( frontEndJobInternship.getDescription() );
 		jobInternship.setAttachment( converter.convertBase64ToBlob( frontEndJobInternship.getAttachment().toString() , frontEndJobInternship.getTypeOfAttachment()) );
 		jobInternship.setTypeOfAttachment( frontEndJobInternship.getTypeOfAttachment() );
+		//jobInternship.setView( frontEndJobInternship.getView());
 		
 		return jobInternship;
 		
@@ -51,6 +51,7 @@ public class JobInternshipService {
 		frontEndobInternship.setDescription( jobInternship.getDescription() );
 		frontEndobInternship.setAttachment( converter.convertBlobToBase64( jobInternship.getAttachment() ) );
 		frontEndobInternship.setTypeOfAttachment( jobInternship.getTypeOfAttachment() );
+		frontEndobInternship.setView( jobInternship.getView() );
 		
 		return frontEndobInternship;
 		

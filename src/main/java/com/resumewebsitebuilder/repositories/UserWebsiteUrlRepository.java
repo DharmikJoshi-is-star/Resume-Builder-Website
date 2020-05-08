@@ -10,4 +10,7 @@ public interface UserWebsiteUrlRepository extends JpaRepository<UserWebsiteUrl, 
 	@Query("select userWebsiteUrl from UserWebsiteUrl userWebsiteUrl where userWebsiteUrl.url=?1")
 	UserWebsiteUrl getIdFromUrl(String url);
 
+	@Query("select userWebsiteUrl from UserWebsiteUrl userWebsiteUrl where userWebsiteUrl.url=?1")
+	UserWebsiteUrl checkIfUrlExists(String url);
+
 }

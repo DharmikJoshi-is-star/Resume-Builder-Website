@@ -1,10 +1,29 @@
 
 $(document).ready(function(){
 
+	var email = $('#emailform');
+	var signup = $('#signupform');
+	var siteurl = $('#siteform');
+	
+	
 	var login = $('#loginform');
 	var recover = $('#recoverform');
 	var speed = 400;
 
+	$('#to-signup').click(function(){
+		
+		$('#emailform').hide();
+		$('#signupform').slideUp();
+		
+	});
+	
+	$('#to-site').click(function(){
+		
+		siteurl.slideUp();
+		signup.fadeIn();
+		
+	});
+	
 	$('#to-recover').click(function(){
 		
 		$("#loginform").slideUp();

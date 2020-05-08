@@ -22,10 +22,8 @@ public class CourseService {
 
 	private BlobToBase64EncoderAndDecoder converter = new BlobToBase64EncoderAndDecoder();
 	
-	public Course convertFrontEndCourseToBackEndCourse(FrontEndCourse frontEndCourse) throws IOException {
+	public Course convertFrontEndCourseToBackEndCourse(FrontEndCourse frontEndCourse, Course course) throws IOException {
 		
-		Course course = new Course();
-	    
 	    course.setId( frontEndCourse.getId() );
 	    course.setName( frontEndCourse.getName() );
 	    course.setInstituteName( frontEndCourse.getInstituteName() );
@@ -35,6 +33,7 @@ public class CourseService {
 	    course.setCurrentStatus( frontEndCourse.getCurrentStatus() );
 	    course.setTypeOfAttachment( frontEndCourse.getTypeOfAttachment() );
 	    course.setUrl( frontEndCourse.getUrl() );
+	    //course.setView( frontEndCourse.getView() );
 	    
 		return course;
 	}
@@ -52,7 +51,8 @@ public class CourseService {
 		frontEndCourse.setCurrentStatus( course.getCurrentStatus() );
 		frontEndCourse.setTypeOfAttachment( course.getTypeOfAttachment() );
 		frontEndCourse.setUrl( course.getUrl() );
-	    
+	    frontEndCourse.setView( course.getView() );
+		
 		return frontEndCourse;
 	}
 

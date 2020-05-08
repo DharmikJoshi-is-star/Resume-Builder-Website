@@ -85,6 +85,9 @@ public class EducationRestController {
 	
 	@PostMapping("/editSaveGraduation")
 	public Graduation editSaveGraduation(@RequestBody Graduation graduation) {
+		
+		graduation.setView( graduationRepository.getOne( graduation.getId() ).getView() );
+		
 		return graduationRepository.save(graduation);
 	}
 	
@@ -111,7 +114,7 @@ public class EducationRestController {
 		
 		try {
 			
-			Course course = courseService.convertFrontEndCourseToBackEndCourse(frontEndCourse);
+			Course course = courseService.convertFrontEndCourseToBackEndCourse(frontEndCourse, new Course());
 			course = courseRepository.save(course);
 			
 			User user = userRepository.getOne(uId);
@@ -149,7 +152,7 @@ public class EducationRestController {
 	public Long editSaveCourse(@RequestBody FrontEndCourse frontEndCourse) {
 		Course course;
 		try {
-			course = courseService.convertFrontEndCourseToBackEndCourse(frontEndCourse);
+			course = courseService.convertFrontEndCourseToBackEndCourse(frontEndCourse, courseRepository.getOne(frontEndCourse.getId()));
 			course = courseRepository.save(course);
 			System.out.println(course.getId());
 			return course.getId();
@@ -201,7 +204,7 @@ public class EducationRestController {
 		
 		try {
 			
-			Certification certification = certificateService.convertFrontEndCertificateToBackEndCertificate(frontEndCertificate);
+			Certification certification = certificateService.convertFrontEndCertificateToBackEndCertificate(frontEndCertificate, new Certification());
 			certification = certificateRepository.save(certification);
 			
 			User user = userRepository.getOne(uId);
@@ -238,7 +241,7 @@ public class EducationRestController {
 	public Long editSaveCertification(@RequestBody FrontEndCertificate frontEndCertificate) {
 		Certification certification;
 		try {
-			certification = certificateService.convertFrontEndCertificateToBackEndCertificate(frontEndCertificate);
+			certification = certificateService.convertFrontEndCertificateToBackEndCertificate(frontEndCertificate, certificateRepository.getOne( frontEndCertificate.getId() ));
 			certification = certificateRepository.save(certification);
 			return certification.getId();
 		} catch (IOException e) {

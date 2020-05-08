@@ -20,6 +20,17 @@ public class FrontEndCourse {
 	
 	private String url;
 
+	private Boolean view;
+	
+
+	public Boolean getView() {
+		return view;
+	}
+
+	public void setView(Boolean view) {
+		this.view = view;
+	}
+
 	public Long getId() {
 		return id;
 	}

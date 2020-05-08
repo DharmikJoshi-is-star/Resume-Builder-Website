@@ -31,7 +31,7 @@ public class UserWebsiteUrlRestController {
 		user.setWebsiteUrl(userWebsiteUrl);
 		
 		userRepository.save(user);
-		
+		System.out.println(userWebsiteUrl.getUrl());
 		return userWebsiteUrl;
 		
 	}
@@ -43,5 +43,14 @@ public class UserWebsiteUrlRestController {
 		
 	}
 	
-	
+	@PostMapping("/checkIfUrlExists")
+	public Boolean checkIfUrlExists(@RequestBody String url) {
+		
+		UserWebsiteUrl userWebsiteUrl = userWebsiteUrlRepository.checkIfUrlExists(url);
+		
+		if(userWebsiteUrl!=null)
+			return true;
+		
+		return false;
+	}
 }

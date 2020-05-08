@@ -10,9 +10,7 @@ public class VolunteerService {
 
 	private BlobToBase64EncoderAndDecoder converter = new BlobToBase64EncoderAndDecoder();
 
-	public Volunteer FrontEndVolunteerToBackEndVolunteer(FrontEndVolunteer frontEndVolunteer) throws IOException {
-		
-		Volunteer volunteer = new Volunteer();
+	public Volunteer FrontEndVolunteerToBackEndVolunteer(FrontEndVolunteer frontEndVolunteer, Volunteer volunteer) throws IOException {
 		
 		volunteer.setId( frontEndVolunteer.getId() );
 		volunteer.setRole( frontEndVolunteer.getRole() );
@@ -25,6 +23,7 @@ public class VolunteerService {
 		volunteer.setDescription( frontEndVolunteer.getDescription() );
 		volunteer.setAttachment( converter.convertBase64ToBlob( frontEndVolunteer.getAttachment().toString() , frontEndVolunteer.getTypeOfAttachment()) );
 		volunteer.setTypeOfAttachment( frontEndVolunteer.getTypeOfAttachment() );
+		//volunteer.setView( frontEndVolunteer.getView() );
 		
 		return volunteer;
 		
@@ -45,6 +44,7 @@ public class VolunteerService {
 		frontEndVolunteer.setDescription( volunteer.getDescription() );
 		frontEndVolunteer.setAttachment( converter.convertBlobToBase64( volunteer.getAttachment() ));
 		frontEndVolunteer.setTypeOfAttachment( volunteer.getTypeOfAttachment() );
+		frontEndVolunteer.setView( volunteer.getView() );
 		
 		return frontEndVolunteer;
 		

@@ -28,6 +28,16 @@ public class FrontEndProject {
 
 	private String typeOfAttachment;
 
+	private Boolean view;
+	
+	public Boolean getView() {
+		return view;
+	}
+
+	public void setView(Boolean view) {
+		this.view = view;
+	}
+	
 	public Long getId() {
 		return id;
 	}

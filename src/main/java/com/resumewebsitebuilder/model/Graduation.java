@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
+import net.bytebuddy.implementation.bind.annotation.Default;
+
 @Entity
 public class Graduation {
 
@@ -41,7 +45,10 @@ public class Graduation {
 	@Column(name = "completionMonth_expectedMonth")
 	private String completionMonth;
 
-	public Long getId() {
+	@Column(name = "view" ,nullable = false, columnDefinition = "boolean default true")
+	private Boolean view = true;
+	 
+	public Long getId() { 
 		return id;
 	}
 
@@ -136,6 +143,15 @@ public class Graduation {
 	public void setCompletionMonth(String completionMonth) {
 		this.completionMonth = completionMonth;
 	}
+
+	public Boolean getView() {
+		return view;
+	}
+
+	public void setView(Boolean view) {
+		this.view = view;
+	}
+	
 	
 	
 }

@@ -25,15 +25,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-	 <link
-	      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
-	      rel="stylesheet"
-	      type="text/css"
-	    />
-    
+    <link
+      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    
+
     <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
   </head>
   <body onload="onLoadPopulateProfileCard()">
@@ -79,7 +78,7 @@
           >
         </li>
         <li class="">
-          <a title="" href="login.html"
+          <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
             <span class="text">Logout</span></a
           >
@@ -94,6 +93,11 @@
         ><i class="fas fa-sitemap"></i> General
       </a>
       <ul>
+      	<li>
+          <a href="dashboard">
+            <i class="icon-dashboard"></i><span>Dashboard</span></a
+          >
+        </li>
         <li>
           <a href="template">
             <i class="fas fa-sitemap"></i><span>Template</span></a
@@ -116,7 +120,7 @@
 
         <li>
           <a href="education"
-            ><i class="fa fa-graduation-cap"> </i><span>Education</span>
+            ><i class="fas fa-book"> </i><span>Education</span>
             <!-- <span class="label label-important">3</span> -->
           </a>
         </li>
@@ -315,7 +319,7 @@
       </div>
     </div>
 
-	<input type="hidden" th:value="${userId}" id="uId">
+    <input type="hidden" th:value="${userId}" id="uId" />
     <!--end-Footer-part-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.ui.custom.js"></script>

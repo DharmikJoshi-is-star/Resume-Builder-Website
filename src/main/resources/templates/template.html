@@ -11,20 +11,22 @@
     <link rel="stylesheet" href="css/matrix-media.css" />
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/jquery.gritter.css" />
-   
+
     <link
       href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800"
       rel="stylesheet"
       type="text/css"
     />
+    
+    <link
+      href="css/templateCard.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-	
   </head>
   <body onload="onLoadPopulate()">
-  
-  
     <!--Header-part-->
     <div id="header">
       <h1><a href="template">Resume Builder</a></h1>
@@ -65,7 +67,7 @@
           >
         </li>
         <li class="">
-          <a title="" href="login.html"
+          <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
             <span class="text">Logout</span></a
           >
@@ -75,7 +77,13 @@
 
     <!--close-top-Header-menu-->
     <div id="search">
-      <a id="visitSite" target="_blank"><input type="button" class="btn btn-danger" style="border-radius: 10px;" value="Visit Site" /></a>
+      <a id="visitSite" target="_blank"
+        ><input
+          type="button"
+          class="btn btn-danger"
+          style="border-radius: 10px;"
+          value="Visit Site"
+      /></a>
     </div>
 
     <!--sidebar-menu-->
@@ -84,6 +92,11 @@
         ><i class="fas fa-sitemap"></i> Template
       </a>
       <ul>
+      	<li>
+          <a href="dashboard">
+            <i class="icon-dashboard"></i><span>Dashboard</span></a
+          >
+        </li>
         <li class="active">
           <a href="template">
             <i class="fas fa-sitemap"></i><span>Template</span></a
@@ -106,26 +119,23 @@
 
         <li>
           <a href="education"
-            ><i class="fa fa-graduation-cap"> </i><span>Education</span>
+            ><i class="fas fa-book"> </i><span>Education</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-            >
+          </a>
         </li>
 
         <li>
           <a href="skill">
             <i class="fas fa-pencil-ruler"></i> <span>Skills</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-          >
+          </a>
         </li>
 
         <li>
           <a href="work">
             <i class="fas fa-briefcase"></i> <span>Work Experience</span>
             <!-- <span class="label label-important">3</span> -->
-            </a
-          >
+          </a>
         </li>
       </ul>
     </div>
@@ -142,21 +152,23 @@
         </div>
       </div>
 
+      <div class="container-fluid row-fluid">
+        <form onsubmit="setUrl()" method="post">
+          http://localhost:8086/view?id=<input
+            type="text"
+            name="url"
+            id="url"
+            placeholder="Enter your viewId must be unique"
+          />
 
-	      <div class="container-fluid row-fluid">
-	
-				<form onsubmit="setUrl()" method="post">
-				
-					http://localhost:8086/view?id=<input type="text" name="url" id="url" placeholder="Enter your viewId must be unique">
-					
-					<input class="btn btn-success" type="submit" value="SET">
-				
-				</form>
-	
-		        <h1>Current Template</h1>
-		        
-		        <div class="row-fluid" id="userTemplate">
-		          <!--<div class="span3" >
+          <input class="btn btn-success" type="submit" value="SET" />
+        </form>
+
+        <h1>Current Template</h1>
+
+		<main class="grid" id="userTemplate"></main>
+        <!-- <div class="row-fluid" id="userTemplate">
+          <!--<div class="span3" >
 		             
 		            <div class="card" style="width: 18rem;">
 		              <img class="card-img-top" src="template_resources/image/template1.png" alt="Card image cap">
@@ -168,23 +180,18 @@
 		             </div>
 		             
 		            </div>
-		           -->
-		          </div>
-		        
-		
-		        <Hr>
-		        <h1>Other available Templates</h1>
-		
-		        <div class="row-fluid" id="otherTemplate">
-		          
-		
-		
-		    	</div>
-	
-		</div>
-	</div>
+		           
+        </div> -->
 
-      <!--End-breadcrumbs-->
+        <hr />
+        <h1>Other available Templates</h1>
+
+         <main class="grid" id="otherTemplate"></main>
+        
+      </div>
+    </div>
+
+    <!--End-breadcrumbs-->
 
     <!--Footer-part-->
 
@@ -194,10 +201,9 @@
         <a href="#">Dharmik Joshi</a>
       </div>
     </div>
-	
 
-	<input type="hidden" th:value="${userId}" id="uId">
-    
+    <input type="hidden" th:value="${userId}" id="uId" />
+
     <!--end-Footer-part-->
     <script src="js/functionality/template.js"></script>
 
@@ -222,7 +228,6 @@
     <script src="js/matrix.popover.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/matrix.tables.js"></script>
-   
 
     <script type="text/javascript">
       // This function is called from the pop-up menus to transfer to
@@ -245,9 +250,8 @@
       function resetMenu() {
         document.gomenu.selector.selectedIndex = 2;
       }
-      
-		//alert(document.getElementById("uId").value);
 
+      //alert(document.getElementById("uId").value);
     </script>
   </body>
 </html>

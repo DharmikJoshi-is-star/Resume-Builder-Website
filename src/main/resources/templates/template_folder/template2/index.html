@@ -3,14 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
 		<title th:text=${user.name}></title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-		<link rel="stylesheet" href="template_resources/template2/css/index.css">
+		<link rel="stylesheet" href="/template_resources/template2/css/index.css">
 		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -24,7 +22,7 @@
 		<header>
 			<nav class="nav-wrapper indigo darken-4 valign-wrapper fixed-top">
 				<div class="container">
-					<a href="" class="brand-logo valign-wrapper"> <span th:text=${user.personalInformation.name}></span></a>
+					<a href="" class="brand-logo valign-wrapper"> <span th:text="${user.personalInformation.name}"></span></a>
 					<a href="" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						<li><a class="waves-effect waves-light" href="#about">About</a></li>
@@ -101,13 +99,13 @@
 		<section class="container section scrollspy" id="education">
 			<ul class="collection with-header">
 				<li class="collection-header"><blockquote><h3>Education</h3></blockquote></li>
-				<li class="collection-item avatar" th:each="graduation : ${user.graduations}">
+				<li class="collection-item avatar" th:each="graduation : ${user.graduations}" >
 				
 					<i class="fa fa-graduation-cap circle black" aria-hidden="true"></i>
-					<span class="title text-darken-4" th:text="${graduation.universityName}" ></span>
+					<span class="title text-darken-4" th:text="${graduation.universityName}"></span>
 					
 					<p class="secondary-content black-text hide-on-small-and-down" 
-						th:text="Pursuing" th:if="${graduation.currentStatus}"></p>
+						th:text="Pursuing" th:if="${graduation.currentStatus}" ></p>
 						
 					<p class="secondary-content black-text hide-on-small-and-down" 
 						th:text="|( ${graduation.completionMonth}-${graduation.completionYear} )|" th:if="${not graduation.currentStatus}"></p>
@@ -122,7 +120,8 @@
 					
 					<p class="grey-text text-darken-2" 
 						th:text="| Average: ${graduation.grade}|"></p>
-					
+						
+						
 				</li>
 				
 			</ul>
@@ -131,6 +130,8 @@
 		<section class="container section scrollspy" id="course">
 			<ul class="collection with-header">
 				<li class="collection-header"><blockquote><h3>Certifications & Training program</h3></blockquote></li>
+				
+				
 				
 				<li class="collection-item avatar" th:each="course : ${user.courses}">
 				
@@ -146,9 +147,11 @@
 					<p class="grey-text text-darken-2" th:text="|${course.completionMonth}, ${course.completionYear}|" 
 										th:if="${not course.currentStatus}"></p>
 					
-					<p class="grey-text text-darken-2"> <a th:href="${course.url}">attachment Url</a> </p>
+					<p class="grey-text text-darken-2"> <a th:href="${course.url}">course attachment</a> </p>
 					
 				</li>
+				
+				
 				
 				<li class="collection-item avatar" th:each="certification : ${user.certifications}">
 				
@@ -329,7 +332,7 @@
 								<div class="date">
 									<small th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - ${jobInternship.endMonth} ${jobInternship.endYear}|"
 												th:if="${not jobInternship.currentStatus}"></small>
-									<small th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - Currently Working here|"
+									<small th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - Currently Work here|"
 											th:if="${jobInternship.currentStatus}"></small>
 								</div>
 							</div>
@@ -339,7 +342,7 @@
 							
 							<p th:text="${jobInternship.description}">
 							</p>
-							<a th:href="${jobInternship.attachment}" target="_blank">attachment Url</a>
+							<a th:href="${jobInternship.attachment}" target="_blank">view attachment</a>
 						</div>
 					</div>
 				</div>
@@ -448,7 +451,7 @@
 	</footer>
 
 	</body>
-    <script src="template_resources/template2/js/index.js"></script>
+    <script src="/template_resources/template2/js/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 	

@@ -1,0 +1,7 @@
+this website will show case the followings
+Education (graduation)
+Experience (Work)
+Skills (both)
+Education (course,certifications with name and date)
+Experience (project no image)
+contact (contact information)

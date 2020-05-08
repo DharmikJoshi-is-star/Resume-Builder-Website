@@ -43,6 +43,9 @@ public class Volunteer {
 
 	private String typeOfAttachment;
 	
+	@Column(name = "view" ,nullable = false, columnDefinition = "boolean default true")
+	private Boolean view = true;
+	 
 	public Long getId() {
 		return id;
 	}
@@ -129,6 +132,14 @@ public class Volunteer {
 
 	public void setTypeOfAttachment(String typeOfAttachment) {
 		this.typeOfAttachment = typeOfAttachment;
+	}
+
+	public Boolean getView() {
+		return view;
+	}
+
+	public void setView(Boolean view) {
+		this.view = view;
 	}
 	
 	
