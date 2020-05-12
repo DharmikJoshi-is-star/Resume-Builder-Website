@@ -99,8 +99,8 @@
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <div class="brand text-center">
-              <h1 th:text="${user.personalInformation.name}"></h1>
-              <p class="lead" th:text="${user.personalInformation.title}"></p>
+              <h1 th:text="${user.personalInformation.name}" th:if="${user.personalInformation}"></h1>
+              <p class="lead" th:text="${user.personalInformation.title}" th:if="${user.personalInformation}"></p>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
       <div class="container">
         <div class="row">
         
-          <div class="col-md-6" th:each="graduation : ${user.graduations}">
+          <div class="col-md-6" th:each="graduation : ${user.graduations}" th:if="${user.graduations}">
             <div class="card">
               <div class="card-header card-header-text card-header-danger">
                 <div class="card-text">
@@ -140,7 +140,7 @@
         <hr class="padded-hr" />
         <h2 class="text-center" >Job / Internships</h2>
         
-         <div class="experience-section" th:each="jobInternship: ${user.jobInternships}">
+         <div class="experience-section" th:each="jobInternship: ${user.jobInternships}" th:if="${user.jobInternships}">
           <h3 th:text="${jobInternship.title}"></h3>
           <div class="d-flex justify-content-between">
             <p th:text="${jobInternship.company}"></p>
@@ -165,7 +165,7 @@
         <hr class="padded-hr" />
         <h2 class="text-center" >Volunteer work</h2>
         
-         <div class="experience-section" th:each="volunteer: ${user.volunteers}">
+         <div class="experience-section" th:each="volunteer: ${user.volunteers}" th:if="${user.volunteers}">
           <h3 th:text="${volunteer.role}"></h3>
           <div class="d-flex justify-content-between">
             <p th:text="${volunteer.organization}"></p>
@@ -191,7 +191,7 @@
         <h2 class="text-center">Skills</h2>
         <div class="row">
         
-          <div class="col-md text-center" th:each="technicalSkill: ${user.technicalSkills}">
+          <div class="col-md text-center" th:each="technicalSkill: ${user.technicalSkills}" th:if="${user.technicalSkills}">
           
             <h5 class="font-weight-bold">Technical</h5>
            
@@ -202,7 +202,7 @@
           
           <div class="col-md text-center">
             <h5 class="font-weight-bold">Other</h5>
-             <div th:each="otherSkill: ${user.otherSkills}">
+             <div th:each="otherSkill: ${user.otherSkills}" th:if="${user.otherSkills}">
             	<p th:text="${otherSkill.name}"></p>
             </div>
             
@@ -215,7 +215,7 @@
         <h2 class="text-center">Courses & Certifications</h2>
         <div class="row">
         
-          <div class="col-md text-center" th:each="course : ${user.courses}">
+          <div class="col-md text-center" th:each="course : ${user.courses}" th:if="${user.courses}">
             <h5 class="font-weight-bold" th:text="| ${course.name} ( ${course.instituteName} )|"></h5>
             
             <p th:text="Pursuing" th:if="${course.currentStatus}"></p>
@@ -227,7 +227,7 @@
            
           </div>
           
-          <div class="col-md text-center" th:each="certification : ${user.certifications}">
+          <div class="col-md text-center" th:each="certification : ${user.certifications}" th:if="${user.certifications}">
             <h5 class="font-weight-bold" th:text="| ${certification.title} ( ${certification.instituteName} )|"></h5>
             <p th:text="|${certification.month}, ${certification.year}|" ></p>
             <p><a th:href="${certification.attachment}">View</a></p>
@@ -242,7 +242,7 @@
         <h2 class="text-center">Projects</h2>
         <div class="row">
         
-          <div class="col-md" th:each="project: ${user.projects}">
+          <div class="col-md" th:each="project: ${user.projects}" th:if="${user.projects}">
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title" th:text="${project.name}">Project Name</h4>
@@ -319,6 +319,7 @@
                   th:href="|mailto:${user.contactInformation.mail}|"
                   rel="noopener,nofollow"
                   th:text="${user.contactInformation.mail}"
+                  th:if="${user.contactInformation}"
                   ></a
                 >
               </div>
@@ -339,7 +340,7 @@
                   />
                 </svg>
                 <a class="ml-3" th:href="|tel:+91${user.contactInformation.contact}|" rel="noopener,nofollow"
-                  th:text="|(+91)${user.contactInformation.contact}|"></a
+                  th:text="|(+91)${user.contactInformation.contact}|" th:if="${user.contactInformation}"></a
                 >
               </div>
             </div>

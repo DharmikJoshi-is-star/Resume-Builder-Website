@@ -15,7 +15,7 @@
     <body>
         <div id="loginbox">            
 
-            <form id="emailForm" action="javascript:void(0);" class="form-vertical" onsubmit="checkIfMailExists()">
+            <form id="loginform" action="javascript:void(0);" class="form-vertical" onsubmit="checkIfMailExists()">
             
 				<p class="normal_text">Enter your e-mail address below and we will send you an OTP.
 					This OTP is valid for 15 minutes.
@@ -29,19 +29,20 @@
                     </div>
                
                 <div class="form-actions">
-           
+           			 <span class="pull-left"><a href="#" class="flip-link" id="to-recover"></a></span>
                     <span class="pull-right"><input class="btn btn-info" type="submit" value="Send OTP"/></span>
                 </div>
-                
+                <div class="normal_text" style="color: lightgreen"><b id="msg" ></b></div>
             </form>
-           <div class="normal_text" style="color: lightgreen"><b id="msg" ></b></div>
-            <form id="otpForm" action="javascript:void(0);" class="form-vertical" onsubmit="verifyOTP()">
+           
+           
+            <form id="recoverform" action="javascript:void(0);" class="form-vertical" onsubmit="verifyOTP()">
 				<BR>
 				<p class="normal_text">Enter OTP here. If OTP is mailed to you then click on send Again
 				</p>
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lo"><i >D-</i></span><input type="text" name="otp" id="otp" onchange="setMsg()" maxLength="6" minLength="6" size="6" min="0" max="9" pattern="[0-9]{6}" placeholder="Enter otp" required/>
+                            <span class="add-on bg_lo"><i >D-</i></span><input type="text" name="otp" id="otp" onchange="setMsg()" maxLength="6" minLength="6" size="6" min="0" max="9" pattern="[0-9]{6}" placeholder="Enter OTP" required/>
                         </div>
                     </div>
                
@@ -49,9 +50,10 @@
            			<div class="form-actions">
                     	<span class="pull-right"><input type="submit" class="btn btn-info" value="Verify"/></span>
                     </div>
+                    <div class="normal_text" style="color: darkred;"><b id="otpmsg" ></b></div>
              </form>
            
-           	<div class="normal_text" style="color: darkred;"><b id="otpmsg" ></b></div>
+           	
             <a href="#"></a>
         </div>
         

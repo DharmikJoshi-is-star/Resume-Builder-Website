@@ -65,6 +65,8 @@ public class TemplateController {
 		try {
 			fronEndUser = converter.convertUserToFrontEnd(user);
 			
+			System.out.println("Name: "+fronEndUser.getName());
+			
 			model.addAttribute("user", fronEndUser);
 			
 		} catch (SQLException | IOException e) {

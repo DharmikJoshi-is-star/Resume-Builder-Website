@@ -14,7 +14,7 @@
     <body>
         <div id="loginbox">            
             <form id="loginform" class="form-vertical" action="javascript:void(0);" onsubmit="validateForm()" method="post" validate>
-				 <div class="control-group normal_text"> <h3><img src="img/logo.png" alt="Logo" /></h3></div>
+				 <div class="control-group normal_text"> <h3><img src="img/logo1.png" alt="Logo" /></h3></div>
 				 
 				 <input type="hidden" name="mail" id="mail" th:value="${mail}">
 				 
@@ -47,7 +47,7 @@
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                        	<span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                        	<span class="add-on bg_lo"><i class="icon-lock"></i></span>
                             <input type="password" placeholder="Confirm password" name="confirmpassword" size="6" required/>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                 <div class="control-group">
                     <div class="controls">
                     	<div class="main_input_box">
-                    	<span class="normal_text" style="color: darkred" id="error"></span>
+                    	<span class="normal_text" style="color: red" id="error"></span>
                			</div>
                		</div>
                	</div>
@@ -87,13 +87,9 @@
                     	
                     	http://localhost:8086?view=DharmikJoshiResume
                     	
-                    	<p class="normal_text" style="color: darkred" id="errorSite"></p>
+                    	<p class="normal_text" style="color: red" id="errorSite"></p>
                			</p>
 	                </div>
-                    
-                    
-               
-                
             </form>
             
         </div>

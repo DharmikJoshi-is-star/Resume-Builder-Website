@@ -28,6 +28,11 @@
       rel="stylesheet"
       type="text/css"
     />
+    
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>  
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>   
+  
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
@@ -44,6 +49,7 @@
     <div id="user-nav" class="navbar navbar-inverse">
       <ul class="nav">
         <li class="dropdown" id="profile-messages">
+        <!-- 
           <a
             title=""
             href="#"
@@ -73,6 +79,7 @@
             ><i class="icon icon-cog"></i> <span class="text">Settings</span></a
           >
         </li>
+         -->
         <li class="">
           <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
@@ -89,6 +96,13 @@
         ><i class="fas fa-sitemap"></i> Skiils
       </a>
       <ul>
+      	<li>
+          <a href="#" id="visitSite" target="_blank">
+            <i class="icon-link"></i><span>Visit Site</span>
+            <br>
+            <span id="siteText" style=" font-size: 10px;"></span>
+          </a>
+        </li>
       	<li>
           <a href="dashboard">
             <i class="icon-dashboard"></i><span>Dashboard</span></a
@@ -134,6 +148,15 @@
             <!-- <span class="label label-important">3</span> -->
           </a>
         </li>
+        
+        <li>
+          <a href="#tutorial" data-toggle="modal">
+            <i class="icon-question-sign"></i> <span>Help</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+        
       </ul>
     </div>
     <!--sidebar-menu-->
@@ -198,7 +221,8 @@
                         id="technicalSkillName"
                         name="technicalSkillName"
                         class="span11"
-                        placeholder="e.g. Spring Boot"
+                        placeholder="e.g. Javascript"
+                        required
                       />
                     </div>
                   </div>
@@ -225,41 +249,7 @@
                 class="widget-content nopadding updates collapse in"
                 id="technicalSkillContainer"
               >
-                <div class="new-update clearfix">
-                  <div class="update-done">
-                    <a title="" href="#">
-                      <strong>
-                        <span class="badge badge-info">
-                          Python<i class="fas fa-times-circle"></i>
-                        </span>
-                      </strong>
-                    </a>
-                  </div>
-                </div>
 
-                <div class="new-update clearfix">
-                  <div class="update-done">
-                    <a title="" href="#">
-                      <strong>
-                        <span class="badge badge-info">
-                          Java Script<i class="fas fa-times-circle"></i>
-                        </span>
-                      </strong>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="new-update clearfix">
-                  <div class="update-done">
-                    <a title="" href="#">
-                      <strong>
-                        <span class="badge badge-info">
-                          Data analytics<i class="fas fa-times-circle"></i>
-                        </span>
-                      </strong>
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
             <hr />
@@ -289,6 +279,7 @@
                   name="otherSkillForm"
                   onsubmit="otherSkillInformationForm()"
                   class="form-horizontal"
+                  
                 >
                   <input
                     type="hidden"
@@ -305,7 +296,8 @@
                         id="otherSkillName"
                         name="otherSkillName"
                         class="span11"
-                        placeholder="e.g. Presentation"
+                        placeholder="e.g. Presentations"
+                        required
                       />
                     </div>
                   </div>
@@ -332,40 +324,7 @@
                 class="widget-content nopadding updates collapse in"
                 id="otherSkillContainer"
               >
-                <div class="new-update clearfix">
-                  <div class="update-done">
-                    <a title="" href="#">
-                      <strong>
-                        <span class="badge badge-info">
-                          Reading<i class="fas fa-times-circle"></i>
-                        </span>
-                      </strong>
-                    </a>
-                  </div>
-                </div>
-                <div class="new-update clearfix">
-                  <div class="update-done">
-                    <a title="" href="#">
-                      <strong>
-                        <span class="badge badge-info">
-                          book writing<i class="fas fa-times-circle"></i>
-                        </span>
-                      </strong>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="new-update clearfix">
-                  <div class="update-done">
-                    <a title="" href="#">
-                      <strong>
-                        <span class="badge badge-info">
-                          cycling<i class="fas fa-times-circle"></i>
-                        </span>
-                      </strong>
-                    </a>
-                  </div>
-                </div>
+               
               </div>
             </div>
             <hr />
@@ -389,7 +348,9 @@
 
     <!--functionality-->
     <script src="js/functionality/skills.js"></script>
-
+	<script src="js/predefinedData/skillData.js"></script>
+	<script src="js/tutorial/tutorial.js"></script>
+	
     <script src="js/excanvas.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.ui.custom.js"></script>

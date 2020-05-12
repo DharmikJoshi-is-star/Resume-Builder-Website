@@ -1,5 +1,5 @@
 function validateForm() {
-  alert("hello");
+  //alert("hello");
   var form = document.getElementById("loginform");
 
   var fullname = form["fullname"].value.trim();
@@ -90,12 +90,12 @@ fetch("http://localhost:8086/checkIfUsernameExists",{
 		console.log(data);
 		
 		if(data==true){
-			alert("true");
+			//alert("true");
 			document.getElementById("error").innerHTML =
 			      "Entered username already exists!!";
 			
 		}else if(data == false){
-			alert(false);
+			//alert(false);
 			saveUser(user);
 		}
 		
@@ -110,7 +110,7 @@ fetch("http://localhost:8086/checkIfUsernameExists",{
 
 function validateSiteForm() {
 	
-	alert("heu");
+	//alert("heu");
 	
   var form = document.getElementById("recoverform");
 
@@ -196,7 +196,7 @@ function saveUser(user){
 }
 
 function saveUserUrl(userWebsiteUrl){
-	alert("website process");
+	//alert("website process");
 	var userId = document.getElementById("uId").value;
 	
 	if(userId!=0){
@@ -211,7 +211,7 @@ function saveUserUrl(userWebsiteUrl){
 		})
 		.then((response)=> response.json())
 		.then((data)=> {
-			alert("website save");
+			//alert("website save");
 			console.log(data);
 			
 			if(data!=null){

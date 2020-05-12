@@ -79,6 +79,9 @@ public class PersonalInformationRestController {
 		PersonalInformation personalInformation = userRepository.getPersonalInformation(uId);
 		FrontEndPersonalInformation frontEndPersonalInformation;
 		
+		if(personalInformation==null)
+			return null;
+		
 		try {
 			frontEndPersonalInformation = personalInformationService.convertBackEndPersonalInfoToFrontEndPersonalInfo(personalInformation);
 			return frontEndPersonalInformation;

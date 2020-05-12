@@ -69,7 +69,7 @@ public class SignupRestController {
 		}
 		
 		System.out.println(user);
-		
+		   
 		return false;
 	}
 	

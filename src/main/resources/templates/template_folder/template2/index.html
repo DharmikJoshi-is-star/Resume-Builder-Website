@@ -4,7 +4,7 @@
 <html lang="en">
 	<head>
 	
-		<title th:text=${user.name}></title>
+		<title th:text=${user.name} th:if=${user}></title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -22,7 +22,7 @@
 		<header>
 			<nav class="nav-wrapper indigo darken-4 valign-wrapper fixed-top">
 				<div class="container">
-					<a href="" class="brand-logo valign-wrapper"> <span th:text="${user.personalInformation.name}"></span></a>
+					<a href="" class="brand-logo valign-wrapper"> <span th:text="${user.personalInformation.name}" th:if="${user.personalInformation}"></span></a>
 					<a href="" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						<li><a class="waves-effect waves-light" href="#about">About</a></li>
@@ -54,15 +54,15 @@
 					<div class="row valign-wrapper">
 						<div class="col s3">
 							<blockquote class="black-text" for="image"><h3>About</h3></blockquote>
-							<img th:src="${user.personalInformation.picture}" alt="" class="responsive-img">
+							<img th:src="${user.personalInformation.picture}" th:if="${user.personalInformation}" alt="" class="responsive-img">
 						</div>
 						<div class="col s6">
 							<span class="black-text">
-								<H3><p th:text="${user.personalInformation.title}">
+								<H3><p th:text="${user.personalInformation.title}" th:if="${user.personalInformation}">
 									
 								</p>
 								</H3>
-								<p th:text="${user.personalInformation.summary}">	
+								<p th:text="${user.personalInformation.summary}" th:if="${user.personalInformation}">	
 									
 								</p>
 							</span>
@@ -78,15 +78,15 @@
 				<div class="row valign-wrapper">
 					<div class="col s12">
 						<blockquote class="black-text" for="image"><h3>About</h3></blockquote>
-						<img th:src="${user.personalInformation.picture}" alt="" class="responsive-img">
+						<img th:src="${user.personalInformation.picture}" th:if="${user.personalInformation}" alt="" class="responsive-img">
 					</div>
 				</div>
 				<span class="black-text">
-					<H3><p th:text="${user.personalInformation.title}">
+					<H3><p th:text="${user.personalInformation.title}" th:if="${user.personalInformation}">
 						
 					</p>
 					</H3>
-					<p th:text="${user.personalInformation.summary}">	
+					<p th:text="${user.personalInformation.summary}" th:if="${user.personalInformation}">	
 						
 					</p>
 				</span>
@@ -99,7 +99,7 @@
 		<section class="container section scrollspy" id="education">
 			<ul class="collection with-header">
 				<li class="collection-header"><blockquote><h3>Education</h3></blockquote></li>
-				<li class="collection-item avatar" th:each="graduation : ${user.graduations}" >
+				<li class="collection-item avatar" th:each="graduation : ${user.graduations}" th:if="${user.graduations}">
 				
 					<i class="fa fa-graduation-cap circle black" aria-hidden="true"></i>
 					<span class="title text-darken-4" th:text="${graduation.universityName}"></span>
@@ -133,7 +133,7 @@
 				
 				
 				
-				<li class="collection-item avatar" th:each="course : ${user.courses}">
+				<li class="collection-item avatar" th:each="course : ${user.courses}" th:if="${user.courses}">
 				
 					<i class="fa fa-certificate circle black" aria-hidden="true"></i>
 					
@@ -153,7 +153,7 @@
 				
 				
 				
-				<li class="collection-item avatar" th:each="certification : ${user.certifications}">
+				<li class="collection-item avatar" th:each="certification : ${user.certifications}" th:if="${user.certifications}">
 				
 					<i class="fa fa-certificate circle black" aria-hidden="true"></i>
 					
@@ -188,7 +188,7 @@
 											<span class="card-title">Technical Skill/Industry Knowledge</span>
 											<div class="divider"></div>
 											<ul class="collections">
-												<li th:each="technicalSkill: ${user.technicalSkills}">
+												<li th:each="technicalSkill: ${user.technicalSkills}" th:if="${user.technicalSkills}">
 												
 													<span th:text="${technicalSkill.name}">
 													
@@ -209,7 +209,7 @@
 										<span class="card-title">Technical Skill/Industry Knowledge</span>
 										<div class="divider"></div>
 											<ul class="collections">
-												<li th:each="technicalSkill: ${user.technicalSkills}">
+												<li th:each="technicalSkill: ${user.technicalSkills}" th:if="${user.technicalSkills}">
 												
 													<span th:text="${technicalSkill.name}">
 													
@@ -238,7 +238,7 @@
 											<span class="card-title">Other Skill</span>
 											<div class="divider"></div>
 											<ul class="collections">
-												<li th:each="otherSkill: ${user.otherSkills}">
+												<li th:each="otherSkill: ${user.otherSkills}" th:if="${user.otherSkills}">
 												
 													<span th:text="${otherSkill.name}">
 													
@@ -259,7 +259,7 @@
 										<span class="card-title">Other Skill</span>
 										<div class="divider"></div>
 											<ul class="collections">
-												<li th:each="otherSkill: ${user.otherSkills}">
+												<li th:each="otherSkill: ${user.otherSkills}" th:if="${user.otherSkills}">
 												
 													<span th:text="${otherSkill.name}">
 													
@@ -286,7 +286,7 @@
 			<div class="row">
 			
 				<!-- Start Projects -->
-				<div class="col s12 l4" th:each="project: ${user.projects}">
+				<div class="col s12 l4" th:each="project: ${user.projects}" th:if="${user.projects}">
 					<div class="card">
 						<div class="card-content">
 							
@@ -313,7 +313,7 @@
 			<div class="row">
 			
 				<!-- Job/Internship start -->
-				<div class="col s12" th:each="jobInternship: ${user.jobInternships}">
+				<div class="col s12" th:each="jobInternship: ${user.jobInternships}" th:if="${user.jobInternships}">
 					<div class="card black-text">
 						<div class="card-content" >
 						
@@ -356,7 +356,7 @@
 			<div class="row">
 			
 				<!-- Job/Internship start -->
-				<div class="col s12" th:each="volunteer: ${user.volunteers}">
+				<div class="col s12" th:each="volunteer: ${user.volunteers}" th:if="${user.volunteers}">
 				
 					<div class="card black-text">
 						<div class="card-content" >
@@ -408,35 +408,35 @@
 			<div class="row">
 				<ul>
 					<li class="col s2">
-						<a target="_blank" th:href="${user.socialInformation.githubUrl}" th:if="${user.socialInformation.githubUrl}">
+						<a target="_blank" th:href="${user.socialInformation.githubUrl}" th:if="${user.socialInformation}">
 							<div class="btn-floating">
 								<i class="fab fa-github black darken-4"></i>
 							</div>
 						</a>
 					</li>
 					<li class="col s2">
-						<a target="_blank" th:href="${user.socialInformation.facebookUrl}" th:if="${user.socialInformation.facebookUrl}">
+						<a target="_blank" th:href="${user.socialInformation.facebookUrl}" th:if="${user.socialInformation}">
 							<div class="btn-floating">
 								<i class="fab fa-facebook lightblue darken-4" ></i>
 							</div>
 						</a>
 					</li>
 					<li class="col s2">
-						<a target="_blank" th:href="|mailto:@${user.socialInformation.googleUrl}|" th:if="${user.socialInformation.googleUrl}">
+						<a target="_blank" th:href="|mailto:@${user.socialInformation.googleUrl}|" th:if="${user.socialInformation}">
 							<div class="btn-floating">
 								<i class="material-icons small green" >email</i>
 							</div>
 						</a>
 					</li>
 					<li class="col s2">
-						<a target="_blank" th:href="${user.socialInformation.linkedinUrl}" th:if="${user.socialInformation.linkedinUrl}">
+						<a target="_blank" th:href="${user.socialInformation.linkedinUrl}" th:if="${user.socialInformation}">
 							<div class="btn-floating">
 								<i class="fab fa-linkedin blue darken-4"></i>
 							</div>
 						</a>
 					</li>
 					<li class="col s2">
-						<a target="_blank" th:href="${user.socialInformation.instagramUrl}" th:if="${user.socialInformation.instagramUrl}">
+						<a target="_blank" th:href="${user.socialInformation.instagramUrl}" th:if="${user.socialInformation}">
 							<div class="btn-floating">
 								<i class="right-align fab fa-instagram purple darken-1"></i>
 							</div>

@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+
+:root {
+  --primary: hsl(0, 100%, 39%);
+  --accent: hsl(113, 100%, 39%);
+  --header: hsl(0, 0%, 10%);
+  --bg: hsl(0, 0%, 93%);
+}
+
+/* Snackbar */
+#snackbar-success {
+  background-color: var(--accent);
+  color: var(--bg);
+  text-align: center;
+  border-radius: 3px;
+  padding: 16px 32px;
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+#snackbar-success.show {
+  transform: translate(-50%, 0%);
+  transition: 0.5s;
+  opacity: 1;
+}
+
+/* Snackbar */
+#snackbar-error {
+  background-color: var(--primary);
+  color: var(--bg);
+  text-align: center;
+  border-radius: 3px;
+  padding: 16px 32px;
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+#snackbar-error.show {
+  transform: translate(-50%, 0%);
+  transition: 0.5s;
+  opacity: 1;
+}

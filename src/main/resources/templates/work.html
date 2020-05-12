@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="css/fullcalendar.css" />
+    <link rel="stylesheet" href="css/colorpicker.css" />
     <link rel="stylesheet" href="css/datepicker.css" />
     <link rel="stylesheet" href="css/uniform.css" />
     <link rel="stylesheet" href="css/select2.css" />
@@ -27,6 +28,10 @@
       rel="stylesheet"
       type="text/css"
     />
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>  
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>   
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
@@ -42,6 +47,7 @@
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
       <ul class="nav">
+      <!-- 
         <li class="dropdown" id="profile-messages">
           <a
             title=""
@@ -72,6 +78,7 @@
             ><i class="icon icon-cog"></i> <span class="text">Settings</span></a
           >
         </li>
+         -->
         <li class="">
           <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
@@ -88,6 +95,13 @@
         ><i class="fas fa-sitemap"></i> Work Experience
       </a>
       <ul>
+      	<li>
+          <a href="#" id="visitSite" target="_blank">
+            <i class="icon-link"></i><span>Visit Site</span>
+            <br>
+            <span id="siteText" style=" font-size: 10px;"></span>
+          </a>
+        </li>
       	<li>
           <a href="dashboard">
             <i class="icon-dashboard"></i><span>Dashboard</span></a
@@ -133,6 +147,16 @@
             <!-- <span class="label label-important">3</span> -->
           </a>
         </li>
+        
+        
+        <li>
+          <a href="#tutorial" data-toggle="modal">
+            <i class="icon-question-sign"></i> <span>Help</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+        
       </ul>
     </div>
     <!--sidebar-menu-->
@@ -155,6 +179,7 @@
 
         <div class="row-fluid">
           <div class="span4">
+          	 
             <button
               class="btn btn-info btn-large"
               style="border-radius: 25px;"
@@ -197,7 +222,7 @@
                         name="jobInternshipTitle"
                         required
                         class="span11"
-                        placeholder="e.g. Product Manager"
+                        placeholder="e.g. Web Developer"
                       />
                     </div>
                   </div>
@@ -213,7 +238,7 @@
                         required
                         name="jobInternshipCompanyName"
                         class="span11"
-                        placeholder="e.g. ORACLE"
+                        placeholder="e.g. www.techskillsit.com"
                       />
                     </div>
                   </div>
@@ -221,33 +246,24 @@
                   <div class="control-group">
                     <label class="control-label">Country: </label>
                     <div class="controls">
-                      <select
-                        id="jobInternshipCountry"
-                        name="jobInternshipCountry"
-                      >
-                        <option value="India">India</option>
-                        <option value="USA">USA</option>
-                      </select>
+                    	<input id="jobInternshipCountry" name="jobInternshipCountry" required type="text" placeholder="e.g. India">
+                      
                     </div>
                   </div>
 
                   <div class="control-group">
                     <label class="control-label">State/Province : </label>
                     <div class="controls">
-                      <select id="jobInternshipState" name="jobInternshipState">
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="Pune">Pune</option>
-                      </select>
+                    	<input id="jobInternshipState" name="jobInternshipState" required type="text" placeholder="e.g. Maharashtra">
+                      
                     </div>
                   </div>
 
                   <div class="control-group">
                     <label class="control-label">City : </label>
                     <div class="controls">
-                      <select id="jobInternshipCity" name="jobInternshipCity">
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="New york">New york</option>
-                      </select>
+                    	<input id="jobInternshipCity" name="jobInternshipCity" required type="text" placeholder="e.g. Mumbai">
+                      
                     </div>
                   </div>
 
@@ -255,46 +271,25 @@
                     <label class="control-label">Start Month : </label>
                     <div class="controls">
                       <select
-                        class="span4 m-wrap"
+                        class=" span6 m-wrap"
                         id="jobInternshipStartMonth"
                         name="jobInternshipStartMonth"
+                        required
                       >
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="January">April</option>
-                        <option value="April">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Augest">Augest</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                       
                       </select>
                     </div>
 
                     <label class="control-label">Start Year : </label>
                     <div class="controls">
                       <select
-                        class="span3 m-wrap"
+                        class=" span6 m-wrap"
                         id="jobInternshipStartYear"
                         name="jobInternshipStartYear"
+                        required
+                        
                       >
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
+                       
                       </select>
                     </div>
                   </div>
@@ -315,46 +310,22 @@
                     <label class="control-label">End Month : </label>
                     <div class="controls">
                       <select
-                        class="span4 m-wrap"
+                        class=" span6 m-wrap"
                         id="jobInternshipEndMonth"
                         name="jobInternshipEndMonth"
                       >
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="January">April</option>
-                        <option value="April">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Augest">Augest</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                       
                       </select>
                     </div>
 
                     <label class="control-label">End Year : </label>
                     <div class="controls">
                       <select
-                        class="span3 m-wrap"
+                        class=" span6 m-wrap"
                         id="jobInternshipEndYear"
                         name="jobInternshipEndYear"
                       >
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
+                       
                       </select>
                     </div>
                   </div>
@@ -363,8 +334,8 @@
                     <label class="control-label">Describe your work: </label>
                     <div class="controls">
                       <textarea
-                        class="span11"
-                        placeholder="Ex. Worked on Web applications, Chatbot, Scrapping tool and API integration"
+                        class="span11"  rows="6" 
+                        placeholder="Ex. In this internship I have worked on two projects based on JSP servlets, spring MVC. My responsibilities during this period was to complete the given task and prepare the documentations."
                         name="jobInternshipDescription"
                         id="jobInternshipDescription"
                         required
@@ -374,8 +345,7 @@
 
                   <div class="control-group">
                     <label class="control-label"
-                      >Add or link to external documents, photos, sites, videos,
-                      and presentations:
+                      >Upload job/internship letter/certificate:
                     </label>
                     <div class="controls">
                       <input
@@ -419,24 +389,7 @@
                 class="widget-content nopadding updates collapse in"
                 id="jobContainer"
               >
-                <div class="new-update clearfix">
-                  <i class="icon-ok-sign"></i>
-                  <div class="update-done">
-                    <a title="" href="#"><strong>Product Manager</strong></a>
-                    <span>ORACLE</span>
-                    <span>( June 2010 - June 2012 )</span>
-                    <span
-                      >Worked on Web applications, Chatbot, Scrapping tool and
-                      API integration</span
-                    >
-                  </div>
-                  <div class="update-date">
-                    <span class="update-day"
-                      ><i class="icon icon-edit"></i>
-                      <i class="icon icon-trash"></i>
-                    </span>
-                  </div>
-                </div>
+                
               </div>
             </div>
             <hr />
@@ -482,7 +435,7 @@
                   />
                   <input type="hidden" name="view" id="view" value="true">
                   <div class="control-group">
-                    <label class="control-label">Role :</label>
+                    <label class="control-label">Role/ Experience :</label>
                     <div class="controls">
                       <input
                         type="text"
@@ -490,7 +443,7 @@
                         name="volunteerRole"
                         required
                         class="span11"
-                        placeholder="e.g. Product Manager"
+                        placeholder="e.g. Nursing Experience"
                       />
                     </div>
                   </div>
@@ -504,7 +457,7 @@
                         name="volunteerOrganization"
                         required
                         class="span11"
-                        placeholder="e.g. ORACLE"
+                        placeholder="e.g. Weekly American Heart Association Volunteer"
                       />
                     </div>
                   </div>
@@ -515,20 +468,10 @@
                       <select
                         id="volunteerStartMonth"
                         name="volunteerStartMonth"
-                        class="span4 m-wrap"
+                        class=" span6 m-wrap"
+                        required
                       >
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="January">April</option>
-                        <option value="April">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Augest ">Augest</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                        
                       </select>
                     </div>
 
@@ -537,22 +480,10 @@
                       <select
                         id="volunteerStartYear"
                         name="volunteerStartYear"
-                        class="span3 m-wrap"
+                        class=" span6 m-wrap"
+                        required
                       >
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
+                       
                       </select>
                     </div>
                   </div>
@@ -576,20 +507,9 @@
                       <select
                         id="volunteerEndMonth"
                         name="volunteerEndMonth"
-                        class="span4 m-wrap"
+                        class=" span6 m-wrap"
                       >
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="January">April</option>
-                        <option value="April">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Augest">Augest</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                        
                       </select>
                     </div>
 
@@ -598,22 +518,9 @@
                       <select
                         id="volunteerEndYear"
                         name="volunteerEndYear"
-                        class="span3 m-wrap"
+                        class="  span6 m-wrap"
                       >
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
+                        
                       </select>
                     </div>
                   </div>
@@ -625,7 +532,8 @@
                         id="volunteerDescription"
                         name="volunteerDescription"
                         class="span11"
-                        placeholder="Ex. I raised funds for our annual charity 10K."
+                        rows="6" 
+                        placeholder="e.g. Conducted patient education for 10 patients per week. Performed an average of 5 health screenings each week. Commended by management 5x for excellent patient interaction."
                         required
                       ></textarea>
                     </div>
@@ -678,23 +586,7 @@
                 class="widget-content nopadding updates collapse in"
                 id="volunteerContainer"
               >
-                <div class="new-update clearfix">
-                  <i class="icon-ok-sign"></i>
-                  <div class="update-done">
-                    <a title="" href="#"
-                      ><strong>Fund raising Volunteer</strong></a
-                    >
-                    <span>Robihood Army</span>
-                    <span>( June 2010 - June 2012 )</span>
-                    <span>I raised funds for our annual charity 10K</span>
-                  </div>
-                  <div class="update-date">
-                    <span class="update-day"
-                      ><i class="icon icon-edit"></i>
-                      <i class="icon icon-trash"></i>
-                    </span>
-                  </div>
-                </div>
+                
               </div>
             </div>
             <hr />
@@ -742,7 +634,7 @@
                         id="projectName"
                         name="projectName"
                         class="span11"
-                        placeholder="e.g. Product Manager"
+                        placeholder="e.g. Playstore App launch Study"
                       />
                     </div>
                   </div>
@@ -753,20 +645,9 @@
                       <select
                         id="projectStartMonth"
                         name="projectStartMonth"
-                        class="span4 m-wrap"
+                        class="span6 m-wrap"
                       >
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="January">April</option>
-                        <option value="April">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Augest">Augest</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                        
                       </select>
                     </div>
 
@@ -775,22 +656,9 @@
                       <select
                         id="projectStartYear"
                         name="projectStartYear"
-                        class="span3 m-wrap"
+                        class="span6 m-wrap"
                       >
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
+                       
                       </select>
                     </div>
                   </div>
@@ -814,20 +682,9 @@
                       <select
                         id="projectEndMonth"
                         name="projectEndMonth"
-                        class="span4 m-wrap"
+                        class="span6 m-wrap"
                       >
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="January">April</option>
-                        <option value="April">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Augest">Augest</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                       
                       </select>
                     </div>
 
@@ -836,22 +693,9 @@
                       <select
                         id="projectEndYear"
                         name="projectEndYear"
-                        class="span3 m-wrap"
+                        class="span6 m-wrap"
                       >
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
+                        
                       </select>
                     </div>
                   </div>
@@ -864,7 +708,7 @@
                         id="projectAssociated"
                         name="projectAssociated"
                         class="span11"
-                        placeholder="e.g. ORACLE"
+                        placeholder="e.g. www.m-intellect.com"
                       />
                     </div>
                   </div>
@@ -876,7 +720,9 @@
                         id="projectDescription"
                         name="projectDescription"
                         class="span11"
-                        placeholder="Ex. I raised funds for our annual charity 10K."
+                        required
+                        rows="10"
+                        placeholder="Ex. An application designed using Python(Machine Learning, Data Visualization tools). A simple application that provides insights of given data based on which company can take decisions before their future launches on playstore. Technology Stack: Python 2.7, Sklearn module, Matplotlib module, Tkinter module"
                       ></textarea>
                     </div>
                   </div>
@@ -884,14 +730,14 @@
                   <div class="control-group">
                     <label class="control-label">Project URL: </label>
                     <div class="controls">
-                      <input type="url" name="projectUrl" id="projectUrl" />
+                      <input type="url" name="projectUrl" id="projectUrl" required placeholder="e.g. https://github.com/DharmikJoshi-is-star/Google-Play-Store-App-Launch-Study"/>
                     </div>
                   </div>
 
                   <div class="control-group">
                     <label class="control-label">Repository/Source URL: </label>
                     <div class="controls">
-                      <input type="url" name="sourceUrl" id="sourceUrl" />
+                      <input type="url" name="sourceUrl" id="sourceUrl" placeholder="e.g. https://github.com/DharmikJoshi-is-star/Google-Play-Store-App-Launch-Study" />
                     </div>
                   </div>
 
@@ -902,6 +748,7 @@
                         type="file"
                         name="projectAttachmentFile"
                         id="projectAttachmentFile"
+                        required
                       />
                       <input
                         type="hidden"
@@ -941,58 +788,7 @@
                 class="widget-content nopadding updates collapse in"
                 id="projectContainer"
               >
-                <div class="new-update clearfix">
-                  <i class="icon-ok-sign"></i>
-                  <div class="update-done">
-                    <a title="" href="#"><strong> AI Health Portal </strong></a>
-                    <span> Associated with: Google </span>
-                    <span>( June 2010 - June 2012 )</span>
-                    <span>Smart health portal for disease prediction</span>
-                    <span
-                      ><a><b>project link</b></a>
-                      <a><b>project Source link</b></a>
-                    </span>
-                    <span>
-                      <a href="#attachmentModal" data-toggle="modal"
-                        ><b>view picture</b></a
-                      >
-                    </span>
 
-                    <div id="attachmentModal" class="modal hide">
-                      <div class="modal-header">
-                        <button
-                          data-dismiss="modal"
-                          class="close"
-                          type="button"
-                        >
-                          ×
-                        </button>
-                        <h3>attachment</h3>
-                      </div>
-
-                      <div class="modal-body">
-                        <p>
-                          <img
-                            id="projectAttachment"
-                            src="img/gallery/imgbox3.jpg"
-                          />
-                        </p>
-                      </div>
-
-                      <div class="modal-footer">
-                        <a data-dismiss="modal" class="btn btn-inverse" href="#"
-                          >Cancel</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="update-date">
-                    <span class="update-day"
-                      ><i class="icon icon-edit"></i>
-                      <i class="icon icon-trash"></i>
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
             <hr />
@@ -1039,6 +835,10 @@
 
     <!--Functionality-->
     <script src="js/functionality/work.js"></script>
+	<script src="js/predefinedData/jobTitleData.js"></script>
+	<script src="js/predefinedData/countryStateCityJobData.js"></script>
+	<script src="js/predefinedData/monthYearWork.js"></script>
+	<script src="js/tutorial/tutorial.js"></script>
 
     <script type="text/javascript">
       // This function is called from the pop-up menus to transfer to

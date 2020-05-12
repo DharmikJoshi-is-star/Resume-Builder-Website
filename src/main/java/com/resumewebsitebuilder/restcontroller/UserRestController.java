@@ -19,7 +19,7 @@ public class UserRestController {
 	
 	@PostMapping("/addUser")
 	public Long addUser(@RequestBody User user) {
-		user =  userService.addUser(user);
+		user =  userRepository.save(user);
 		return user.getId();
 	}
 	

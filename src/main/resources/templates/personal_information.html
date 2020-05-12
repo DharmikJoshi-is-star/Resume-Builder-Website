@@ -47,6 +47,7 @@
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
       <ul class="nav">
+      <!-- 
         <li class="dropdown" id="profile-messages">
           <a
             title=""
@@ -77,6 +78,7 @@
             ><i class="icon icon-cog"></i> <span class="text">Settings</span></a
           >
         </li>
+         -->
         <li class="">
           <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
@@ -93,6 +95,13 @@
         ><i class="fas fa-sitemap"></i> General
       </a>
       <ul>
+      	<li>
+          <a href="#" id="visitSite" target="_blank">
+            <i class="icon-link"></i><span>Visit Site</span>
+            <br>
+            <span id="siteText" style=" font-size: 10px;"></span>
+          </a>
+        </li>
       	<li>
           <a href="dashboard">
             <i class="icon-dashboard"></i><span>Dashboard</span></a
@@ -138,6 +147,15 @@
             <!-- <span class="label label-important">3</span> -->
           </a>
         </li>
+        
+        <li>
+          <a href="#tutorial" data-toggle="modal">
+            <i class="icon-question-sign"></i> <span>Help</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+        
       </ul>
     </div>
     <!--sidebar-menu-->
@@ -165,14 +183,14 @@
           <!--
 
             -->
-          <div class="span4">
+          <div class="span6">
             <div class="widget-box">
               <div class="widget-title">
                 <span class="icon"> <i class="icon-align-justify"></i> </span>
                 <h5>Current Information</h5>
               </div>
               <div class="widget-content nopadding">
-                <div class="card">
+                
                   <div class="pic-container">
                     <img
                       id="userPicture"
@@ -182,20 +200,26 @@
                     />
                   </div>
                   <div class="name">
+                  	<center>
                     <span id="userName">Anonymous</span>
+                    </center>
                   </div>
                   <div class="title">
+                  	<center>
                     <span id="userTitle">PROGRAMMER</span>
+                    </center>
                   </div>
                   <div class="description">
+                  	<center>
                     <p id="userSummary">
                       Your future is created by what you do today not tomorrow.
+                       
                     </p>
+                    </center>
                   </div>
-                </div>
+                
               </div>
-              <div class="form-actions"></div>
-            </div>
+                          </div>
           </div>
           <!--
 
@@ -278,7 +302,7 @@
                   </div>
                   <div class="form-actions">
                     <button type="submit" class="btn btn-success">Save</button>
-                    <button type="submit" class="btn btn-info">Edit</button>
+                    
                   </div>
                 </form>
               </div>
@@ -338,7 +362,8 @@
 
     <!--fuctionality for javascript-->
     <script src="js/functionality/personal_information.js"></script>
-
+	<script src="js/tutorial/tutorial.js"></script>
+	
     <script>
       $(".textarea_editor").wysihtml5();
 

@@ -13,7 +13,7 @@ function onLoadPopulate(){
 	}
 	
 }
-
+/*
 function setUrl(){
 	
 	var userId = document.getElementById("uId").value;
@@ -45,14 +45,16 @@ function setUrl(){
 		      document.getElementById("url").value = userUrl.url;
 	    	  
 	    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-	    	
+	    	  
+	    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
+		    	
 		    })
 		    .catch((error) => {
 		    	return true;
 		 });
 	}
 }
-
+*/
 function onLoadPopulateOtherTemplates(){
 	
 	fetch("http://localhost:8086/getAllTemplates", {
@@ -183,7 +185,8 @@ function saveTemplate(templateId){
 		      console.log("data is sent successfully");
 		      
 		      setUpTemplateForUser(template);
-		      
+		  		swal("Success", "Template is changed successfully", "success");
+		  		window.scrollTo(0, 0);
 		    })
 		    .catch((error) => {
 		    	return true;
@@ -235,7 +238,6 @@ function setUpTemplateForUser(template){
 }
 
 function populateUrl(){
-
 	var userId = document.getElementById("uId").value;
 	
 	  fetch("http://localhost:8086/getUserUrl/"+userId, {
@@ -250,9 +252,10 @@ function populateUrl(){
 		      console.log("data is sent successfully");
 		      
 		      if(userUrl){
-		    	  document.getElementById("url").value = userUrl.url;
 		    	  
 		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
 		    	  
 		      }
 		      

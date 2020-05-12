@@ -13,50 +13,47 @@
     </head>
     <body>
         <div id="loginbox">            
-            <form id="loginform" class="form-vertical" action="loginProcess" method="post">
-				 <div class="control-group normal_text"> <h3><img src="img/logo.png" alt="Logo" /></h3></div>
+            
+            <form id="loginform" class="form-vertical" action="javascript:void(0);" method="post" onsubmit="checkCredentials()">
+				 <div class="control-group normal_text"> <h3><img src="img/logo1.png" alt="Logo" /></h3></div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Username" name="username"/>
+                            <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Username" name="username" required/>
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Password" name="password"/>
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Password" name="password" required/>
                         </div>
                     </div>
                 </div>
                 
                 
-                <span class="pull-left"><a href="#" class="flip-link" id="to-recover" style="color: white;">Lost password?</a></span>
+                <span class="pull-left"><a href="loginWithOtp" class="flip-link" style="color: grey;">Login with OTP?</a></span>
                 
                 
                 <div class="form-actions">
                     <span class="pull-left"><a href="emailVerification" class="btn btn-info">Sign up</a></span>
                     <span class="pull-right"><input type="submit" class="btn btn-success" value="Login"></span>
                 </div>
+                
+                <div class="control-group">
+                    <div class="controls">
+                    	<div class="main_input_box">
+                    	<p class="normal_text" id="msg"></p>
+               			</div>
+               		</div>
+               	</div>
+                
+	                
             </form>
             
-            <form id="recoverform" action="#" class="form-vertical">
-				<p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
-				
-                    <div class="controls">
-                        <div class="main_input_box">
-                            <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
-                        </div>
-                    </div>
-               
-                <div class="form-actions">
-                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-                    <span class="pull-right"><a class="btn btn-info"/>Reecover</a></span>
-                </div>
-            </form>
             
         </div>
-        
+        <script src="js/functionality/login.js"></script>  
         <script src="js/jquery.min.js"></script>  
         <script src="js/matrix.login.js"></script> 
     </body>

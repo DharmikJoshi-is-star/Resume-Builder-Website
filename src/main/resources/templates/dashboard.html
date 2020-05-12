@@ -39,6 +39,7 @@
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
       <ul class="nav">
+      	<!-- 
         <li class="dropdown" id="profile-messages">
           <a
             title=""
@@ -69,6 +70,8 @@
             ><i class="icon icon-cog"></i> <span class="text">Settings</span></a
           >
         </li>
+         -->
+        
         <li class="">
           <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
@@ -85,6 +88,13 @@
         ><i class="icon-dashboard"></i> Dashboard
       </a>
       <ul>
+      	<li>
+          <a href="javascript:void(0);" id="visitSite" target="_blank">
+            <i class="icon-link"></i><span>Visit Site</span>
+            <br>
+            <span id="siteText" style=" font-size: 10px;"></span>
+          </a>
+        </li>
       	<li class="active">
           <a href="dashboard">
             <i class="icon-dashboard"></i><span>Dashboard</span></a
@@ -133,6 +143,15 @@
             </a
           >
         </li>
+        
+        <li>
+          <a href="#tutorial" data-toggle="modal" id="showTutorial">
+            <i class="icon-question-sign"></i> <span>Help</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+        
       </ul>    
     </div>
     <!--sidebar-menu-->
@@ -209,51 +228,6 @@
                                 </tr>
                               </thead>
                               <tbody id="manage-graduation">
-                                <tr>
-                                  <td class="taskDesc">
-                                    <p>
-                                      <!--<i class="icon-info-sign"></i>-->
-                                      <span
-                                        >High school High school High
-                                        school</span
-                                      >
-                                      <br />
-                                      <span>I.B.P.V.</span>
-                                      <br />
-                                      <span>High school</span>
-                                      <br />
-                                      <span>I.B.P.V.</span>
-                                    </p>
-                                  </td>
-                                  <td class="taskStatus">
-                                    <span class="in-progress"
-                                      >Visitors can see the data</span
-                                    >
-                                  </td>
-                                  <td class="taskOptions">
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="view on"
-                                      ><i
-                                        class="fa fa-eye"
-                                        style="
-                                          font-size: 24px;
-                                          color: lightskyblue;
-                                        "
-                                      ></i
-                                    ></a>
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="view off"
-                                      ><i
-                                        class="fa fa-eye-slash"
-                                        style="font-size: 24px;"
-                                      ></i
-                                    ></a>
-                                  </td>
-                                </tr>
                               </tbody>
                             </table>
                           </div>
@@ -311,29 +285,6 @@
                                 </tr>
                               </thead>
                               <tbody id="manage-course">
-                                <tr>
-                                  <td class="taskDesc">
-                                    <i class="icon-info-sign"></i> Making The
-                                    New Suit
-                                  </td>
-                                  <td class="taskStatus">
-                                    <span class="in-progress">in progress</span>
-                                  </td>
-                                  <td class="taskOptions">
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Update"
-                                      ><i class="icon-ok"></i
-                                    ></a>
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Delete"
-                                      ><i class="icon-remove"></i
-                                    ></a>
-                                  </td>
-                                </tr>
                               </tbody>
                             </table>
                           </div>
@@ -391,29 +342,7 @@
                                 </tr>
                               </thead>
                               <tbody id="manage-certification">
-                                <tr>
-                                  <td class="taskDesc">
-                                    <i class="icon-info-sign"></i> Making The
-                                    New Suit
-                                  </td>
-                                  <td class="taskStatus">
-                                    <span class="in-progress">in progress</span>
-                                  </td>
-                                  <td class="taskOptions">
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Update"
-                                      ><i class="icon-ok"></i
-                                    ></a>
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Delete"
-                                      ><i class="icon-remove"></i
-                                    ></a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>
@@ -489,29 +418,7 @@
                                 </tr>
                               </thead>
                               <tbody id="manage-jobInternship">
-                                <tr>
-                                  <td class="taskDesc">
-                                    <i class="icon-info-sign"></i> Making The
-                                    New Suit
-                                  </td>
-                                  <td class="taskStatus">
-                                    <span class="in-progress">in progress</span>
-                                  </td>
-                                  <td class="taskOptions">
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Update"
-                                      ><i class="icon-ok"></i
-                                    ></a>
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Delete"
-                                      ><i class="icon-remove"></i
-                                    ></a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>
@@ -569,29 +476,7 @@
                                 </tr>
                               </thead>
                               <tbody id="manage-volunteer">
-                                <tr>
-                                  <td class="taskDesc">
-                                    <i class="icon-info-sign"></i> Making The
-                                    New Suit
-                                  </td>
-                                  <td class="taskStatus">
-                                    <span class="in-progress">in progress</span>
-                                  </td>
-                                  <td class="taskOptions">
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Update"
-                                      ><i class="icon-ok"></i
-                                    ></a>
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Delete"
-                                      ><i class="icon-remove"></i
-                                    ></a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>
@@ -649,29 +534,7 @@
                                 </tr>
                               </thead>
                               <tbody id="manage-project">
-                                <tr>
-                                  <td class="taskDesc">
-                                    <i class="icon-info-sign"></i> Making The
-                                    New Suit
-                                  </td>
-                                  <td class="taskStatus">
-                                    <span class="in-progress">in progress</span>
-                                  </td>
-                                  <td class="taskOptions">
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Update"
-                                      ><i class="icon-ok"></i
-                                    ></a>
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Delete"
-                                      ><i class="icon-remove"></i
-                                    ></a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>
@@ -746,29 +609,7 @@
                                 </tr>
                               </thead>
                               <tbody id="manage-technicalskill">
-                                <tr>
-                                  <td class="taskDesc">
-                                    <i class="icon-info-sign"></i> Making The
-                                    New Suit
-                                  </td>
-                                  <td class="taskStatus">
-                                    <span class="in-progress">in progress</span>
-                                  </td>
-                                  <td class="taskOptions">
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Update"
-                                      ><i class="icon-ok"></i
-                                    ></a>
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Delete"
-                                      ><i class="icon-remove"></i
-                                    ></a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>
@@ -826,29 +667,7 @@
                                 </tr>
                               </thead>
                               <tbody id="manage-otherskill">
-                                <tr>
-                                  <td class="taskDesc">
-                                    <i class="icon-info-sign"></i> Making The
-                                    New Suit
-                                  </td>
-                                  <td class="taskStatus">
-                                    <span class="in-progress">in progress</span>
-                                  </td>
-                                  <td class="taskOptions">
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Update"
-                                      ><i class="icon-ok"></i
-                                    ></a>
-                                    <a
-                                      href="#"
-                                      class="tip-top"
-                                      data-original-title="Delete"
-                                      ><i class="icon-remove"></i
-                                    ></a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>
@@ -885,7 +704,7 @@
 	<input type="hidden" th:value="${userId}" id="uId">
     
     <script src="js/functionality/dashboard.js"></script>
-
+	<script src="js/tutorial/tutorial.js"></script>
     <!--end-Footer-part-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.ui.custom.js"></script>

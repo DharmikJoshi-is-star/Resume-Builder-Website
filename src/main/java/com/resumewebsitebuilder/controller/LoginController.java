@@ -11,7 +11,7 @@ public class LoginController {
   
 	@GetMapping("/")
 	public String showIndex(Model model) {
-		model.addAttribute("messgage","welcome");
+		model.addAttribute("messgage","welcome");  
 		return "login";  
 	}
 	
@@ -25,5 +25,10 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.setAttribute("userId", null);
 		return "redirect:/";
+	}
+	
+	@GetMapping("/loginWithOtp")
+	public String loginWithOtp(){
+		return "login_with_otp";
 	}
 }

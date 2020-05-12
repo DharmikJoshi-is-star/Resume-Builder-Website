@@ -33,9 +33,9 @@
         <!-- LOGOTYPE/NAME -->
         <div class="header_logotype_container">
           <h1 class="logotype_name">
-            <span class="purple" th:text="${user.personalInformation.name}"></span>
+            <span class="purple" th:text="${user.personalInformation.name}" th:if="${user.personalInformation}"></span>
           </h1>
-          <h2 class="logotype_occupation" th:text="${user.personalInformation.title}"></h2>
+          <h2 class="logotype_occupation" th:text="${user.personalInformation.title}" th:if="${user.personalInformation}"></h2>
         </div>
         <!-- MAIN MENU -->
         <div class="header_menu_container">
@@ -58,23 +58,23 @@
         
         <div>
           <div>
-          <img class="profile_frame profile_picture" th:src="${user.personalInformation.picture}" alt="profile picture"> 
+          <img class="profile_frame profile_picture" th:src="${user.personalInformation.picture}" alt="profile picture" th:if="${user.personalInformation}"> 
           </div>
         </div>
         
         <div class="hello_content">
           <h2>About</h2>
-          <p th:text="${user.personalInformation.summary}">
+          <p th:text="${user.personalInformation.summary}" th:if="${user.personalInformation}">
           </p>
         </div>
         <div class="contact_details_content">
           <h2>Contact details</h2>
           <p class="purple">Phone:</p>
-          <p>+<span th:text="${user.contactInformation.contact}"></span></p>
+          <p>+<span th:text="${user.contactInformation.contact}" th:if="${user.contactInformation}"></span></p>
           <p class="purple">Email:</p>
-          <p><span th:text="${user.contactInformation.mail}"></span></p>
+          <p><span th:text="${user.contactInformation.mail}" th:if="${user.contactInformation}"></span></p>
         </div>
-        <a th:href="|mailto:${user.contactInformation.mail}|" class="send_message_button">
+        <a th:href="|mailto:${user.contactInformation.mail}|" class="send_message_button" th:if="${user.contactInformation}">
           <span class="cut1"></span>
           <span class="cut2"></span>
           <span class="content"
@@ -86,25 +86,25 @@
           <h2>Get social</h2>
           <ul class="social_icons horizontal_list">
             <li>
-              <a class="facebook" target="_blank" th:href="${user.socialInformation.facebookUrl}" th:if="${user.socialInformation.facebookUrl}">
+              <a class="facebook" target="_blank" th:href="${user.socialInformation.facebookUrl}" th:if="${user.socialInformation}">
                 <span class="fa fa-facebook"></span
                 ><span >Facebook</span></a
               >
             </li>
             <li>
-              <a class="instagram" target="_blank" th:href="${user.socialInformation.instagramUrl}" th:if="${user.socialInformation.instagramUrl}"
+              <a class="instagram" target="_blank" th:href="${user.socialInformation.instagramUrl}" th:if="${user.socialInformation}"
                 ><span class="fa fa-instagram"></span
                 ><span >Instagram</span></a
               >
             </li>
             <li>
-              <a class="linkedin" target="_blank" th:href="${user.socialInformation.linkedinUrl}" th:if="${user.socialInformation.linkedinUrl}"
+              <a class="linkedin" target="_blank" th:href="${user.socialInformation.linkedinUrl}" th:if="${user.socialInformation}"
                 ><span class="fa fa-linkedin"></span
                 ><span>LinkedIn&nbsp;&nbsp;&nbsp;</span></a
               >
             </li>
             <li>
-              <a class="github" target="_blank" th:href="${user.socialInformation.githubUrl}" th:if="${user.socialInformation.githubUrl}"
+              <a class="github" target="_blank" th:href="${user.socialInformation.githubUrl}" th:if="${user.socialInformation}"
                 ><span class="fa fa-github"></span
                 ><span >Github</span></a
               >
@@ -119,7 +119,7 @@
       	 <div class="block" id="education">
           <h2>Education</h2>
           <ul>
-	          <span th:each="graduation : ${user.graduations}">
+	          <span th:each="graduation : ${user.graduations}" th:if="${user.graduations}">
 	          
 	              <li th:text="${graduation.universityName}">
 	             
@@ -158,13 +158,13 @@
            
             <ul>
               <span class="block text"><u>Technical Skill</u></span>
-              <li th:each="technicalSkill: ${user.technicalSkills}">
+              <li th:each="technicalSkill: ${user.technicalSkills}" th:if="${user.technicalSkills}">
               	<span th:text="${technicalSkill.name}"></span>
               </li>
             </ul>
              <ul>
              	<span class="block text"><u>Other Skill</u></span>
-             	<li th:each="otherSkill: ${user.otherSkills}">
+             	<li th:each="otherSkill: ${user.otherSkills}" th:if="${user.otherSkills}">
 					<span th:text="${otherSkill.name}"></span>
 				</li>
             </ul>
@@ -183,7 +183,7 @@
           <h2>Job / Internship</h2>
           
           <ul>
-            <span th:each="jobInternship: ${user.jobInternships}">
+            <span th:each="jobInternship: ${user.jobInternships}" th:if="${user.jobInternships}">
 	          
 	              <li th:text="${jobInternship.title}">
 	             
@@ -226,7 +226,7 @@
           <h2>Projects</h2>
           
           <ul>
-            <span th:each="project: ${user.projects}">
+            <span th:each="project: ${user.projects}" th:if="${user.projects}">
 	          
 	              <li th:text="${project.name}">
 	             
@@ -268,7 +268,7 @@
           <h2>Courses & Certifications</h2>
           
           <ul>
-            <span th:each="course : ${user.courses}">
+            <span th:each="course : ${user.courses}" th:if="${user.courses}">
 	          
 	              <li th:text="| ${course.name} ( ${course.instituteName} )|">
 	             
@@ -293,7 +293,7 @@
           
           
           <ul>
-            <span th:each="certification : ${user.certifications}">
+            <span th:each="certification : ${user.certifications}" th:if="${user.certifications}">
 	          
 	              <li th:text="| ${certification.title} ( ${certification.instituteName} )|">
 	             

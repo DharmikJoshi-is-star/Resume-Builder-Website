@@ -10,7 +10,7 @@ function setMsg(){
 
 function verifyMailAddress(mailAddress){
 	
-	alert("hello");
+	//alert("hello");
 	
 	if(mailAddress){
 		
@@ -30,10 +30,13 @@ function verifyMailAddress(mailAddress){
 				console.log("Success: ",data);
 				document.getElementById("msg").innerHTML = "Mail sent successfully!!";
 				document.getElementById("msg").style.color = "lightgreen";
+				
+				document.getElementById("to-recover").click();
+				
 			}else if(data==false){
 				
-				document.getElementById("msg").innerHTML = "Mail could not be sent!!";
-				document.getElementById("msg").style.color = "darkred";
+				document.getElementById("msg").innerHTML = "Mail could not be sent!!<br>kindly check your connection/mail address";
+				document.getElementById("msg").style.color = "red";
 			}
 				
 			
@@ -47,11 +50,9 @@ function verifyMailAddress(mailAddress){
 
 function verifyOTP(){
 	
-	var otpForm = document.getElementById("otpForm");
+	var otp = document.getElementById('otp').value;
 	
-	var otp = otpForm['otp'].value;
-	
-	alert("hey");
+	//alert("hey");
 	
 	if(otp){
 		
@@ -67,10 +68,10 @@ function verifyOTP(){
 				
 				console.log("success ", data);
 				
-				alert(data);
+				//alert(data);
 				
 				if(data){
-					alert(data);
+					//alert(data);
 					console.log("success ", data);
 					
 					if(data!=null){
@@ -81,16 +82,16 @@ function verifyOTP(){
 						a.click();
 						
 					}else{
-						alert("hey");
+						//alert("hey");
 						document.getElementById("otpmsg").innerHTML = "Incorrect OTP!!"
-							document.getElementById("otpmsg").style.color = "darkred";
+							document.getElementById("otpmsg").style.color = "red";
 					}
 				}
 			})
 			.catch((error)=> {
 				document.getElementById("otpmsg").innerHTML = "Incorrect OTP!!";
-				document.getElementById("otpmsg").style.color = "darkred";
-				alert(error);
+				document.getElementById("otpmsg").style.color = "red";
+				//alert(error);
 				return true;
 			});
 			
@@ -101,9 +102,9 @@ function verifyOTP(){
 
 function checkIfMailExists(){
 	
-	var mailAddress = document.getElementById("emailForm")['mail'].value;
+	var mailAddress = document.getElementById("mail").value;
 	
-	alert(mailAddress);
+	//alert(mailAddress);
 	
 	fetch("http://localhost:8086/checkIfMailExists",{
 		
@@ -125,7 +126,7 @@ function checkIfMailExists(){
 			
 		}else{
 			document.getElementById("msg").innerHTML = "Entered Mail address already exists!!";
-			document.getElementById("msg").style.color = "darkred";
+			document.getElementById("msg").style.color = "red";
 		}
 			
 		

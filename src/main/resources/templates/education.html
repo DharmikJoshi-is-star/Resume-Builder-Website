@@ -27,7 +27,9 @@
       type="text/css"
     />
     
-
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     
     <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
@@ -44,6 +46,7 @@
     <div id="user-nav" class="navbar navbar-inverse">
       <ul class="nav">
         <li class="dropdown" id="profile-messages">
+        <!-- 
           <a
             title=""
             href="#"
@@ -73,6 +76,7 @@
             ><i class="icon icon-cog"></i> <span class="text">Settings</span></a
           >
         </li>
+         -->
         <li class="">
           <a title="" href="logout"
             ><i class="icon icon-share-alt"></i>
@@ -89,6 +93,13 @@
         ><i class="fas fa-sitemap"></i> Education
       </a>
       <ul>
+      	<li>
+          <a href="#" id="visitSite" target="_blank">
+            <i class="icon-link"></i><span>Visit Site</span>
+            <br>
+            <span id="siteText" style=" font-size: 10px;"></span>
+          </a>
+        </li>
       	<li>
           <a href="dashboard">
             <i class="icon-dashboard"></i><span>Dashboard</span></a
@@ -137,6 +148,15 @@
             </a
           >
         </li>
+        
+        <li>
+          <a href="#tutorial" data-toggle="modal">
+            <i class="icon-question-sign"></i> <span>Help</span>
+            <!-- <span class="label label-important">3</span> -->
+            </a
+          >
+        </li>
+        
       </ul>
     </div>
     <!--sidebar-menu-->
@@ -181,8 +201,11 @@
                               <label class="control-label">School Type:</label>
                               <div class="controls">
                                  <select name="type" id="type" required>
+                                  <option value="School">School</option>
                                   <option value="High School">High School</option>
-                                  <option value="University/College">University/College</option>
+                                  <option value="Diploma">Diploma</option>
+                                  <option value="Primary Graduation">Primary Graduation</option>
+                                  <option value="Secondary Graduation">Secondary Graduation</option>
                                   <option value="Other">Other</option>
                                 </select>
                               </div>
@@ -191,58 +214,51 @@
                             <div class="control-group">
                               <label class="control-label">Name :</label>
                               <div class="controls">
-                                <input type="text" id="universityName" name="universityName" required class="span11" placeholder="e.g. Shree L.R. Tiwari">
+                                <input type="text" id="universityName" name="universityName" required class="span11" placeholder="e.g. Shree L.R. Tiwari College of Engineering">
                               </div>
                             </div>
                             
                             <div class="control-group">
                               <label class="control-label">Country: </label>
                               <div class="controls">
-                                 <select id="country" name="country" required>
-                                  <option value="India">India</option>
-                                  <option value="USA">USA</option>
-                                </select>
+                              	<input id="country" name="country" required type="text" placeholder="e.g. India">
                               </div>
                             </div>
 
                             <div class="control-group">
                               <label class="control-label">State/Province : </label>
                               <div class="controls">
-                                 <select id="state" name="state" required>
-                                  <option value="Maharashtra">Maharashtra</option>
-                                  <option value="Pune">Pune</option>
-                                </select>
+                              	<input id="state" name="state" required type="text" placeholder="e.g. Maharashtra">
+                                 
                               </div>
                             </div>
 
                             <div class="control-group">
                               <label class="control-label">City : </label>
                               <div class="controls">
-                                 <select id="city" name="city" required>
-                                  <option value="Mumbai">Mumbai</option>
-                                  <option value="New york">New york</option>
-                                </select>
+                              	<input id="city" name="city" required type="text" placeholder="e.g. Mumbai">
+                                 
                               </div>
                             </div>
                             
                             <div class="control-group">
                               <label class="control-label">Degree / Program :</label>
                               <div class="controls">
-                                <input type="text" name="degree" id="degree" required class="span11" placeholder="e.g. B.E.">
+                                <input type="text" name="degree" id="degree" required class="span11" placeholder="e.g. Engineering">
                               </div>
                             </div>
 
                             <div class="control-group">
                               <label class="control-label">Field Of Study:</label>
                               <div class="controls">
-                                <input type="text" name="filedOfStudy" id="filedOfStudy" required class="span11" placeholder="e.g. Computer Engineering">
+                                <input type="text" name="filedOfStudy" id="filedOfStudy" required class="span11" placeholder="e.g. COMPUTER ENGINEERING">
                               </div>
                             </div>
 
                             <div class="control-group">
                               <label class="control-label">Grade Point Average/ Percentage Average:</label>
                               <div class="controls">
-                                <input type="text" name="grade" id="grade" class="span11" placeholder="e.g. 4.0">
+                                <input type="text" name="grade" id="grade" class="span11" placeholder="e.g. 8.5">
                               </div>
                             </div>
 
@@ -251,54 +267,25 @@
                               <div class="controls">
                                 <label>
                                   <input type="checkbox" name="currentStatus" id="currentStatus"/>
-                                  currently Persuing</label>
+                                  currently Pursuing</label>
 
                               </div>
                             </div>
 
                             <div class="control-group">
-                              <label class="control-label">Month : </label>
+                              <label class="control-label">Completion Month : </label>
                               <div class="controls">
-                                 <select id="completionMonth" name="completionMonth">
-                                  <option value="January">January</option>
-                                  <option value="February">February</option>
-                                  <option value="March">March</option>
-                                  <option value="January">April</option>
-                                  <option value="April">May</option>
-                                  <option value="June">June</option>
-                                  <option value="July">July</option>
-                                  <option value="Augest">Augest</option>
-                                  <option value="September">September</option>
-                                  <option value="October">October</option>
-                                  <option value="November">November</option>
-                                  <option value="December">December</option>
+                                 <select id="completionMonth" name="completionMonth" class=" span6 m-wrap">
+                                  
                                 </select>
                               </div>
                             </div>
 
                             <div class="control-group">
-                              <label class="control-label">Year : </label>
+                              <label class="control-label">Completion Year : </label>
                               <div class="controls">
-                                 <select id="completionYear" name="completionYear">
-                                  <option value="2025">2025</option>
-                                  <option value="2024">2024</option>
-                                  <option value="2023">2023</option>
-                                  <option value="2022">2022</option>
-                                  <option value="2021">2021</option>
-                                  <option value="2020">2020</option>
-                                  <option value="2019">2019</option>
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
+                                 <select id="completionYear" name="completionYear" class=" span6 m-wrap">
+                                  
                                 </select>
                               </div>
                             </div>
@@ -330,29 +317,7 @@
                       class="widget-content nopadding updates collapse in"
                       id="educationContainer"
                     >
-                      <div class="new-update clearfix">
-                        <i class="icon-ok-sign"></i>
-
-                        <div class="update-done">
-
-                          <a title="" href="#">
-                            <strong>
-                              High School
-                            </strong>
-                            </a>
-                          <span>I.B. Patel Vidyalaya  ( June 2019 )</span>
-                          <span>MUMBAI, MAHARASHTRA </span>
-                          
-                        </div>
-                        
-                        <div class="update-date">
-                          <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
-                          
-                        </div>
-                      </div>
-
-                      
-                      
+                    
                     </div>
                     <!--container for education end-->
 
@@ -375,14 +340,14 @@
                     <div class="control-group">
                       <label class="control-label">Course Name :</label>
                       <div class="controls">
-                        <input type="text" id="courseName" name="courseName" class="span11" placeholder="e.g. Machine Learning">
+                        <input type="text" id="courseName" name="courseName" class="span11" placeholder="e.g. Object Oriented Programming in Java" required>
                       </div>
                     </div>
                         
                     <div class="control-group">
                       <label class="control-label">Institute Name :</label>
                       <div class="controls">
-                        <input type="text" id="instituteName" name="instituteName" class="span11" placeholder="e.g. Udemy">
+                        <input type="text" id="instituteName" name="instituteName" class="span11" placeholder="e.g. www.udemy.com" required>
                       </div>
                     </div>
 
@@ -391,60 +356,31 @@
                       <div class="controls">
                         <label>
                           <input type="checkbox" id="currentStatus" name="currentStatus"/>
-                          currently persuing course</label>
+                          currently pursuing course</label>
 
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label">Month : </label>
+                      <label class="control-label">Completion Month : </label>
                       <div class="controls">
-                          <select name="completionMonth" id="completionMonth">
-                            <option value="January">January</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="January">April</option>
-                            <option value="April">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="Augest">Augest</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
+                          <select name="completionMonth" id="completionMonth" class=" span6 m-wrap">
+                            
                         </select>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label">Year : </label>
+                      <label class="control-label">Completion Year : </label>
                       <div class="controls">
-                          <select name="completionYear" id="completionYear">
-                            <option value="2025">2025</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
-                            <option value="2015">2015</option>
-                            <option value="2014">2014</option>
-                            <option value="2013">2013</option>
-                            <option value="2012">2012</option>
-                            <option value="2011">2011</option>
-                            <option value="2010">2010</option>
-                            <option value="2009">2009</option>
-                            <option value="2008">2008</option>
-                            <option value="2007">2007</option>
+                          <select name="completionYear" id="completionYear" class=" span6 m-wrap">
+                            
                         </select>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label">Upload Certificate: </label>
+                      <label class="control-label">Upload Certificate/Letter : </label>
                       <div class="controls">
                         <input type="file" id="file" name="file"/>
                         <input type="hidden" id="attachment" name="attachment">
@@ -453,7 +389,7 @@
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label">Certificate URL:</label>
+                      <label class="control-label">Certificate/Letter URL :</label>
                       <div class="controls">
                         <input type="text" name="url" id="url" />
                       </div>
@@ -484,26 +420,7 @@
                   id="courseContainer"
 
                   >
-                  <div class="new-update clearfix">
-                    <i class="icon-ok-sign"></i>
-                    
-                    <div class="update-done">
-                      <a title="" href="#">
-                      <strong> 
-                        Java 2 Enterprise Edition 
-                      </strong>
-                      </a>
-                      <span> Udemy </span>
-                      <span>June 2019</span>
-                      <span><a>view Certificate</a></span>
-                    </div>
-                    
-                    <div class="update-date">
-                      <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
-                    </div>
-
-                  </div>
-                  
+                 
                 </div>
                 <!-- End Single Course card-->
 
@@ -513,7 +430,7 @@
 
             <div class="span4">
               <h6>Do you have any licenses or certifications? do not forget to add them</h6>
-              <button class="btn btn-info btn-large" style="border-radius: 25px;" data-toggle="modal" href="#certificateForm" id="addCertificate"> + Add Certificate</button>
+              <button class="btn btn-info btn-large" style="border-radius: 25px;" data-toggle="modal" href="#certificateForm" id="addCertificate"> + Add Certificate/Achievement </button>
               <div id="certificateForm" class="modal hide">
                 <div class="modal-header">
                   <button data-dismiss="modal" class="close" type="button" id="modalCertificate">×</button>
@@ -524,35 +441,24 @@
                     <input type="hidden" id="certificateId" name="certificateId" value="0">
                     <input type="hidden" name="view" id="view" value="true">
                     <div class="control-group">
-                      <label class="control-label">Ceritificate Title :</label>
+                      <label class="control-label">Certificate Title :</label>
                       <div class="controls">
-                        <input type="text" id="certificateTitle" name="certificateTitle" class="span11" placeholder="e.g. OCAJP">
+                        <input type="text" id="certificateTitle" name="certificateTitle" class="span11" placeholder="e.g. Oracle Certified Java Programmer" required>
                       </div>
                     </div>
                         
                     <div class="control-group">
                       <label class="control-label">Institute Name :</label>
                       <div class="controls">
-                        <input type="text" id="certificateInstitute" name="certificateInstitute" class="span11" placeholder="e.g. ORACLE">
+                        <input type="text" id="certificateInstitute" name="certificateInstitute" class="span11" placeholder="e.g. ORACLE" required>
                       </div>
                     </div>
 
                     <div class="control-group">
                       <label class="control-label">Month : </label>
                       <div class="controls">
-                          <select id="certificationMonth" name="certificationMonth">
-                            <option value="January">January</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="January">April</option>
-                            <option value="April">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="Augest">Augest</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
+                          <select id="certificationMonth" name="certificationMonth" class=" span6 m-wrap" required>
+                            
                         </select>
                       </div>
                     </div>
@@ -560,32 +466,14 @@
                     <div class="control-group">
                       <label class="control-label">Year : </label>
                       <div class="controls">
-                          <select id="certificationYear" name="certificationYear">
-                            <option value="2025">2025</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
-                            <option value="2015">2015</option>
-                            <option value="2014">2014</option>
-                            <option value="2013">2013</option>
-                            <option value="2012">2012</option>
-                            <option value="2011">2011</option>
-                            <option value="2010">2010</option>
-                            <option value="2009">2009</option>
-                            <option value="2008">2008</option>
-                            <option value="2007">2007</option>
+                          <select id="certificationYear" name="certificationYear" class=" span6 m-wrap" required>
+                            
                         </select>
                       </div>
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label">Upload Certificate: </label>
+                      <label class="control-label">Upload Certificate/Letter: </label>
                       <div class="controls">
                         <input type="file" id="certificateAttachmentFile" name="certificateAttachmentFile"/>
                         <input type="hidden" id="certificateAttachment" name="certificateAttachment"/>
@@ -594,7 +482,7 @@
                     </div>
 
                     <div class="control-group">
-                      <label class="control-label">Certificate URL:</label>
+                      <label class="control-label">Certificate/Letter URL:</label>
                       <div class="controls">
                         <input type="url" name="certificateUrl" id="certificateUrl" />
                       </div>
@@ -623,22 +511,7 @@
                   class="widget-content nopadding updates collapse in"
                   id="certificateContainer"
                   >
-                  <div class="new-update clearfix">
-                    <i class="icon-ok-sign"></i>
-                    <div class="update-done">
-                      <a title="" href="#">
-                      <strong> 
-                        OCAJP
-                      </strong>
-                      </a>
-                      <span> ORACLE </span>
-                      <span>June 2019</span>
-                      <span><a>view Certificate</a></span>
-                    </div>
-                    <div class="update-date">
-                      <span class="update-day"><i class="icon icon-edit"></i> <i class="icon icon-trash"></i> </span>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
               <Hr>
@@ -664,7 +537,7 @@
 	<input type="hidden" th:value="${userId}" id="uId">
     
     <!--end-Footer-part-->
-
+   
     <script src="js/excanvas.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.ui.custom.js"></script>
@@ -690,9 +563,13 @@
 
 
     <!--functionality-->
-    <script src="js/functionality/education.js"></script>
 
-   
+    <script src="js/functionality/education.js"></script>
+	<script src="js/predefinedData/courseData.js"></script>
+	<script src="js/predefinedData/fieldOfStudy.js"></script>
+   	<script src="js/predefinedData/countryStateCityData.js"></script>
+   	<script src="js/predefinedData/monthYearEducation.js"></script>
+    <script src="js/tutorial/tutorial.js"></script>
     
 
 

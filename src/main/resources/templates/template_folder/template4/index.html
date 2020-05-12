@@ -28,9 +28,10 @@
                 th:src="${user.personalInformation.picture}"
                 style="width: 100%;"
                 alt="Avatar"
+                th:if="${user.personalInformation}"
               />
               <div class="w3-display-bottomleft w3-container w3-text-black">
-                <h2 class="w3-tag w3-highway-green w3-teal" th:text="${user.personalInformation.name}">
+                <h2 class="w3-tag w3-highway-green w3-teal" th:text="${user.personalInformation.name}" th:if="${user.personalInformation}">
                   
                 </h2>
                 <!--style="background-color: #009688-->
@@ -42,19 +43,19 @@
                 <i
                   class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"
                 ></i
-                ><span th:text="${user.personalInformation.title}"></span>
+                ><span th:text="${user.personalInformation.title}" th:if="${user.personalInformation}"></span>
               </p>
               <p>
                 <i
                   class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"
                 ></i
-                ><span th:text="${user.contactInformation.contact}"></span>
+                ><span th:text="${user.contactInformation.contact}" th:if="${user.contactInformation}"></span>
               </p>
               <p>
                 <i
                   class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"
                 ></i
-                ><span th:text="${user.contactInformation.mail}"></span>
+                ><span th:text="${user.contactInformation.mail}" th:if="${user.contactInformation}"></span>
               </p>
 
               <hr />
@@ -70,7 +71,7 @@
              
               <p>
               
-				<div th:each="technicalSkill: ${user.technicalSkills}">								
+				<div th:each="technicalSkill: ${user.technicalSkills}" th:if="${user.technicalSkills}">								
 				<span th:text="${technicalSkill.name}"></span>
        			</div>
        			
@@ -88,7 +89,7 @@
               </p>
              
              <p>
-				<div th:each="otherSkill: ${user.otherSkills}">								
+				<div th:each="otherSkill: ${user.otherSkills}" th:if="${user.otherSkills}">								
 				<span th:text="${otherSkill.name}"></span>
        			</div>
              </p>
@@ -111,7 +112,7 @@
               >Projects
             </h2>
             
-             <div class="w3-container" th:each="project: ${user.projects}">
+             <div class="w3-container" th:each="project: ${user.projects}" th:if="${user.projects}">
 	              <h5 class="w3-opacity">
 	                <b th:text="${project.name}"></b>
 	              </h5>
@@ -171,7 +172,7 @@
                 </thead>
                 <tbody>
                   
-                  <tr th:each="graduation : ${user.graduations}">
+                  <tr th:each="graduation : ${user.graduations}" th:if="${user.graduations}">
                   	<td th:text="|${graduation.type} (${graduation.filedOfStudy})|"></td>
                     <td th:text="${graduation.universityName}"></td>
                    
@@ -199,7 +200,7 @@
               >Courses
             </h2>
             
-            <div class="w3-container"  th:each="course : ${user.courses}">
+            <div class="w3-container"  th:each="course : ${user.courses}" th:if="${user.courses}">
               <div class="w3-container">
                 <h5 class="w3-opacity">
                   <b th:text="| ${course.name} ( ${course.instituteName} )|"
@@ -241,7 +242,7 @@
               >Certifications
             </h2>
             
-           <div class="w3-container"  th:each="certification : ${user.certifications}">
+           <div class="w3-container"  th:each="certification : ${user.certifications}" th:if="${user.certifications}">
               <div class="w3-container">
                 <h5 class="w3-opacity">
                   <b th:text="| ${certification.title} ( ${certification.instituteName} )|"

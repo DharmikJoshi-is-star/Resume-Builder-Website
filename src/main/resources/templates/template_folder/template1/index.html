@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/template_resources/template1/css/index.css">
-		<title th:text=${user.name}></title>
+		<title th:text=${user.name} th:if=${user.name}></title>
 
 		
         </head>
@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#" th:text=${user.name}></a>
+                  <a class="navbar-brand" href="#" th:text="${user.name}" th:if="${user.name}"></a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
@@ -41,8 +41,8 @@
                 <div class="col-xs-12">
                   <div class="row">
                     <div class="col-xs-12 headline">
-                      <h1 class="text-center">Hi, I'm <span th:text="${user.personalInformation.name}"></span></h1>
-                      <p class="lead text-center"  th:text="${user.personalInformation.title}"></p>
+                      <h1 class="text-center">Hi, I'm <span th:text="${user.personalInformation.name}" th:if="${user.personalInformation}"></span></h1>
+                      <p class="lead text-center"  th:text="${user.personalInformation.title}" th:if="${user.personalInformation}"></p>
                     </div>
                   </div>
                   <div class="row">
@@ -58,14 +58,14 @@
                 <h2 class="text-center">About Me</h2>
                 <div class="row">
                   <div class="col-md-6 text-center about-info">
-                    <img class="img-circle text-center profile-img" th:src="${user.personalInformation.picture}">
-                    <p class="text-center" th:text="${user.personalInformation.summary}"></p>
+                    <img class="img-circle text-center profile-img" th:src="${user.personalInformation.picture}" th:if="${user.personalInformation}">
+                    <p class="text-center" th:text="${user.personalInformation.summary}" th:if="${user.personalInformation}"></p>
                   </div>
                   <div class="col-md-6 about-tools">
                     <p class="text-center">Some of my skills</p>
                       <div class="col-xs-6">
                         <ul>
-                          <li th:each="technicalSkill: ${user.technicalSkills}">
+                          <li th:each="technicalSkill: ${user.technicalSkills}" th:if="${user.technicalSkills}">
                           	<span th:text="${technicalSkill.name}">
 						    </span>
                           </li>
@@ -73,7 +73,7 @@
                       </div>
                       <div class="col-xs-6">
                         <ul>
-                          <li th:each="otherSkill: ${user.otherSkills}">
+                          <li th:each="otherSkill: ${user.otherSkills}" th:if="${user.otherSkills}">
 							<span th:text="${otherSkill.name}">
 							</span>
 						  </li>
@@ -94,7 +94,7 @@
                 <div class="container">
                   <div class="row portfolio-projects"> <!-- Two project row-->
                   
-                  	 <div class="col-lg-6" th:each="project: ${user.projects}"> <!--1st side project -->
+                  	 <div class="col-lg-6" th:each="project: ${user.projects}" th:if="${user.projects}"> <!--1st side project -->
                       <div class="row"> 
                         <div class="col-sm-5 text-center">
                           <h4 class="portfolio-projects--title" th:text="${project.name}"></h4>
@@ -118,15 +118,15 @@
         
               <div id="contact" class="row cover bottom">
                 <h2 class="text-center contact-header">Contact Me</h2>
-                <p class="text-center contact-email">Get in touch with me <span class="glyphicon glyphicon-arrow-right"></span> <span th:text="${user.contactInformation.mail}"></span></p>
+                <p class="text-center contact-email">Get in touch with me <span class="glyphicon glyphicon-arrow-right"></span> <span th:text="${user.contactInformation.mail}" th:if="${user.contactInformation}"></span></p>
                 <div class="text-center contact-social-icons">
                   <p>Or find me on:</p>
                   <ul class="centered">
-                    <a th:href="${user.socialInformation.facebookUrl}"><li><i class="fa fa-facebook"></i> Facebook</li></a>
-                    <a th:href="${user.socialInformation.linkedinUrl}"><li><i class="fa fa-linkedin-square"></i> LinkedIn</li></a>
-                    <a th:href="${user.socialInformation.githubUrl}"><li><i class="fa fa-github"></i> Github</li></a>
-                    <a th:href="${user.socialInformation.instagramUrl}"><li><i class="fa fa-instagram"></i>Instagram</li></a>
-                    <a th:href="${user.socialInformation.googleUrl}"><li><i class="fa fa-google"></i> google+</li></a>
+                    <a th:href="${user.socialInformation.facebookUrl}" th:if="${user.socialInformation}" ><li><i class="fa fa-facebook"></i> Facebook</li></a>
+                    <a th:href="${user.socialInformation.linkedinUrl}" th:if="${user.socialInformation}"><li><i class="fa fa-linkedin-square"></i> LinkedIn</li></a>
+                    <a th:href="${user.socialInformation.githubUrl}" th:if="${user.socialInformation}"><li><i class="fa fa-github"></i> Github</li></a>
+                    <a th:href="${user.socialInformation.instagramUrl}" th:if="${user.socialInformation}"><li><i class="fa fa-instagram"></i>Instagram</li></a>
+                    <a th:href="${user.socialInformation.googleUrl}" th:if="${user.socialInformation}"><li><i class="fa fa-google"></i> google+</li></a>
                    
                   </ul>
                 </p>

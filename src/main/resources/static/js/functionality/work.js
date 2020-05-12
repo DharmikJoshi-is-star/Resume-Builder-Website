@@ -1,3 +1,19 @@
+document.getElementById("addJob").onclick = function(){
+	
+	document.getElementById("jobInternshipInformationForm").reset();
+}
+
+document.getElementById("addVolunteer").onclick = function(){
+	
+	document.getElementById("volunteerInformationForm").reset();
+}
+
+document.getElementById("addProject").onclick = function(){
+	
+	document.getElementById("projectInformationForm").reset();
+}
+
+
 function onLoadPopulate(){
 	var userId = document.getElementById("uId").value;	
 	//alert(userId);
@@ -5,6 +21,7 @@ function onLoadPopulate(){
 		populateJobInternshipContainer();
 		populateVolunteerContainer();
 		populateProjectContainer();
+		populateUrl();
 	}
 	
 }
@@ -582,6 +599,9 @@ function addJobInternship(job) {
 	  var innerSpan = document.createElement("span");
 	  innerSpan.classList.add("update-day");
 
+	  var editAnchor = document.createElement("a");
+	  editAnchor.title = "edit";
+	  editAnchor.href = "javascript:void(0);";
 	  var innerIcon = document.createElement("i");
 	  innerIcon.id = "jobEdit";
 	  innerIcon.classList.add("icon");
@@ -590,8 +610,13 @@ function addJobInternship(job) {
 	    editJobInternship(job.id);
 	  });
 	  //innerIcon.setAttribute("");
-	  innerSpan.appendChild(innerIcon);
+	  editAnchor.appendChild(innerIcon);
+	  
+	  innerSpan.appendChild(editAnchor);
 
+	  var trashAnchor = document.createElement("a");
+	  trashAnchor.title = "delete";
+	  trashAnchor.href = "javascript:void(0);";
 	  var innerIcon1 = document.createElement("i");
 	  innerIcon1.id = "jobTrash";
 	  innerIcon1.classList.add("icon");
@@ -600,8 +625,12 @@ function addJobInternship(job) {
 		  removeJobInternship(job.id);
 	  });
 	  //innerIcon1.onclick = "removeEducation(education.id)";
-	  innerSpan.appendChild(innerIcon1);
+	  trashAnchor.appendChild(innerIcon1);
+	  
+	  innerSpan.appendChild(trashAnchor);
 
+	  
+	  
 	  innerDiv2.appendChild(innerSpan);
 
 	  newDiv.appendChild(innerDiv2);
@@ -662,6 +691,9 @@ function editJobInternship(jobInternshipId) {
 	    	  var jobInternshipInformationForm = document.getElementById(
 	    			    "jobInternshipInformationForm"
 	    			  );
+	    	  document.getElementById("addJob").click();
+	    	  
+	    	  		
 	    			  jobInternshipInformationForm["jobId"].value = job.id;
 
 	    			  jobInternshipInformationForm["jobInternshipTitle"].value = job.title;
@@ -695,8 +727,7 @@ function editJobInternship(jobInternshipId) {
 	    			  jobInternshipInformationForm["jobInternshipTypeOfAttachment"].value =
 	    			    job.typeOfAttachment;
 
-	    			  document.getElementById("addJob").click();
-	    	  
+	    		
 	      }
 	      
 	    })
@@ -1153,6 +1184,9 @@ function addVolunteer(volunteer) {
 	  var innerSpan = document.createElement("span");
 	  innerSpan.classList.add("update-day");
 
+	  var editAnchor = document.createElement("a");
+	  editAnchor.title = "edit";
+	  editAnchor.href = "javascript:void(0);";
 	  var innerIcon = document.createElement("i");
 	  innerIcon.id = "volunteerEdit";
 	  innerIcon.classList.add("icon");
@@ -1161,8 +1195,15 @@ function addVolunteer(volunteer) {
 	    editVolunteer(volunteer.id);
 	  });
 	  //innerIcon.setAttribute("");
-	  innerSpan.appendChild(innerIcon);
+	  editAnchor.appendChild(innerIcon);
+	  innerSpan.appendChild(editAnchor);
 
+
+
+	  var trashAnchor = document.createElement("a");
+	  trashAnchor.title = "delete";
+	  trashAnchor.href = "javascript:void(0);";
+	  
 	  var innerIcon1 = document.createElement("i");
 	  innerIcon1.id = "volunteerTrash";
 	  innerIcon1.classList.add("icon");
@@ -1171,7 +1212,8 @@ function addVolunteer(volunteer) {
 	    removeVolunteer(volunteer.id);
 	  });
 	  //innerIcon1.onclick = "removeEducation(education.id)";
-	  innerSpan.appendChild(innerIcon1);
+	  trashAnchor.appendChild(innerIcon1);
+	  innerSpan.appendChild(trashAnchor);
 
 	  innerDiv2.appendChild(innerSpan);
 
@@ -1233,6 +1275,9 @@ function editVolunteer(volunteerId) {
 	    	  var volunteerInformationForm = document.getElementById(
 	    			    "volunteerInformationForm"
 	    			  );
+	    	  
+	    	  document.getElementById("addVolunteer").click();
+	    	  
 	    			  volunteerInformationForm["volunteerId"].value = volunteer.id;
 	    			  volunteerInformationForm["volunteerRole"].value = volunteer.role;
 
@@ -1256,7 +1301,7 @@ function editVolunteer(volunteerId) {
 	    			  volunteerInformationForm["volunteerTypeOfAttachment"].value =
 	    			    volunteer.typeOfAttachment;
 
-	    			  document.getElementById("addVolunteer").click();
+	    			 
 	    	  
 	      }
 	      
@@ -1835,6 +1880,10 @@ function addProject(project) {
   var innerSpan = document.createElement("span");
   innerSpan.classList.add("update-day");
 
+  var editAnchor = document.createElement("a");
+  editAnchor.title = "edit";
+  editAnchor.href = "javascript:void(0);";
+
   var innerIcon = document.createElement("i");
   innerIcon.id = "projectEdit";
   innerIcon.classList.add("icon");
@@ -1843,7 +1892,14 @@ function addProject(project) {
     editProject(project.id);
   });
   //innerIcon.setAttribute("");
-  innerSpan.appendChild(innerIcon);
+  editAnchor.appendChild(innerIcon);
+  innerSpan.appendChild(editAnchor);
+
+
+
+  var trashAnchor = document.createElement("a");
+  trashAnchor.title = "delete";
+  trashAnchor.href = "javascript:void(0);";
 
   var innerIcon1 = document.createElement("i");
   innerIcon1.id = "projectTrash";
@@ -1853,7 +1909,8 @@ function addProject(project) {
     removeProject(project.id);
   });
   //innerIcon1.onclick = "removeEducation(education.id)";
-  innerSpan.appendChild(innerIcon1);
+  trashAnchor.appendChild(innerIcon1);
+  innerSpan.appendChild(trashAnchor);
 
   innerDiv2.appendChild(innerSpan);
 
@@ -1914,6 +1971,7 @@ function editProject(projectId) {
 		    	  var projectInformationForm = document.getElementById(
 		    			    "projectInformationForm"
 		    			  );
+		    	  document.getElementById("addProject").click();
     			  projectInformationForm["projectId"].value = project.id;
     			  projectInformationForm["projectName"].value = project.name;
     			  projectInformationForm["projectStartMonth"].value = project.startMonth;
@@ -1934,7 +1992,7 @@ function editProject(projectId) {
     			  projectInformationForm["projectTypeOfAttachment"].value =
     			    project.typeOfAttachment;
 
-    			  document.getElementById("addProject").click();
+    			 
 		    	  
 		      }
 		      
@@ -1990,3 +2048,33 @@ function changeProject(project) {
 
 /*---------------------------------------------------------*/
 
+function populateUrl(){
+	var userId = document.getElementById("uId").value;
+	
+	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+		    method: "GET", // or 'PUT'
+		    headers: {
+		      "Content-Type": "application/json",
+		    },
+		  })
+		    .then((response) => response.json())
+		    .then((userUrl) => {
+		      console.log("Success:", userUrl);
+		      console.log("data is sent successfully");
+		      
+		      if(userUrl){
+		    	  
+		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
+		    	  
+		      }
+		      
+		    })
+		    .catch((error) => {
+		    	return true;
+		    });
+	
+	
+	
+}

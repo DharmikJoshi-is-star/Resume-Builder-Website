@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+        <title>Resume Builder</title><meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="css/matrix-login.css" />
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+
+    </head>
+    <body>
+        <div id="loginbox">            
+
+            <form id="loginform" action="javascript:void(0);" class="form-vertical" onsubmit="checkIfMailExists()" method="post">
+            
+				<p class="normal_text">Enter your e-mail address below and we will send you an OTP.
+					This OTP is valid for 15 minutes.
+				</p>
+				
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input onchange="setMsg()" type="email" placeholder="E-mail address" name="mail" id="mail" required/>
+                        	
+                        </div>
+                    </div>
+               
+                <div class="form-actions">
+           			 <span class="pull-left"><a href="#" class="flip-link" id="to-recover"></a></span>
+                    <span class="pull-right"><input class="btn btn-info" type="submit" value="Send OTP"/></span>
+                </div>
+                <div class="normal_text" style="color: lightgreen"><b id="msg" ></b></div>
+            </form>
+           
+           
+            <form id="recoverform" action="javascript:void(0);" class="form-vertical" onsubmit="verifyOTP()" method="post">
+				<BR>
+				<p class="normal_text">Enter OTP here. If OTP is mailed to you then click on send Again
+				</p>
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lo"><i >D-</i></span><input type="text" name="otp" id="otp" onchange="setMsg()" maxLength="6" minLength="6" size="6" min="0" max="9" pattern="[0-9]{6}" placeholder="Enter OTP" required/>
+                        </div>
+                    </div>
+               
+                
+           			<div class="form-actions">
+                    	<span class="pull-right"><input type="submit" class="btn btn-info" value="Verify"/></span>
+                    </div>
+                    <div class="normal_text" style="color: darkred;"><b id="otpmsg" ></b></div>
+             </form>
+           
+           	
+            <a href="#"></a>
+        </div>
+        
+        <script src="js/functionality/login_with_otp.js"></script>  
+        <script src="js/jquery.min.js"></script>  
+        <script src="js/matrix.login.js"></script> 
+    </body>
+
+</html>

@@ -1,3 +1,20 @@
+document.getElementById("addEducation").onclick = function(){
+	
+	document.getElementById("educationInformationForm").reset();
+}
+
+document.getElementById("addCourse").onclick = function(){
+	
+	document.getElementById("courseInformationForm").reset();
+}
+
+document.getElementById("addCertificate").onclick = function(){
+	
+	document.getElementById("certificateInformationForm").reset();
+}
+
+
+//alert(window.location.href);
 
 function onLoadPopulate(){
 	var userId = document.getElementById("uId").value;
@@ -5,6 +22,7 @@ function onLoadPopulate(){
 		populateGraduationContainer();
 		populateCourseContainer();
 		populateCertificationContainer();
+		populateUrl();
 	}
 }
 
@@ -136,6 +154,11 @@ function addEducation(education) {
 	  var innerSpan = document.createElement("span");
 	  innerSpan.classList.add("update-day");
 
+	  
+	  var editAnchor = document.createElement("a");
+	  editAnchor.title = "edit";
+	  editAnchor.href = "javascript:void(0);";
+
 	  var innerIcon = document.createElement("i");
 	  innerIcon.classList.add("icon");
 	  innerIcon.classList.add("icon-edit");
@@ -143,7 +166,12 @@ function addEducation(education) {
 	    editEducation(education.id);
 	  });
 	  //innerIcon.setAttribute("");
-	  innerSpan.appendChild(innerIcon);
+	  editAnchor.appendChild(innerIcon);
+	  innerSpan.appendChild(editAnchor);
+
+	  var trashAnchor = document.createElement("a");
+	  trashAnchor.title = "delete";
+	  trashAnchor.href = "javascript:void(0);";
 
 	  var innerIcon1 = document.createElement("i");
 	  innerIcon1.classList.add("icon");
@@ -152,7 +180,8 @@ function addEducation(education) {
 	    removeEducation(education.id);
 	  });
 	  //innerIcon1.onclick = "removeEducation(education.id)";
-	  innerSpan.appendChild(innerIcon1);
+	  trashAnchor.appendChild(innerIcon1);
+	  innerSpan.appendChild(trashAnchor);
 
 	  innerDiv2.appendChild(innerSpan);
 
@@ -210,6 +239,8 @@ function editEducation(educationId) {
 		        
 		    	  var educationForm = document.getElementById("educationInformationForm");
 
+		    	  document.getElementById("addEducation").click();
+		    	  
 		    	  educationForm["educationId"].value = education.id;
 		    	  educationForm["type"].value = education.type;
 		    	  educationForm["universityName"].value = education.universityName;
@@ -223,8 +254,7 @@ function editEducation(educationId) {
 		    	  educationForm["completionYear"].value = education.completionYear;
 		    	  educationForm["completionMonth"].value = education.completionMonth;
 
-		    	  document.getElementById("addEducation").click();
-		    	  
+
 		      }
 		      
 		    })
@@ -359,7 +389,7 @@ function removeGraduationAPI(graduationId){
 
 function educationInformationFormProcess() {
 	  var educationForm = document.getElementById("educationInformationForm");
-
+  	
 	  var id = educationForm["educationId"].value;
 	  var type = educationForm["type"].value;
 	  var universityName = educationForm["universityName"].value;
@@ -979,6 +1009,11 @@ function addCourse(course) {
   var innerSpan = document.createElement("span");
   innerSpan.classList.add("update-day");
 
+  var editAnchor = document.createElement("a");
+  editAnchor.title = "edit";
+  editAnchor.href = "javascript:void(0);";
+
+  
   var innerIcon = document.createElement("i");
   innerIcon.id = "courseEdit";
   innerIcon.classList.add("icon");
@@ -987,7 +1022,12 @@ function addCourse(course) {
     editCourse(course.id);
   });
   //innerIcon.setAttribute("");
-  innerSpan.appendChild(innerIcon);
+  editAnchor.appendChild(innerIcon);
+  innerSpan.appendChild(editAnchor);
+
+  var trashAnchor = document.createElement("a");
+  trashAnchor.title = "delete";
+  trashAnchor.href = "javascript:void(0);";
 
   var innerIcon1 = document.createElement("i");
   innerIcon1.id = "courseTrash";
@@ -997,7 +1037,8 @@ function addCourse(course) {
     removeCourse(course.id);
   });
   //innerIcon1.onclick = "removeEducation(education.id)";
-  innerSpan.appendChild(innerIcon1);
+  trashAnchor.appendChild(innerIcon1);
+  innerSpan.appendChild(trashAnchor);
 
   innerDiv2.appendChild(innerSpan);
 
@@ -1054,6 +1095,8 @@ function editCourse(courseId) {
 		      if (course != null) {
 		    	  var courseForm = document.getElementById("courseInformationForm");
 
+		    	  document.getElementById("addCourse").click();
+		    	  
 		    	  courseForm["courseId"].value = course.id;
 
 		    	  courseForm["courseName"].value = course.name;
@@ -1073,7 +1116,7 @@ function editCourse(courseId) {
 
 		    	  courseForm["url"].value = course.url;
 
-		    	  document.getElementById("addCourse").click();
+		    	 
 		      }
 		      
 		    })
@@ -1465,6 +1508,10 @@ function addCertificate(certificate) {
   var innerSpan = document.createElement("span");
   innerSpan.classList.add("update-day");
 
+  var editAnchor = document.createElement("a");
+  editAnchor.title = "edit";
+  editAnchor.href = "javascript:void(0);";
+  
   var innerIcon = document.createElement("i");
   innerIcon.id = "certificateEdit";
   innerIcon.classList.add("icon");
@@ -1473,7 +1520,12 @@ function addCertificate(certificate) {
     editCertificate(certificate.id);
   });
   //innerIcon.setAttribute("");
-  innerSpan.appendChild(innerIcon);
+  editAnchor.appendChild(innerIcon);
+  innerSpan.appendChild(editAnchor);
+
+  var trashAnchor = document.createElement("a");
+  trashAnchor.title = "delete";
+  trashAnchor.href = "javascript:void(0);";
 
   var innerIcon1 = document.createElement("i");
   innerIcon1.id = "certificateTrash";
@@ -1483,7 +1535,8 @@ function addCertificate(certificate) {
     removeCertificate(certificate.id);
   });
   //innerIcon1.onclick = "removeEducation(education.id)";
-  innerSpan.appendChild(innerIcon1);
+  trashAnchor.appendChild(innerIcon1);
+  innerSpan.appendChild(trashAnchor);
 
   innerDiv2.appendChild(innerSpan);
 
@@ -1538,7 +1591,11 @@ function editCertificate(certificationId) {
 	    	console.log("data is fetched");
 	    	
 	      if (certificate != null) {
+	    	  
 	    	  var certificateForm = document.getElementById("certificateInformationForm");
+	    	  
+	    	  document.getElementById("addCertificate").click();
+	    	  
 	    	  certificateForm["certificateId"].value = certificate.id;
 	    	  certificateForm["certificateTitle"].value = certificate.title;
 	    	  certificateForm["certificateInstitute"].value = certificate.instituteName;
@@ -1553,7 +1610,7 @@ function editCertificate(certificationId) {
 
 	    	  certificateForm["certificateUrl"].value = certificate.url;
 
-	    	  document.getElementById("addCertificate").click();
+	    	  
 	      }
 	      
 	    })
@@ -1566,3 +1623,33 @@ function editCertificate(certificationId) {
 }
 
 /*-------------------------------------------------------------*/	
+function populateUrl(){
+	var userId = document.getElementById("uId").value;
+	
+	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+		    method: "GET", // or 'PUT'
+		    headers: {
+		      "Content-Type": "application/json",
+		    },
+		  })
+		    .then((response) => response.json())
+		    .then((userUrl) => {
+		      console.log("Success:", userUrl);
+		      console.log("data is sent successfully");
+		      
+		      if(userUrl){
+		    	  
+		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
+		    	  
+		      }
+		      
+		    })
+		    .catch((error) => {
+		    	return true;
+		    });
+	
+	
+	
+}
