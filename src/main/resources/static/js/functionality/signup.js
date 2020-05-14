@@ -1,3 +1,4 @@
+
 function validateForm() {
   //alert("hello");
   var form = document.getElementById("loginform");
@@ -77,7 +78,7 @@ function validateForm() {
 
 function checkIfUsernameExists(user){
 	
-fetch("http://localhost:8086/checkIfUsernameExists",{
+fetch(path+"/checkIfUsernameExists",{
 		
 		method: 'POST',
 		headers: {
@@ -132,7 +133,7 @@ function validateSiteForm() {
 
 function checkIfUrlExists(userWebsiteUrl){
 	
-	fetch("http://localhost:8086/checkIfUrlExists",{
+	fetch(path+"/checkIfUrlExists",{
 		
 		method: 'POST',
 		headers: {
@@ -169,7 +170,7 @@ function saveUser(user){
 	
 	console.log(user);
 	
-	fetch("http://localhost:8086/addUser",{
+	fetch(path+"/addUser",{
 		
 		method: 'POST',
 		headers: {
@@ -201,7 +202,7 @@ function saveUserUrl(userWebsiteUrl){
 	
 	if(userId!=0){
 		
-		fetch("http://localhost:8086/saveUserUrl/"+userId,{
+		fetch(path+"/saveUserUrl/"+userId,{
 			
 			method: 'POST',
 			headers: {

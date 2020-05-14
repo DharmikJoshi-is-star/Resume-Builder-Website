@@ -1,12 +1,9 @@
-/**
- * 
- */
 
 var months = ["January",
     "February",
     "March",
-    "January",
     "April",
+    "May",
     "June",
     "July",
     "August",

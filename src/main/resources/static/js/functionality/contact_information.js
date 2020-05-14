@@ -1,3 +1,4 @@
+
 function contactInformationForm() {
   var contactInformationForm = document.getElementById("contactInformation");
   var id = contactInformationForm["contactInformationId"].value;
@@ -132,7 +133,7 @@ function saveContactInformation(contactInformation){
 	
 	if(userId!=null){
 		
-		fetch("http://localhost:8086/saveContactInformation/" + userId, {
+		fetch(path+"/saveContactInformation/" + userId, {
 		    method: "POST", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -144,6 +145,8 @@ function saveContactInformation(contactInformation){
 		      console.log("Success:", data);
 		      console.log("data is sent successfully");
 		      getContactInformation();
+		      
+		      swal("Success", "Social contact information is saved successfully", "success");
 		    })
 		    .catch((error) => {
 		      return true;
@@ -168,7 +171,7 @@ function getContactInformation(){
 	
 	if(userId!=null){
 		
-		fetch("http://localhost:8086/getContactInformation/" + userId, {
+		fetch(path+"/getContactInformation/" + userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -201,7 +204,7 @@ var userId = document.getElementById("uId").value;
 	
 	if(userId!=null){
 		
-		fetch("http://localhost:8086/saveSocialInformation/" + userId, {
+		fetch(path+"/saveSocialInformation/" + userId, {
 		    method: "POST", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -213,6 +216,7 @@ var userId = document.getElementById("uId").value;
 		      console.log("Success:", data);
 		      console.log("data is sent successfully");
 		      getSocialInformation();
+		      swal("Success", "Social contact information is saved successfully", "success");
 		    })
 		    .catch((error) => {
 		    	return true;
@@ -227,7 +231,7 @@ var userId = document.getElementById("uId").value;
 	
 	if(userId!=null){
 		
-		fetch("http://localhost:8086/getSocialInformation/" + userId, {
+		fetch(path+"/getSocialInformation/" + userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -266,7 +270,7 @@ function setUpSocialForm(socialInformation){
 function populateUrl(){
 	var userId = document.getElementById("uId").value;
 	
-	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+	  fetch(path+"/getUserUrl/"+userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -279,9 +283,9 @@ function populateUrl(){
 		      
 		      if(userUrl){
 		    	  
-		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view "+path+"/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = path+"/view?id="+userUrl.url;
 		    	  
 		      }
 		      

@@ -1,15 +1,7 @@
-/**
- * 
- */
-/**
- * 
- */
 
 var fieldOfStudyGlob;
 
-
-
-fetch("http://localhost:8086/getAllFieldOfStudy",{
+fetch(path+"/getAllFieldOfStudy",{
 	
 	method: 'GET',
 	headers: {

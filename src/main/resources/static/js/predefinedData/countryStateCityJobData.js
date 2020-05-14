@@ -10,7 +10,8 @@ var countryMap = new Map();
 var stateMap = new Map();
 
 
-fetch("http://localhost:8086/getAllCountry",{
+
+fetch(path+"/getAllCountry",{
 	
 	method: 'GET',
 	headers: {
@@ -64,7 +65,7 @@ document.getElementById("jobInternshipCountry").onblur = function(){
 	console.log(countryName);
 	console.log(countryId);
 	
-	fetch("http://localhost:8086/getStatesByCountryId/"+countryId,{
+	fetch(path+"/getStatesByCountryId/"+countryId,{
 		
 		method: 'GET',
 		headers: {
@@ -120,7 +121,7 @@ document.getElementById("jobInternshipState").onblur = function(){
 	console.log(stateName);
 	console.log(stateId);
 	
-	fetch("http://localhost:8086/getCitiesByStateId/"+stateId,{
+	fetch(path+"/getCitiesByStateId/"+stateId,{
 		
 		method: 'GET',
 		headers: {

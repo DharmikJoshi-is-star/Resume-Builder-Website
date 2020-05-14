@@ -1,6 +1,4 @@
 
-
-
 function onLoadPopulate() {
 	
 	var userId = document.getElementById("uId").value;
@@ -19,14 +17,13 @@ function onLoadPopulate() {
 	
 }
 
-
 /*From here all functions are responsible to populate Graduation View*/
 /*------------------------------------------*/
 function getAllGraduationAPI(){
 	
 	var userId = document.getElementById("uId").value;
 	
-	fetch("http://localhost:8086/getAllGraduations/"+userId,{
+	fetch(path+"/getAllGraduations/"+userId,{
 		
 		method: "GET",
 	    headers: {
@@ -145,7 +142,7 @@ function getAllCourseAPI(){
 	
 	var userId = document.getElementById("uId").value;
 	
-	fetch("http://localhost:8086/getAllCoursesDashboard/"+userId,{
+	fetch(path+"/getAllCoursesDashboard/"+userId,{
 		
 		method: "GET",
 	    headers: {
@@ -275,7 +272,7 @@ function getAllCertificationAPI(){
 	
 	var userId = document.getElementById("uId").value;
 	
-	fetch("http://localhost:8086/getAllCertificationsDashboard/"+userId,{
+	fetch(path+"/getAllCertificationsDashboard/"+userId,{
 		
 		method: "GET",
 	    headers: {
@@ -401,7 +398,7 @@ function getAllJobInternshipAPI(){
 	
 var userId = document.getElementById("uId").value;
 	
-	fetch("http://localhost:8086/getAllJobInternshipDashboard/"+userId,{
+	fetch(path+"/getAllJobInternshipDashboard/"+userId,{
 		
 		method: "GET",
 	    headers: {
@@ -531,7 +528,7 @@ function getAllVolunteerAPI(){
 	
 	var userId = document.getElementById("uId").value;
 		
-		fetch("http://localhost:8086/getAllVolunteerDashboard/"+userId,{
+		fetch(path+"/getAllVolunteerDashboard/"+userId,{
 			
 			method: "GET",
 		    headers: {
@@ -661,7 +658,7 @@ function getAllProjectAPI(){
 	
 	var userId = document.getElementById("uId").value;
 	
-	fetch("http://localhost:8086/getAllProjectDashboard/"+userId,{
+	fetch(path+"/getAllProjectDashboard/"+userId,{
 		
 		method: "GET",
 	    headers: {
@@ -793,7 +790,7 @@ var userId = document.getElementById("uId").value;
 	
 	var userId = document.getElementById("uId").value;
 	
-	fetch("http://localhost:8086/getAllTechnicalSkill/"+userId,{
+	fetch(path+"/getAllTechnicalSkill/"+userId,{
 		
 		method: "GET",
 	    headers: {
@@ -923,7 +920,7 @@ var userId = document.getElementById("uId").value;
 	
 	var userId = document.getElementById("uId").value;
 	
-	fetch("http://localhost:8086/getAllOtherSkill/"+userId,{
+	fetch(path+"/getAllOtherSkill/"+userId,{
 		
 		method: "GET",
 	    headers: {
@@ -1050,7 +1047,7 @@ function addRowManageOtherSkill(skill) {
 //below Three functions are same for every VIEW
 function changeViewAPI( api , id ){
 	
-	fetch("http://localhost:8086/"+api+"/"+id,{
+	fetch(path+"/"+api+"/"+id,{
 		
 		method: "POST",
 		headers: {
@@ -1077,13 +1074,13 @@ function changeView(anchorViewId) {
   var anchor = document.getElementById(anchorViewId);
   var icon = anchor.childNodes;
   //alert(icon[0].value);
-  alert(icon[0]);
+  //alert(icon[0]);
   
   if (icon[0].value == "true") {
     //alert("setting view to off");
-	  alert("changes eye");
+	  //alert("changes eye");
     icon[1].className = "fa fa-eye-slash pending";
-    alert(icon[1].className);
+    //alert(icon[1].className);
     icon[1].style = "font-size: 24px;";
     icon[0].value = false;
   } else {
@@ -1112,7 +1109,7 @@ function changeStatus(statusId) {
 function populateUrl(){
 	var userId = document.getElementById("uId").value;
 	
-	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+	  fetch(path+"/getUserUrl/"+userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -1125,9 +1122,11 @@ function populateUrl(){
 		      
 		      if(userUrl){
 		    	  
-		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
+
+		    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view "+path+"/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = path+"/view?id="+userUrl.url;
+		    	  		  
 		    	  
 		      }
 		      
@@ -1143,7 +1142,7 @@ function populateUrl(){
 var userId = document.getElementById("uId").value;
 
 if(userId!=null){
-	fetch("http://localhost:8086/showTutorialOrNot/"+userId, {
+	fetch(path+"/showTutorialOrNot/"+userId, {
 	    method: "GET", // or 'PUT'
 	    headers: {
 	      "Content-Type": "application/json",

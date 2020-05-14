@@ -1,11 +1,6 @@
-/**
- * 
- */
-/**
- * 
- */
 
-fetch("http://localhost:8086/getAllCourse",{
+
+fetch(path+"/getAllCourse",{
 	
 	method: 'GET',
 	headers: {

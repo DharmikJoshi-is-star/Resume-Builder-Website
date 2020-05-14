@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Resume Builder</title>
+    <link rel="shortcut icon" sizes="32x32" href="img/title_logo.png"  type="image/png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -32,13 +33,13 @@
     />
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
+	<script src="js/details/path.js"></script>
     <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
   </head>
   <body onload="onLoadPopulateProfileCard()">
     <input id="userId" type="hidden" value="${userId}" />
 
-    <!--Header-part-->
+    <!--Header-part " -->
     <div id="header">
       <h1><a href="template">Resume Builder</a></h1>
     </div>
@@ -269,7 +270,7 @@
                         class="span11"
                         placeholder="Ex. Back-end Developer"
                         required
-                      />
+                      />   
                       <span id="errorTitle" style="color: red;"></span>
                     </div>
 
@@ -295,6 +296,7 @@
                         name="summary"
                         class="span11"
                         placeholder="Ex. I Have strong Knowledger in Java & Python"
+                        rows="5"
                         required
                       ></textarea>
                       <span id="errorSummary" style="color: red;"></span>
@@ -335,16 +337,21 @@
       </div>
     </div>
 
-    <
-    <div class="row-fluid">
+   <div class="row-fluid">
       <div id="footer" class="span12">
         2020 &copy; Resume Builder. Brought to you by
-        <a href="#">Dharmik Joshi</a>
+        <a href="https://dharmikjoshi-is-star.github.io/">Dharmik Joshi</a>
       </div>
     </div>
 
     <input type="hidden" th:value="${userId}" id="uId" />
     <!--end-Footer-part-->
+    
+    <!--fuctionality for javascript-->
+    <script src="js/functionality/personal_information.js"></script>
+	<script src="js/tutorial/tutorial.js"></script>
+	
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.ui.custom.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -360,10 +367,7 @@
     <script src="js/jquery.peity.min.js"></script>
     <script src="js/bootstrap-wysihtml5.js"></script>
 
-    <!--fuctionality for javascript-->
-    <script src="js/functionality/personal_information.js"></script>
-	<script src="js/tutorial/tutorial.js"></script>
-	
+    
     <script>
       $(".textarea_editor").wysihtml5();
 

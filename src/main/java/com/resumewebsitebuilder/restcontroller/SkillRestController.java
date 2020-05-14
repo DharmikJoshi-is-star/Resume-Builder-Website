@@ -63,6 +63,8 @@ public class SkillRestController {
 		
 		System.out.println(technicalSkill.getId());
 		
+
+		
 		return technicalSkill;
 		
 	}

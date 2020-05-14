@@ -1,6 +1,5 @@
 
 
-
 function onLoadPopulate() {
 	
 	var userId = document.getElementById("uId").value;
@@ -17,7 +16,7 @@ function onLoadPopulate() {
 function populateUrl(){
 	var userId = document.getElementById("uId").value;
 	
-	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+	  fetch(path+"/getUserUrl/"+userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -30,10 +29,11 @@ function populateUrl(){
 		      
 		      if(userUrl){
 		    	  
-		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
-		    	  
+
+		    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view "+path+"/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = path+"/view?id="+userUrl.url;
+		    	  		    
 		      }
 		      
 		    })

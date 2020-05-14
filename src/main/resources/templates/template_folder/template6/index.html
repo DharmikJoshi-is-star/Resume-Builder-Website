@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+ <title th:text=${user.name} th:if=${user}></title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/template_resources/template6/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="/template_resources/template6/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/template_resources/template6/css/resume.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none"><span th:text="${user.personalInformation.name}" th:if="${user.personalInformation}"></span></span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" th:src="${user.personalInformation.picture}" th:if="${user.personalInformation}" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#course">courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h1 class="mb-0"><span th:text="${user.personalInformation.name}" th:if="${user.personalInformation}"></span>
+          <span class="text-primary"></span>
+        </h1>
+        <div class="subheading mb-5"><p th:text="${user.personalInformation.title}" th:if="${user.personalInformation}">
+          
+        </div>
+        <p class="lead mb-5"><p th:text="${user.personalInformation.summary}" th:if="${user.personalInformation}"></p>	
+								</p>
+								
+        <div class="social-icons">
+          <a target="_blank" th:href="${user.socialInformation.linkedinUrl}" th:if="${user.socialInformation}">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a target="_blank" th:href="${user.socialInformation.githubUrl}" th:if="${user.socialInformation}">
+            <i class="fab fa-github"></i>
+          </a>
+          <a target="_blank" th:href="${user.socialInformation.instagramUrl}" th:if="${user.socialInformation}">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a target="_blank" th:href="${user.socialInformation.facebookUrl}" th:if="${user.socialInformation}">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a target="_blank" th:href="|mailto:@${user.socialInformation.googleUrl}|" th:if="${user.socialInformation}">
+            <i class="fa fa-envelope"></i>
+          </a>
+          
+          
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+      <div class="w-100">
+        <h2 class="mb-5">Experience</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5" th:each="jobInternship: ${user.jobInternships}" th:if="${user.jobInternships}">
+          <div class="resume-content">
+            <h3 class="mb-0" th:text="${jobInternship.title}"></h3>
+            <div class="subheading mb-3" th:text="${jobInternship.company}"></div>
+            <p th:text="${jobInternship.description}"></p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary" th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - ${jobInternship.endMonth} ${jobInternship.endYear}|"
+					th:if="${not jobInternship.currentStatus}"></span>
+					
+			<span class="text-primary" th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - Present|"
+					th:if="${jobInternship.currentStatus}"></span>
+					
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+      <div class="w-100">
+        <h2 class="mb-5">Education</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5" th:each="graduation : ${user.graduations}" th:if="${user.graduations}">
+          <div class="resume-content">
+            <h3 class="mb-0" th:text="${graduation.universityName}"></h3>
+            <div class="subheading mb-3" th:text="${graduation.type}"></div>
+            <div th:text="${graduation.filedOfStudy}"></div>
+            <p th:text="| Average: ${graduation.grade}|"></p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary" th:text="|( ${graduation.completionMonth}-${graduation.completionYear} )|" th:if="${not graduation.currentStatus}"></span>
+          	 <span class="text-primary" th:text="Pursuing" th:if="${graduation.currentStatus}"></span>
+          
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+
+		<div class="subheading mb-3">Technical Skills &amp; Tools</div>
+        <ul class="fa-ul mb-0">
+          <li th:each="technicalSkill: ${user.technicalSkills}" th:if="${user.technicalSkills}">
+            <span th:text="${technicalSkill.name}"></span>
+          </li>
+        </ul>
+        
+
+        <div class="subheading mb-3">Other Skills &amp; Interests</div>
+        <ul class="fa-ul mb-0">
+          <li th:each="otherSkill: ${user.otherSkills}" th:if="${user.otherSkills}">
+            <span th:text="${otherSkill.name}"></span>
+          </li>
+        </ul>
+        
+      </div>
+      
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="course">
+      <div class="w-100">
+        <h2 class="mb-5">Courses</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between" th:each="course : ${user.courses}" th:if="${user.courses}">
+          <div class="resume-content">
+            <h3 class="mb-0" th:text="${course.name}"></h3>
+            <div class="subheading mb-3" th:text="${course.instituteName}"></div>
+            <p><a th:href="${course.attachment}">view</a>&nbsp;&nbsp;<a th:href="${course.url}">attachment url</a></p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary" th:text="|${course.completionMonth}, ${course.completionYear}|" 
+					th:if="${not course.currentStatus}"></span>
+			<span class="text-primary" th:text="Pursuing" 
+						th:if="${course.currentStatus}"></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+      <div class="w-100">
+        <h2 class="mb-5">Awards &amp; Certifications</h2>
+        <ul class="fa-ul mb-0">
+        
+        	<li th:each="certification : ${user.certifications}" th:if="${user.certifications}">
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            <span th:text="| ${certification.title} ( ${certification.instituteName} )|"></span>
+			<a th:href="${certification.attachment}"><span>View</span></a>
+			<p th:text="|${certification.month}, ${certification.year}|" ></p>
+					
+            </li>
+        
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/template_resources/template6/vendor/jquery/jquery.min.js"></script>
+  <script src="/template_resources/template6/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="/template_resources/template6/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/template_resources/template6/js/resume.min.js"></script>
+
+</body>
+
+</html>

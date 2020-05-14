@@ -40,18 +40,15 @@ public class PersonalInformationRestController {
 	@Autowired 
 	InformationRepository informationRepository;
 	
+	
 	@PostMapping("/addPersonalInformation/{uid}")
 	public FrontEndPersonalInformation addPersonalInformation(@RequestBody FrontEndPersonalInformation frontEndPersonalInformation,
 														@PathVariable("uid") Long userId) {
-	
+		
 		try {
-			
 			PersonalInformation personalInformation = personalInformationService.convertFrontEndPersonalInfoToBackEndPersonalInfo(frontEndPersonalInformation);
-			
 			User user = userRepository.getOne(userId);
-			
 			PersonalInformation personInformationOfUser = personalInformationRepository.save(personalInformation);
-			
 			Information userInformation = user.getInformation();
 			
 			if(userInformation==null) {
@@ -71,6 +68,7 @@ public class PersonalInformationRestController {
 			return null;
 		}
 	}
+	
 	
 	
 	@GetMapping("/getPersonalInformation/{uId}")

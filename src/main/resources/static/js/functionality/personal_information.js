@@ -1,3 +1,4 @@
+
 document.getElementById("file").addEventListener("change", function () {
   var file = this.files[0];
   console.log(file);
@@ -81,7 +82,8 @@ function personalInformationForm() {
 			//closeOnCancel: false
 		},
 		function(){
-			
+			console.log(personalInformation);
+			//alert("1");
 			 if(callAddPersonalInformationAPI(personalInformation)){
 			    	
 			    	swal("Cancelled", "Error in saving you data!", "error");
@@ -93,22 +95,24 @@ function personalInformationForm() {
 			 }
 			
 		});
+	  
 		  
   }else{
 	  
 	  callAddPersonalInformationAPI(personalInformation);
+	 
   }
 	  
 
-  document.getElementById("personalInformation").reset();
+  
 }
 
 function setProfileCard(personalInformation) {
   //////alert("hello");
+	//alert(personalInformation.summary);
   document.getElementById("userName").innerHTML = personalInformation.name;
   document.getElementById("userTitle").innerHTML = personalInformation.title;
-  document.getElementById("userSummary").innerHTML =
-    personalInformation.summary;
+  document.getElementById("userSummary").innerHTML =personalInformation.summary;
   document
     .getElementById("userPicture")
     .setAttribute(
@@ -120,11 +124,13 @@ function setProfileCard(personalInformation) {
 }
 
 function callAddPersonalInformationAPI(personalInformation) {
+	
   console.log(personalInformation);
-
+  //alert("2");
   var userId = document.getElementById("uId").value;
-
-  fetch("http://localhost:8086/addPersonalInformation/" + userId, {
+  //alert(userId);
+  
+  fetch(path+"/addPersonalInformation/" + userId, {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
@@ -133,6 +139,7 @@ function callAddPersonalInformationAPI(personalInformation) {
   })
     .then((response) => console.log(response))
     .then((data) => {
+    	
       console.log("Success:", data);
       console.log("data is sent successfully");
       
@@ -162,7 +169,7 @@ function onLoadPopulateProfileCard() {
 }
 
 function callGetpersonalInformationAPI(userId) {
-  fetch("http://localhost:8086/getPersonalInformation/" + userId, {
+  fetch(path+"/getPersonalInformation/" + userId, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -179,7 +186,7 @@ function callGetpersonalInformationAPI(userId) {
       }
     })
     .catch((error) => {
-      console.error("Error:", error);
+      //console.error("Error:", error);
       return null;
     });
 
@@ -202,7 +209,7 @@ function setPersonalInFormationForm(personalInformation) {
 function populateUrl(){
 	var userId = document.getElementById("uId").value;
 	
-	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+	  fetch(path+"/getUserUrl/"+userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -215,10 +222,10 @@ function populateUrl(){
 		      
 		      if(userUrl){
 		    	  
-		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
-		    	  
+		    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view "+path+"/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = path+"/view?id="+userUrl.url;
+
 		      }
 		      
 		    })

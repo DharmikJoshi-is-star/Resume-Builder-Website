@@ -1,3 +1,4 @@
+
 document.getElementById("addJob").onclick = function(){
 	
 	document.getElementById("jobInternshipInformationForm").reset();
@@ -162,7 +163,7 @@ function saveJobInternshipAPI(jobInternship){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/saveJobInternship/" + userId, {
+		 fetch(path+"/saveJobInternship/" + userId, {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -178,7 +179,7 @@ function saveJobInternshipAPI(jobInternship){
 			        
 			    	  //addJobInternship(jobInternshipData);
 			    	  
-			    	  fetch("http://localhost:8086/getJobInternship/" + jobInternshipId, {
+			    	  fetch(path+"/getJobInternship/" + jobInternshipId, {
 						    method: "GET",
 						    headers: {
 						      "Content-Type": "application/json",
@@ -222,7 +223,7 @@ function editSaveJobInternshipAPI(jobInternship){
 
 	if(userId){
 		
-		 fetch("http://localhost:8086/editSaveJobInternship/", {
+		 fetch(path+"/editSaveJobInternship/", {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -235,7 +236,7 @@ function editSaveJobInternshipAPI(jobInternship){
 			      console.log("data is fetched");
 			      if (jobInternshipId != null) {
 			        
-			    	  fetch("http://localhost:8086/getJobInternship/" + jobInternshipId, {
+			    	  fetch(path+"/getJobInternship/" + jobInternshipId, {
 						    method: "GET",
 						    headers: {
 						      "Content-Type": "application/json",
@@ -272,7 +273,7 @@ function editSaveJobInternshipAPI(jobInternship){
 
 function removeJobInternshipAPI( jobInternshipId ){
 	
-	fetch("http://localhost:8086/deleteJobInternship/" + jobInternshipId, {
+	fetch(path+"/deleteJobInternship/" + jobInternshipId, {
 	    method: "DELETE",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -298,7 +299,7 @@ function populateJobInternshipContainer(){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/getAllJobInternship/" + userId, {
+		 fetch(path+"/getAllJobInternship/" + userId, {
 			    method: "GET",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -674,7 +675,7 @@ function removeJobInternship(jobId) {
 function editJobInternship(jobInternshipId) {
 		
 	
-	fetch("http://localhost:8086/getJobInternship/" + jobInternshipId, {
+	fetch(path+"/getJobInternship/" + jobInternshipId, {
 	    method: "GET",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -785,7 +786,7 @@ function populateVolunteerContainer(){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/getAllVolunteer/" + userId, {
+		 fetch(path+"/getAllVolunteer/" + userId, {
 			    method: "GET",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -826,7 +827,7 @@ function saveVolunteerAPI(volunteer){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/saveVolunteer/" + userId, {
+		 fetch(path+"/saveVolunteer/" + userId, {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -842,7 +843,7 @@ function saveVolunteerAPI(volunteer){
 			        
 			    	  //addJobInternship(jobInternshipData);
 			    	  
-			    	  fetch("http://localhost:8086/getVolunteer/" + volunteerId, {
+			    	  fetch(path+"/getVolunteer/" + volunteerId, {
 						    method: "GET",
 						    headers: {
 						      "Content-Type": "application/json",
@@ -884,7 +885,7 @@ function editSaveVolunteerAPI(volunteer){
 
 	if(userId){
 		
-		 fetch("http://localhost:8086/editSaveVolunteer", {
+		 fetch(path+"/editSaveVolunteer", {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -898,7 +899,7 @@ function editSaveVolunteerAPI(volunteer){
 			      console.log("data is fetched");
 			      if (volunteerId != null) {
 			        
-			    	  fetch("http://localhost:8086/getVolunteer/" + volunteerId, {
+			    	  fetch(path+"/getVolunteer/" + volunteerId, {
 						    method: "GET",
 						    headers: {
 						      "Content-Type": "application/json",
@@ -936,7 +937,7 @@ function editSaveVolunteerAPI(volunteer){
 
 function removeVolunteerAPI( volunteerId ){
 	
-	fetch("http://localhost:8086/deleteVolunteer/" + volunteerId, {
+	fetch(path+"/deleteVolunteer/" + volunteerId, {
 	    method: "DELETE",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -1258,7 +1259,7 @@ function removeVolunteer(volunteerId) {
 function editVolunteer(volunteerId) {
 	
 	
-	fetch("http://localhost:8086/getVolunteer/" + volunteerId, {
+	fetch(path+"/getVolunteer/" + volunteerId, {
 	    method: "GET",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -1364,7 +1365,7 @@ function populateProjectContainer(){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/getAllProject/" + userId, {
+		 fetch(path+"/getAllProject/" + userId, {
 			    method: "GET",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -1406,7 +1407,7 @@ function saveProjectAPI(project){
 		
 		if(userId){
 			
-			 fetch("http://localhost:8086/saveProject/" + userId, {
+			 fetch(path+"/saveProject/" + userId, {
 				    method: "POST",
 				    headers: {
 				      "Content-Type": "application/json",
@@ -1422,7 +1423,7 @@ function saveProjectAPI(project){
 				        
 				    	  //addJobInternship(jobInternshipData);
 				    	  
-				    	  fetch("http://localhost:8086/getProject/" + projectId, {
+				    	  fetch(path+"/getProject/" + projectId, {
 							    method: "GET",
 							    headers: {
 							      "Content-Type": "application/json",
@@ -1464,7 +1465,7 @@ function editSaveProjectAPI(project){
 
 	if(userId){
 		
-		 fetch("http://localhost:8086/editSaveProject", {
+		 fetch(path+"/editSaveProject", {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -1478,7 +1479,7 @@ function editSaveProjectAPI(project){
 			      console.log("data is fetched");
 			      if (projectId != null) {
 			        
-			    	  fetch("http://localhost:8086/getProject/" + projectId, {
+			    	  fetch(path+"/getProject/" + projectId, {
 						    method: "GET",
 						    headers: {
 						      "Content-Type": "application/json",
@@ -1516,7 +1517,7 @@ function editSaveProjectAPI(project){
 
 function removeProjectAPI( projectId ){
 	
-	fetch("http://localhost:8086/deleteProject/" + projectId, {
+	fetch(path+"/deleteProject/" + projectId, {
 	    method: "DELETE",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -1954,7 +1955,7 @@ function removeProject(projectId) {
 
 function editProject(projectId) {
 	
-	 fetch("http://localhost:8086/getProject/" + projectId, {
+	 fetch(path+"/getProject/" + projectId, {
 		    method: "GET",
 		    headers: {
 		      "Content-Type": "application/json",
@@ -2051,7 +2052,7 @@ function changeProject(project) {
 function populateUrl(){
 	var userId = document.getElementById("uId").value;
 	
-	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+	  fetch(path+"/getUserUrl/"+userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -2064,9 +2065,9 @@ function populateUrl(){
 		      
 		      if(userUrl){
 		    	  
-		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view "+path+"/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = path+"/view?id="+userUrl.url;
 		    	  
 		      }
 		      

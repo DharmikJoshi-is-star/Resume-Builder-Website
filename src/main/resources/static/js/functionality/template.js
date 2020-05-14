@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 function onLoadPopulate(){
 	var userId = document.getElementById("uId").value;
@@ -30,7 +27,7 @@ function setUrl(){
 	
 	if(userId){
 		
-		fetch("http://localhost:8086/saveUserUrl/"+userId, {
+		fetch(path+"/saveUserUrl/"+userId, {
 		    method: "POST", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -44,7 +41,7 @@ function setUrl(){
 		      
 		      document.getElementById("url").value = userUrl.url;
 	    	  
-	    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
+	    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
 	    	  
 	    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
 		    	
@@ -57,7 +54,7 @@ function setUrl(){
 */
 function onLoadPopulateOtherTemplates(){
 	
-	fetch("http://localhost:8086/getAllTemplates", {
+	fetch(path+"/getAllTemplates", {
 	    method: "GET", // or 'PUT'
 	    headers: {
 	      "Content-Type": "application/json",
@@ -84,7 +81,7 @@ function onLoadPopulateUserTemplate(){
 	
 	var userId = document.getElementById("uId").value;
 	
-	fetch("http://localhost:8086/getTemplateByUserId/"+userId, {
+	fetch(path+"/getTemplateByUserId/"+userId, {
 	    method: "GET", // or 'PUT'
 	    headers: {
 	      "Content-Type": "application/json",
@@ -173,7 +170,7 @@ function saveTemplate(templateId){
 	var userId = document.getElementById("uId").value;
 	
 	
-	  fetch("http://localhost:8086/saveTemplateForUser/"+userId+"/"+templateId, {
+	  fetch(path+"/saveTemplateForUser/"+userId+"/"+templateId, {
 		    method: "POST", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -240,7 +237,7 @@ function setUpTemplateForUser(template){
 function populateUrl(){
 	var userId = document.getElementById("uId").value;
 	
-	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+	  fetch(path+"/getUserUrl/"+userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -253,10 +250,11 @@ function populateUrl(){
 		      
 		      if(userUrl){
 		    	  
-		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
-		    	  
+
+		    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view "+path+"/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = path+"/view?id="+userUrl.url;
+		    	  		    	
 		      }
 		      
 		    })

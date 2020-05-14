@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title th:text=${user.name} th:if=${user.name}></title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  
+  <!-- Vendor CSS Files -->
+  <link href="/template_resources/template8/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/template_resources/template8/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/template_resources/template8/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/template_resources/template8/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/template_resources/template8/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/template_resources/template8/assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/template_resources/template8/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header-tops">
+    <div class="container">
+
+      <h1><a href="#"><span th:text="${user.personalInformation.name}" th:if="${user.personalInformation}"></span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+      <h2 th:text="|I'm a passionate ${user.personalInformation.title}|" th:if="${user.personalInformation}"></h2>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#project">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      <div class="social-links">
+      	<a target="_blank"  th:href="${user.socialInformation.facebookUrl}" class="facebook" th:if="${user.socialInformation}" ><i class="icofont-facebook"></i> </a>
+        <a target="_blank" th:href="${user.socialInformation.linkedinUrl}" class="linkedin" th:if="${user.socialInformation}"><i class="icofont-linkedin"></i></a>
+        <a target="_blank" th:href="${user.socialInformation.githubUrl}" class="twitter" th:if="${user.socialInformation}"><i class="icofont-github"></i> </a>
+        <a target="_blank" th:href="${user.socialInformation.instagramUrl}" class="instagram" th:if="${user.socialInformation}"><i class="icofont-instagram"></i></a>
+        <a target="_blank" th:href="${user.socialInformation.googleUrl}" class="google-plus" th:if="${user.socialInformation}"><i class="icofont-envelope"></i> </a>
+       
+       
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+
+    <!-- ======= About Me ======= -->
+    <div class="about-me container">
+
+      <div class="section-title">
+        <h2>About</h2>
+        <p>Learn more about me</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <img th:src="${user.personalInformation.picture}" th:if="${user.personalInformation}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3 th:text="${user.personalInformation.title}" th:if="${user.personalInformation}"></h3>
+          <p class="font-italic" th:text="${user.personalInformation.summary}" th:if="${user.personalInformation}">
+           
+          </p>
+          <div class="row">
+          
+         
+        </div>
+      </div>
+
+    </div><!-- End About Me -->
+
+    
+
+    <!-- ======= Skills  ======= -->
+    <div class="skills container">
+
+      <div class="section-title">
+        <h2>Skills</h2>
+      </div>
+
+      <div class="row skills-content">
+
+        <div class="col-lg-6">
+
+          <div class="progress" th:each="technicalSkill: ${user.technicalSkills}" th:if="${user.technicalSkills}" >
+          	<span class="skill" th:text="${technicalSkill.name}">
+              	
+            </span>
+          </div>
+
+          
+        </div>
+
+
+        <div class="col-lg-6">
+
+          <div class="progress" th:each="otherSkill: ${user.otherSkills}" th:if="${user.otherSkills}">
+            <span class="skill" th:text="${otherSkill.name}"> 
+              	
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div><!-- End Skills -->
+
+  </section><!-- End About Section -->
+
+  <!-- ======= Resume Section ======= -->
+  <section id="resume" class="resume">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Resume</h2>
+        <p>Check My Resume</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          
+
+          <h3 class="resume-title">Education</h3>
+          
+          <div class="resume-item" th:each="graduation : ${user.graduations}" th:if="${user.graduations}">
+              <h4 th:text="|${graduation.type} ( ${graduation.filedOfStudy} )|"></h4>
+              <h5 th:text="Pursuing" th:if="${graduation.currentStatus}"></h5>
+              <h5 th:text="|( ${graduation.completionMonth}-${graduation.completionYear} )|" th:if="${not graduation.currentStatus}"></h5>
+              <p><em th:text="|${graduation.universityName}, ${graduation.state}, ${graduation.country}|"></em></p>
+              
+         </div>
+          
+        </div>
+        <div class="col-lg-6">
+          <h3 class="resume-title">Professional Experience</h3>
+          
+          <div class="resume-item" th:each="jobInternship: ${user.jobInternships}" th:if="${user.jobInternships}">
+              <h4 th:text="${jobInternship.title}"></h4>
+              <h5 th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - ${jobInternship.endMonth} ${jobInternship.endYear}|"
+				  th:if="${not jobInternship.currentStatus}"></h5>
+			  <h5 th:text="|${jobInternship.startMonth} ${jobInternship.startYear} - Currently Working here|"
+				  th:if="${jobInternship.currentStatus}"></h5>
+              <p><em th:text="${jobInternship.company}"></em></p>
+              <ul>
+                <li th:text="${jobInternship.description}"></li>
+              </ul>
+            </div>
+            
+    
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Resume Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="project" class="portfolio">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>My Works</p>
+      </div>
+
+      <div class="row portfolio-container">
+
+		 <div class="col-lg-4 col-md-6 portfolio-item" th:each="project: ${user.projects}" th:if="${user.projects}">
+            <div class="portfolio-wrap">
+              <img th:src="${project.attachment}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+              <h4 th:text="${project.name}"></h4>
+              <div class="portfolio-links">
+                <a th:href="${project.projectUrl}" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-link"></i></a>
+                <a th:href="${project.sourceUrl}" title="More Details"><i class="fas fa-code"></i></a>
+              </div>
+              </div>
+            </div>
+         </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Contact Me</p>
+      </div>
+
+      <div class="row mt-2">
+
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="info-box" >
+          	<a target="_blank" th:href="|mailto:@${user.socialInformation.googleUrl}|" th:if="${user.socialInformation}">
+            <i class="bx bx-envelope"></i>
+            <h3>Email Me</h3>
+            <p th:text="${user.contactInformation.mail}"></p>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-share-alt"></i>
+            <h3>Social Profiles</h3>
+            <div class="social-links">
+              <a target="_blank"  th:href="${user.socialInformation.facebookUrl}" class="facebook" th:if="${user.socialInformation}" ><i class="icofont-facebook"></i> </a>
+	          <a target="_blank" th:href="${user.socialInformation.linkedinUrl}" class="linkedin" th:if="${user.socialInformation}"><i class="icofont-linkedin"></i></a>
+	          <a target="_blank" th:href="${user.socialInformation.githubUrl}" class="twitter" th:if="${user.socialInformation}"><i class="icofont-github"></i> </a>
+	          <a target="_blank" th:href="${user.socialInformation.instagramUrl}" class="instagram" th:if="${user.socialInformation}"><i class="icofont-instagram"></i></a>
+	          <a target="_blank" th:href="${user.socialInformation.googleUrl}" class="google-plus" th:if="${user.socialInformation}"><i class="icofont-envelope"></i> </a>
+	       
+       
+            </div>
+          </div>
+        </div>
+
+       
+        
+      </div>
+
+
+    </div>
+  </section><!-- End Contact Section -->
+
+ 
+  <!-- Vendor JS Files -->
+  <script src="/template_resources/template8/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/template_resources/template8/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/template_resources/template8/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/template_resources/template8/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/template_resources/template8/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/template_resources/template8/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="/template_resources/template8/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/template_resources/template8/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/template_resources/template8/assets/vendor/venobox/venobox.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/template_resources/template8/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 
 function setMsg(){
 	document.getElementById("msg").innerHTML = "";
@@ -14,7 +12,7 @@ function verifyMailAddress(mailAddress){
 	
 	if(mailAddress){
 		
-		fetch("http://localhost:8086/emailVerificationProces",{
+		fetch(path+"/emailVerificationProces",{
 			
 			 method: "POST", 
 			 headers: {
@@ -56,7 +54,7 @@ function verifyOTP(){
 	
 	if(otp){
 		
-			fetch("http://localhost:8086/verifyOtp",{
+			fetch(path+"/verifyOtp",{
 				method: 'POST',
 				headers: {
 				      "Content-Type": "application/json",
@@ -106,7 +104,7 @@ function checkIfMailExists(){
 	
 	//alert(mailAddress);
 	
-	fetch("http://localhost:8086/checkIfMailExists",{
+	fetch(path+"/checkIfMailExists",{
 		
 		 method: "POST", 
 		 headers: {

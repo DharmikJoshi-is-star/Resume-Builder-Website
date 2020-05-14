@@ -1,3 +1,5 @@
+
+
 document.getElementById("addEducation").onclick = function(){
 	
 	document.getElementById("educationInformationForm").reset();
@@ -225,7 +227,7 @@ function removeEducation(educationId) {
 
 function editEducation(educationId) {
 	
-	 fetch("http://localhost:8086/getGraduation/"+educationId, {
+	 fetch(path+"/getGraduation/"+educationId, {
 		    method: "GET",
 		    headers: {
 		      "Content-Type": "application/json",
@@ -272,7 +274,7 @@ function populateGraduationContainer(){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/getAllGraduations/" + userId, {
+		 fetch(path+"/getAllGraduations/" + userId, {
 			    method: "GET",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -311,7 +313,7 @@ function saveGraduationAPI(graduation){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/saveGraduation/" + userId, {
+		 fetch(path+"/saveGraduation/" + userId, {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -342,7 +344,7 @@ function editGraduationAPI(graduation){
 
 	if(userId){
 		
-		 fetch("http://localhost:8086/editSaveGraduation/", {
+		 fetch(path+"/editSaveGraduation/", {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -369,7 +371,7 @@ function editGraduationAPI(graduation){
 
 function removeGraduationAPI(graduationId){
 	
-	fetch("http://localhost:8086/deleteGraduation/"+graduationId, {
+	fetch(path+"/deleteGraduation/"+graduationId, {
 	    method: "DELETE",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -595,7 +597,7 @@ function populateCourseContainer(){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/getAllCourses/" + userId, {
+		 fetch(path+"/getAllCourses/" + userId, {
 			    method: "GET",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -631,7 +633,7 @@ function saveCourseAPI(course){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/saveCourse/" + userId, {
+		 fetch(path+"/saveCourse/" + userId, {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -644,7 +646,7 @@ function saveCourseAPI(course){
 			      console.log("data is fetched");
 			      if (courseId != null) {
 			        
-				    	  fetch("http://localhost:8086/getCourse/" + courseId, {
+				    	  fetch(path+"/getCourse/" + courseId, {
 					  		    method: "Get",
 					  		    headers: {
 					  		      "Content-Type": "application/json",
@@ -679,7 +681,7 @@ function saveCourseAPI(course){
 
 //function getCourseWithId(courseId){
 //	
-//	 fetch("http://localhost:8086/getCourse/" + courseId, {
+//	 fetch(path+"/getCourse/" + courseId, {
 //		    method: "Get",
 //		    headers: {
 //		      "Content-Type": "application/json",
@@ -703,7 +705,7 @@ function saveCourseAPI(course){
 
 function removeCourseAPI(courseId){
 	
-	fetch("http://localhost:8086/deleteCourse/"+courseId, {
+	fetch(path+"/deleteCourse/"+courseId, {
 	    method: "DELETE",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -727,7 +729,7 @@ function editCourseAPI(course){
 
 	if(userId){
 		
-		 fetch("http://localhost:8086/editSaveCourse/", {
+		 fetch(path+"/editSaveCourse/", {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -741,7 +743,7 @@ function editCourseAPI(course){
 			      if (courseId != null) {
 			    	  ////alert("2: change");
 			    	  
-				    	  fetch("http://localhost:8086/getCourse/" + courseId, {
+				    	  fetch(path+"/getCourse/" + courseId, {
 					  		    method: "Get",
 					  		    headers: {
 					  		      "Content-Type": "application/json",
@@ -1081,7 +1083,7 @@ function removeCourse(courseId) {
 
 function editCourse(courseId) {
 	
-	fetch("http://localhost:8086/getCourse/" + courseId, {
+	fetch(path+"/getCourse/" + courseId, {
 		    method: "Get",
 		    headers: {
 		      "Content-Type": "application/json",
@@ -1161,7 +1163,7 @@ function populateCertificationContainer(){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/getAllCertifications/" + userId, {
+		 fetch(path+"/getAllCertifications/" + userId, {
 			    method: "GET",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -1200,7 +1202,7 @@ function saveCertificationAPI(certification){
 	
 	if(userId){
 		
-		 fetch("http://localhost:8086/saveCertification/" + userId, {
+		 fetch(path+"/saveCertification/" + userId, {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -1213,7 +1215,7 @@ function saveCertificationAPI(certification){
 			      console.log("data is fetched");
 			      if (certificationId != null) {
 			        
-				    	  fetch("http://localhost:8086/getCertification/" + certificationId, {
+				    	  fetch(path+"/getCertification/" + certificationId, {
 					  		    method: "Get",
 					  		    headers: {
 					  		      "Content-Type": "application/json",
@@ -1248,7 +1250,7 @@ function saveCertificationAPI(certification){
 
 function removeCertificationAPI(certificationId){
 	
-	fetch("http://localhost:8086/deleteCertification/"+certificationId, {
+	fetch(path+"/deleteCertification/"+certificationId, {
 	    method: "DELETE",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -1272,7 +1274,7 @@ function editCertificateAPI(certification){
 
 	if(userId){
 		
-		 fetch("http://localhost:8086/editSaveCertification/", {
+		 fetch(path+"/editSaveCertification/", {
 			    method: "POST",
 			    headers: {
 			      "Content-Type": "application/json",
@@ -1286,7 +1288,7 @@ function editCertificateAPI(certification){
 			      if (certificationId != null) {
 			    	  //alert("2: change");
 			    	  
-				    	  fetch("http://localhost:8086/getCertification/" + certificationId, {
+				    	  fetch(path+"/getCertification/" + certificationId, {
 					  		    method: "Get",
 					  		    headers: {
 					  		      "Content-Type": "application/json",
@@ -1578,7 +1580,7 @@ function removeCertificate(certificateId) {
 
 function editCertificate(certificationId) {
 	
-	fetch("http://localhost:8086/getCertification/" + certificationId, {
+	fetch(path+"/getCertification/" + certificationId, {
 		    method: "Get",
 		    headers: {
 		      "Content-Type": "application/json",
@@ -1626,7 +1628,7 @@ function editCertificate(certificationId) {
 function populateUrl(){
 	var userId = document.getElementById("uId").value;
 	
-	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+	  fetch(path+"/getUserUrl/"+userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -1639,9 +1641,9 @@ function populateUrl(){
 		      
 		      if(userUrl){
 		    	  
-		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view "+path+"/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = path+"/view?id="+userUrl.url;
 		    	  
 		      }
 		      

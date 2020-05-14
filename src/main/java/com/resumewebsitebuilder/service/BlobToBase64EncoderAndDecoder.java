@@ -20,7 +20,7 @@ public class BlobToBase64EncoderAndDecoder {
 		if(str==null||str=="")
 			return null;
 		
-		File pathFile = new File(file);
+		File pathFile = new File("profile.jpg");
 		FileOutputStream fos = new FileOutputStream(pathFile);
 		String b64 = str.substring(str.indexOf(",") + 1);
 	    byte[] decoder = Base64.getDecoder().decode(b64);

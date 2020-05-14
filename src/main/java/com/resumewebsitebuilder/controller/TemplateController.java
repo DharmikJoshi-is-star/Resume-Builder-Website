@@ -186,4 +186,85 @@ public class TemplateController {
 		return "template_folder/template5/index";
 	}
 	
+	@GetMapping("/testTemplate6")
+	public String testTemplate6(Model model) {
+		
+		//User user = userRepository.getUserIdFromuserUserUrl(url);
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		//User user = userRepository.getOne(new Long("1"));
+		
+		User user = userRepository.getOne(new Long("1"));
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		FrontEndUser fronEndUser;
+		try {
+			fronEndUser = converter.convertUserToFrontEnd(user);
+			
+			model.addAttribute("user", fronEndUser);
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "template_folder/template6/index";
+	}
+	
+	@GetMapping("/testTemplate7")
+	public String testTemplate7(Model model) {
+		
+		//User user = userRepository.getUserIdFromuserUserUrl(url);
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		//User user = userRepository.getOne(new Long("1"));
+		
+		User user = userRepository.getOne(new Long("1"));
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		FrontEndUser fronEndUser;
+		try {
+			fronEndUser = converter.convertUserToFrontEnd(user);
+			
+			model.addAttribute("user", fronEndUser);
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "template_folder/template7/index";
+	}
+	
+	@GetMapping("/testTemplate8")
+	public String testTemplate8(Model model) {
+		
+		//User user = userRepository.getUserIdFromuserUserUrl(url);
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		//User user = userRepository.getOne(new Long("1"));
+		
+		User user = userRepository.getOne(new Long("1"));
+		
+		//user = templateService.setupUserAccordingToView(user);
+		
+		FrontEndUser fronEndUser;
+		try {
+			fronEndUser = converter.convertUserToFrontEnd(user);
+			
+			model.addAttribute("user", fronEndUser);
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "template_folder/template8/index";
+	}
+	
 }

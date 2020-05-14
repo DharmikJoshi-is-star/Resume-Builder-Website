@@ -1,13 +1,7 @@
-/**
- * 
- */
-/**
- * 
- */
 
 var jobTitlesGlob;
 
-fetch("http://localhost:8086/getAllJobTitle",{
+fetch(path+"/getAllJobTitle",{
 	
 	method: 'GET',
 	headers: {

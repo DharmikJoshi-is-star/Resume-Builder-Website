@@ -1,3 +1,5 @@
+
+
 function onLoadPopulate(){
 	var userId = document.getElementById("uId").value;
 	
@@ -19,7 +21,7 @@ function populateOtherSkillContainer(){
 	
 	if(userId!=null){
 		
-		fetch("http://localhost:8086/getAllOtherSkill/" + userId, {
+		fetch(path+"/getAllOtherSkill/" + userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -55,7 +57,7 @@ function saveOtherSKillAPI(otherSkillInformation){
 	
 	if(userId!=null){
 		
-		fetch("http://localhost:8086/saveOtherSkill/" + userId, {
+		fetch(path+"/saveOtherSkill/" + userId, {
 		    method: "POST", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -79,7 +81,7 @@ function removeOtherSkillAPI(otherSkillId){
 	
 	if(otherSkillId!=0){
 		
-		fetch("http://localhost:8086/deleteOtherSkill/" + otherSkillId, {
+		fetch(path+"/deleteOtherSkill/" + otherSkillId, {
 		    method: "DELETE", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -214,7 +216,7 @@ function populateTechnicalSkillContainer(){
 	
 	if(userId!=null){
 		
-		fetch("http://localhost:8086/getAllTechnicalSkill/" + userId, {
+		fetch(path+"/getAllTechnicalSkill/" + userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -261,7 +263,7 @@ function saveTechnicalSKillAPI(technicalSkillInformation){
 	
 	if(userId!=null){
 		
-		fetch("http://localhost:8086/saveTechnicalSkill/" + userId, {
+		fetch(path+"/saveTechnicalSkill/" + userId, {
 		    method: "POST", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -285,7 +287,7 @@ function removeTechnicalSkillAPI(technicalSkillId){
 	
 	if(technicalSkillId!=0){
 		
-		fetch("http://localhost:8086/deleteTechnicalSkill/" + technicalSkillId, {
+		fetch(path+"/deleteTechnicalSkill/" + technicalSkillId, {
 		    method: "DELETE", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -379,7 +381,7 @@ function removeTechnicalSkill(technicalSkillId) {
 function populateUrl(){
 	var userId = document.getElementById("uId").value;
 	
-	  fetch("http://localhost:8086/getUserUrl/"+userId, {
+	  fetch(path+"/getUserUrl/"+userId, {
 		    method: "GET", // or 'PUT'
 		    headers: {
 		      "Content-Type": "application/json",
@@ -392,10 +394,11 @@ function populateUrl(){
 		      
 		      if(userUrl){
 		    	  
-		    	  document.getElementById("visitSite").href = "http://localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("visitSite").title = "view localhost:8086/view?id="+userUrl.url;
-		    	  document.getElementById("siteText").innerHTML = "localhost:8086/view?id="+userUrl.url;
-		    	  
+
+		    	  document.getElementById("visitSite").href = path+"/view?id="+userUrl.url;
+		    	  document.getElementById("visitSite").title = "view "+path+"/view?id="+userUrl.url;
+		    	  document.getElementById("siteText").innerHTML = path+"/view?id="+userUrl.url;
+		    	  	
 		      }
 		      
 		    })

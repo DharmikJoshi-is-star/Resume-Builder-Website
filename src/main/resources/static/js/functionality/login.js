@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 function checkCredentials(){
 	
@@ -28,7 +25,7 @@ function checkCredentials(){
 			password: password,
 	};
 	
-	fetch("http://localhost:8086/verifyLoginCredentials",{
+	fetch(path+"/verifyLoginCredentials",{
 		
 		method: 'POST',
 		headers: {
